@@ -45,7 +45,7 @@ You will get a page that says *It works* prominently, followed by some text.
 * Each statement should end with a semicolon (+;+).
 
 === Where to save the file? ===
-* All the files should be stored inside */var/www*. (It is the root directory for the Apache server)
+* All the files should be stored inside */var/www*. (It is the Document Root directory for the Apache server)
 * You can also store the files in subfolders inside it.
 * The filename should have the extension +.php+
 Let us store the above program as 'hello.php' in a folder named 'sandbox' inside '/var/www/'. i.e, the file is at '/var/www/sandbox/hello.php'.
