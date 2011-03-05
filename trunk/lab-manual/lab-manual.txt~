@@ -1,22 +1,17 @@
 Opensource Lab Manual
 =====================
 
-== Getting Started
-
 == Python
 
 FIXME
 
 == GUI Programming
 
-One of the following
-FIXME: GUI Programming with Gambas
-FIXME: GUI Programming with Python
+FIXME
 
 == Virtualization 
 
-FIXME: VirtualBox
-FIXME: Qemu
+FIXME
 
 == Installing Various Software Packages
 
@@ -39,7 +34,10 @@ FIXME
 FIXME
 
 == Perl
-FIXME
+=======
+Perl
+=======
+
 
 == Setting up the complete Network
 

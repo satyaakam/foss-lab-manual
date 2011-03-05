@@ -1,0 +1,49 @@
+== Managing Packages With Yum
+
+Author - dhilip.jec@gmail.com
+
+
+There are numerous package managers available for Linux systems. Several of the package managers offer graphical front-ends, contain search capabilities, allow updates to be installed from remote locations, and provide E-mail notifications when new packages are available. One package manager that provides all of these capabilities is YUM __(YellowDog Updater Modified)__. This manual will provide an introduction to package management with yum.
+
+== Configuring yum
+
+Yum reads it's configuration from one or more configuration files. 
+
+The main configuration file is typically stored in __ /etc/yum.conf__, and contains the default settings to use when retrieving and intalling packages. A sample configuration file from a CentOS 5.5 server is shown below:
+
+
+----------
+$cat /etc/yum.conf 
+[main]
+cachedir=/var/cache/yum
+keepcache=0
+debuglevel=2
+logfile=/var/log/yum.log
+distroverpkg=redhat-release
+tolerant=1
+exactarch=1
+obsoletes=1
+gpgcheck=1
+plugins=1
+
+# Note: yum-RHN-plugin doesn't honor this.
+metadata_expire=1h
+
+# Default.
+# installonly_limit = 3
+
+# PUT YOUR REPOS HERE OR IN separate fil
+----------
+
+In addition to the main yum.conf configuration file which is described in the yum.conf manual page, yum will look for remote repository definitions in the directory /etc/yum.repos.d. 
+
+------
+[base]
+name=CentOS-$releasever - Base
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
+#baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/
+gpgcheck=1
+gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-centos4
+------
+
+Each repository definition starts with a descriptive name that is enclosed in brackets. Inside each repository definition stanza is a line with a descriptive name, a flag to indicate if GPG signatures should be checked, and the locations to retrieve updates and the GPG keys that are used to sign the updates. Variables can be be used in URLs, and in the example above the $releasever and $basearch variables are used to reference the Operating System release and the file system base where updates are located.
