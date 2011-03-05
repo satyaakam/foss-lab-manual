@@ -1,0 +1,53 @@
+= PHP (PHP: Hypertext Preprocessor) =
+
+author viky.nandha@gmail.com
+5th March 2011
+
+== Prerequisites ==
+. Apache server
+. PHP engine
+
+== Assumptions ==
+. It is assumed that above prerequisites are already installed in your system
+. It is assumed that you are running Linux
+. PHP is explained here as a web programming language alone (though it can be used at command line)
+
+=== How to start the Apache server? ===
+In Debian based systems (Debian, Ubuntu, etc)
+-------------
+# /etc/init.d/apache2 start
+-------------
+In RedHat based systems (RedHat, CentOS Fedora, etc)
+------------
+# /etc/init.d/httpd start
+------------
+To ensure that the server is running fine,
+* Open a web browser of your choice
+* Enter the URL +*http://localhost/*+
+You will get a page that says *It works* prominently, followed by some text.
+
+=== Where to save the files? ===
+The folder */var/www* is the root directory for the Apache server and all the files should be stored inside it. You can also store the files in folders inside it. For all the examples below, let us assume that the files are stored in a folder named 'sandbox'.
+
+=== Structure of a PHP program ===
+* Every php program should be enclosed between +<?php+ and +?>+; more often +<?+ is used as a shorthand of the starting delimitter +<?php+.
+* HTML code can be written interleaved within PHP code. While starting HTML, the php part should be closed (by +?>+).
+
+=== How to run a php program? ===
+Let us assume that you have stored the 
+* Open a web browser of your choice
+* Enter the URL +*http://localhost/*+ followed by the path to the file relative to '/var/www'. For example, if the filename is 'prog.php', thhen enter +http://localhost/sandbox/prog.php
+
+== Exercise 1 : Hello world! ==
+The conventinal 'Hello world!' program :)
+---------------
+<?php
+	echo "Hello world";
+?>
+---------------
+
+=== A closer look ===
+* echo is a 'language construct' (note that it is not a function, unlike +printf+ in C)
+* 'Strings' can be enclosed within 'single' or _double quotes_
+
+
