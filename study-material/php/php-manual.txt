@@ -11,6 +11,7 @@ author viky.nandha@gmail.com
 . It is assumed that above prerequisites are already installed in your system
 . It is assumed that you are running Linux
 . PHP is explained here as a web programming language alone (though it can be used at command line)
+. It is assumed that basic HTML markup is known.
 
 === How to start the Apache server? ===
 In Debian based systems (Debian, Ubuntu, etc)
@@ -26,28 +27,83 @@ To ensure that the server is running fine,
 * Enter the URL +*http://localhost/*+
 You will get a page that says *It works* prominently, followed by some text.
 
-=== Where to save the files? ===
-The folder */var/www* is the root directory for the Apache server and all the files should be stored inside it. You can also store the files in folders inside it. For all the examples below, let us assume that the files are stored in a folder named 'sandbox'.
-
 === Structure of a PHP program ===
-* Every php program should be enclosed between +<?php+ and +?>+; more often +<?+ is used as a shorthand of the starting delimitter +<?php+.
+* Every php program should be enclosed between +<?php+ and +?>+
+* More often +<?+ is used as a shorthand of the starting delimitter +<?php+.
 * HTML code can be written interleaved within PHP code. While starting HTML, the php part should be closed (by +?>+).
 
-=== How to run a php program? ===
-Let us assume that you have stored the 
-* Open a web browser of your choice
-* Enter the URL +*http://localhost/*+ followed by the path to the file relative to '/var/www'. For example, if the filename is 'prog.php', thhen enter +http://localhost/sandbox/prog.php
-
-== Exercise 1 : Hello world! ==
-The conventinal 'Hello world!' program :)
+== Conventional 'Hello world!' program ==
 ---------------
 <?php
-	echo "Hello world";
+	echo "Hello world!";
 ?>
 ---------------
 
 === A closer look ===
 * echo is a 'language construct' (note that it is not a function, unlike +printf+ in C)
 * 'Strings' can be enclosed within 'single' or _double quotes_
+* Each statement should end with a semicolon (+;+).
+
+=== Where to save the file? ===
+* All the files should be stored inside */var/www*. (It is the root directory for the Apache server)
+* You can also store the files in subfolders inside it.
+* The filename should have the extension +.php+
+Let us store the above program as 'hello.php' in a folder named 'sandbox' inside '/var/www/'. i.e, the file is at '/var/www/sandbox/hello.php'.
+
+=== How to run the program? ===
+* Open a web browser of your choice
+* Enter the URL +http://localhost/sandbox/hello.php
+* Now you should get "Hello world!" in your browser.
+
+== Comments ==
+Comments have the same syntax as in C.
+
+* Single line comments start with +//+. i.e, All text from +//+ till end of line is treated as comment.
+* Multiline comments are enclosed betweem /* and */.
+
+Example:
+-------------
+//This is a single line comment.
+echo "Hellol";//This is also a single line comment.
+/* This
+is a
+multiline
+comment. */
+-----------
 
 
+== Interleaved HTML ==
+A single PHP file can contain multiple blocks of PHP code, with HTML interleaved among them (optional). Each block should be enclosed within the delimitting characters (+<?+ and +?>+)
+Example:
+------------
+<?
+	echo "First PHP segment";
+?>
+<br>First HTML segment.<br>
+<?
+	echo "Second PHP segment";
+?>
+<br>Second HTML segment.<br>
+------------
+
+== ==
+
+== Form processing ==
+Let us first look at a sample form. For the sake of simplicitym, only the form is given here rather than the entire HTML document.
+--------------
+<form action="reg_db.php" method="POST">
+	<label>First name:<input type="text" name="firstname"></label>
+	<label>Second name:<input type="text" name="secondname"></label>
+	<input type="submit" value="Submit">
+</form>
+--------------
+When the form is submitted, the file +reg_db.php+ is supposed to handle the form input (more likely to validate and insert them into database). For the sake of sake of explnation, let us leave the validation part as of now.
+
+=== Getting the form data ===
+The form input can be retrieved as follows:
+-------------
+<?
+	$fname = $_POST['firstname'];
+	$lname = $_POST['lastnamme'];
+?>
+-------------
