@@ -1,0 +1,13 @@
+3:Getting Started
+5:Python
+5:GUI Programming
+2:Virtualization
+2:Installing Various Software Packages
+2:Compiling from source
+2:Introduction to Package Management System
+3:Version Control System
+5:PHP
+5:Perl
+3:Setting up the complete Network
+4:Writing Userspace Drivers
+4:Kernel Configuration, Compilation and Installation
