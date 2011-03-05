@@ -1,0 +1,39 @@
+== Perl - Lab Manual 
+
+=== Structure of Perl Program
+
+------
+#! /usr/bin/perl
+------
+
+=== Hello World Program
+
+------
+#! /usr/bin/perl
+print “hello world\n”;
+------
+
+Running perl program
+
+Perl programs can be run in two ways. Assuming hello.pl is your file then
+
+Method a:
+------
+$ perl hello.pl
+------
+Method b: Grant executable permission using chmod command and then invoking program name
+------
+$ chmod u+x hello.pl
+$ ./hello.pl
+------
+or use full path name like
+------
+$ /home/ram/hello.pl
+------
+
+*Output*
+
+------
+hello world
+------
+
