@@ -1,0 +1,54 @@
+1. Compilation from Source
+    various build systems
+        GNU Build System
+	    GNU gcc (GNU Compiler Collection)
+	    GNU make (make)
+	    GNU automake (aclocal, automake)
+	    GNU autoconf (autoscan, autoheader, autoreconf)
+	    GNU libtool (libtoolize)
+	    GNU gettext (gettextize)
+	    Installing GNU Build system
+	        RedHat
+	            # yum groupinstall 'Development Tools'
+		Debian
+	            # apt-get install dpkg-dev
+            Steps to compile autotools compatable project
+	        download, untar and compile
+	            $ wget http://www.tcpdump.org/release/libpcap-1.1.1.tar.gz
+		    $ tar -xvzf libpcap-1.1.1.tar.gz 
+		    $ cd libpcap-1.1.1
+		    $ ./configure
+		    $ make all
+		    # make install
+		checkout and compile
+	            $ git clone git://bpf.tcpdump.org/libpcap
+		    $ cd libpcap
+		    $ ./configure
+		    $ make all
+		    # make install
+            Steps to create autotools compatable project
+                creating Makefile.am
+  	        $ autoscan --verbose
+		modify configure.scan file manually and rename it to configure.ac
+		manually executing commands
+		    $ gettextize --force
+		    $ aclocal --verbose --force
+		    $ libtoolize --copy --force
+		    $ autoconf --verbose --force 
+		    $ autoheader --verbose --force
+		    $ automake --verbose --copy --add-missing --force-missing
+		    $ ./configure
+		    $ make all
+		    $ make install
+		    $ make clean
+		autoreconf
+		    $ autoreconf --verbose --force --install
+		./configure
+		make all
+		make install
+	cmake
+2. Kernel Configuration
+checkout current kernel source tree
+configuring various drivers
+compile kernel
+using new kernel
