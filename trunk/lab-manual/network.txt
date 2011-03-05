@@ -1,0 +1,256 @@
+Setting up the Complete Network
+==============================
+author tshrinivasan@gmail.com
+revision 1.0 March 5, 2011
+
+
+
+== Getting the IP Address ==
+
+
+To get the IP address, run the following command
+
+-----------------------------
+[root@bigboy tmp]# ifconfig -a
+-----------------------------
+
+output
+
+-----------------------------------------------------------------------------
+
+eth0      Link encap:Ethernet  HWaddr 00:24:8C:40:B5:D6  
+          inet addr:192.168.113.115  Bcast:192.168.113.255  Mask:255.255.255.0
+          inet6 addr: fe80::224:8cff:fe40:b5d6/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:19856 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:10727 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:11628202 (11.0 MiB)  TX bytes:2159479 (2.0 MiB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:1533 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1533 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:2515158 (2.3 MiB)  TX bytes:2515158 (2.3 MiB)
+
+--------------------------------------------------------------------------
+
+
+
+== Changing the IP Address ==
+
+
+To change the IP Address of the system, we need the following details
+
+1. IP Address
+2. Netmask address
+
+IP Address = 192.168.113.120
+
+NetMask Address : 255.255.255.0
+
+
+Type the following command to set the ip address
+
+-----------------------------------------------------------------
+[root@bigboy tmp]# ifconfig eth0 10.0.0.1 netmask 255.255.255.0 up
+-----------------------------------------------------------------
+
+output
+
+To check the output 
+
+
+------------------------------------------------------------------------------
+[root@localhost lab-manual]# ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 00:24:8C:40:B5:D6  
+          inet addr:192.168.113.115  Bcast:192.168.113.255  Mask:255.255.255.0
+          inet6 addr: fe80::224:8cff:fe40:b5d6/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:19856 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:10727 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:11628202 (11.0 MiB)  TX bytes:2159479 (2.0 MiB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:1533 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1533 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:2515158 (2.3 MiB)  TX bytes:2515158 (2.3 MiB)
+-------------------------------------------------------------------------------
+
+
+
+== Activate/Deactivate the Network Interface Card ==
+
+To Deactivate the Network Interface Card
+
+------------------------------
+[root@bigboy tmp]# ifdown eth0
+------------------------------
+
+To Activate the Network Interface Card
+
+---------------------------
+[root@bigboy tmp]# ifup eth0
+---------------------------
+
+
+== View current Routing Table ==
+
+To view the current Routing Table
+
+--------------------------------
+[root@localhost lab-manual]# netstat -nr
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+192.168.113.0   0.0.0.0         255.255.255.0   U         0 0          0 eth0
+192.168.122.0   0.0.0.0         255.255.255.0   U         0 0          0 virbr0
+169.254.0.0     0.0.0.0         255.255.0.0     U         0 0          0 eth0
+0.0.0.0         192.168.113.1   0.0.0.0         UG        0 0          0 eth0
+------------------------------------
+
+
+== Change the default Gateway ==
+
+To change the default gateway for the NIC card eth0
+
+-------------------------
+[root@bigboy tmp]# route add default gw 192.168.1.1 eth0
+------------------------
+
+
+To make this change permenantly, set in the configuration file
+/etc/sysconfig/network
+
+--------------------------
+vim /etc/sysconfig/network
+---------------------------
+
+Add the following content
+
+----------------
+NETWORKING=yes
+HOSTNAME=bigboy
+GATEWAY=192.168.1.1
+-------------------
+
+and save the file and restart network
+
+-----------------------------
+/etc/init.d/network restart
+----------------------------
+
+== Using ping to Test Network Connectivity ==
+
+The Linux ping command will send continuous pings, once a second, until stopped with a Ctrl-C. 
+
+
+----------------------------------------------------------------------------
+[root@smallfry tmp]# ping 192.168.1.11
+
+PING 192.168.1.11 (192.168.1.11) from 192.168.1.100 : 56(84) bytes of data.
+64 bytes from 192.168.1.11: icmp_seq=1 ttl=128 time=3.95 ms
+64 bytes from 192.168.1.11: icmp_seq=2 ttl=128 time=7.07 ms
+64 bytes from 192.168.1.11: icmp_seq=3 ttl=128 time=4.46 ms
+64 bytes from 192.168.1.11: icmp_seq=4 ttl=128 time=4.31 ms
+
+--- 192.168.1.11 ping statistics ---
+4 packets transmitted, 4 received, 0% loss, time 3026ms
+rtt min/avg/max/mdev = 3.950/4.948/7.072/1.242 ms
+
+[root@smallfry tmp]#
+
+-------------------------------------------------------------------------
+
+
+== Using traceroute to Test Connectivity ==
+
+Another tool for network troubleshooting is the traceroute command. It gives a
+listing of all the router hops between your server and the target server. This
+helps you verify that routing over the networks in between is correct. 
+
+--------------------------------
+[root@bigboy tmp]# traceroute -I 144.232.20.158
+
+traceroute to 144.232.20.158 (144.232.20.158), 30 hops max, 38 byte packets
+1 adsl-67-120-221-110.dsl.sntc01.pacbell.net (67.120.221.110) 14.408 ms 14.064 ms 13.111 ms
+2 dist3-vlan50.sntc01.pbi.net (63.203.35.67) 13.018 ms 12.887 ms 13.146 ms
+3 bb1-g1-0.sntc01.pbi.net (63.203.35.17) 12.854 ms 13.035 ms 13.745 ms
+4 bb2-p11-0.snfc21.pbi.net (64.161.124.246) 16.260 ms 15.618 ms 15.663 ms
+5 bb1-p14-0.snfc21.pbi.net (64.161.124.53) 15.897 ms 15.785 ms 17.164 ms
+6 sl-gw11-sj-3-0.sprintlink.net (144.228.44.49) 14.443 ms 16.279 ms 15.189 ms
+7 sl-bb25-sj-6-1.sprintlink.net (144.232.3.133) 16.185 ms 15.857 ms 15.423 ms
+8 sl-bb23-ana-6-0.sprintlink.net (144.232.20.158) 27.482 ms 26.306 ms 26.487 ms
+[root@bigboy tmp]#
+------------------------
+
+
+== Using Hostnames ==
+
+To communicate other systems in the network using the hostnames,
+add the IP address and hostnames in the file /etc/hosts
+
+----------------
+vim /etc/hosts
+------------------
+
+
+add the contents like
+<ip address>	<hostname>
+
+------------------------------
+192.168.1.10	sun
+192.168.1.11	earth
+192.168.1.12	mars
+192.168.1.13	jupiter
+192.168.1.14	pluto
+----------------------------
+
+
+and save the file.
+Now you can ping the computers with their hostnames
+
+-----------------------------------------------------------------
+[root@smallfry tmp]# ping earth
+
+PING earth (192.168.1.11) from 192.168.1.100 : 56(84) bytes of data.
+64 bytes from earth(192.168.1.11): icmp_seq=1 ttl=128 time=3.95 ms
+64 bytes from earth(192.168.1.11): icmp_seq=2 ttl=128 time=7.07 ms
+64 bytes from earth(192.168.1.11): icmp_seq=3 ttl=128 time=4.46 ms
+64 bytes from earth(192.168.1.11): icmp_seq=4 ttl=128 time=4.31 ms
+
+--- earth ping statistics ---
+4 packets transmitted, 4 received, 0% loss, time 3026ms
+rtt min/avg/max/mdev = 3.950/4.948/7.072/1.242 ms
+
+[root@smallfry tmp]#
+---------------------------------------------------------------
+
+
+== Setting the Domain Name Server Address ==
+
+To resolve the hostnames using a Domain Name Server, you have to 
+add the DNS Server Address in the file /etc/resolv.conf
+
+------------------
+vim /etc/resolv.conf
+--------------------
+
+This file should contain the DNS server address as
+
+nameserver <IP address of DNS Server>
+
+----------------------
+add the following line
+---------------------
+
+
+nameserver 192.168.1.1
+
