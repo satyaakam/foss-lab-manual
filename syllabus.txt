@@ -1,0 +1,68 @@
+OBJECTIVE:
+To expose students to FOSS environment and introduce them to use open source
+packages
+
+   1. Kernel configuration, compilation and installation : Download / access the
+      latest kernel source code from kernel.org,compile the kernel and install it in the
+      local system.Try to view the source code of the kernel
+
+   2. Virtualisation environment (e.g., xen, kqemu or lguest) to test an applications,
+      new kernels and isolate applications. It could also be used to expose students to
+      other alternate OSs like *BSD
+
+   3. Compiling from source : learn about the various build systems used like the
+       auto* family, cmake, ant etc. instead of just running the commands. This could
+       involve the full process like fetching from a cvs and also include autoconf,
+       automake etc.,
+
+   4. Introduction to packet management system : Given a set of RPM or DEB,
+       how to build and maintain, serve packages over http or ftp. and also how do you
+       configure client systems to access the package repository.
+
+   5. Installing various software packages Either the package is yet to be installed or an older
+       version is existing. The student can practice installing the latest version. Of course,
+       this might need internet access.
+      Install samba and share files to windows
+      Install Common Unix Printing System(CUPS)
+
+   6. Write userspace drivers using fuse — easier to debug and less dangerous to
+       the system (Writing full-fledged drivers is difficult at student level)
+
+   7. GUI programming : a sample programme – using Gambas since the students
+       have VB knowledge. However, one should try using GTK or QT
+
+   8. Version Control System setup and usage using RCS, CVS, SVN
+
+   9. Text processing with Perl: simple programs, connecting with database e.g., MYSQL
+
+   10. Running PHP : simple applications like login forms after setting up a LAMP stack
+
+   11. Running Python : some simple exercise – e.g. Connecting with MySql database
+
+   12. Set up the complete network interface usinf ifconfig command liek setting gateway, DNS, IP
+         tables, etc.,
+
+Resources :
+An environment like FOSS Lab Server (developed by NRCFOSS containing the various packages)
+OR Equivalent system with Linux distro supplemented with relevant packages
+
+Note:
+Once the list of experiments are finalised, NRCFOSS can generate full lab manuals
+complete with exercises, necessary downloads, etc. These could be made available on
+NRCFOSS web portal.
+
+                                                  TOTAL: 45 PERIODS
+LIST OF EQUIPMENTS:
+Hardware:
+     Minimum Requirements:
+   – 700 Mhz X86 Processor
+   – 384 MB of system memory (RAM)
+   – 40 GB of disk space
+   – Graphics card capable of 1024*768 resolution
+   – Sound Card
+   – Network or Internet Connection
+Software:
+Latest distribution of Linux
+
+
+
