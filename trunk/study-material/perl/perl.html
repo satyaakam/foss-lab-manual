@@ -1,0 +1,1928 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.4" />
+<title></title>
+<style type="text/css">
+/* Sans-serif font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+div#toctitle,
+span#author, span#revnumber, span#revdate, span#revremark,
+div#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+/* Serif font. */
+div.sectionbody {
+  font-family: Georgia,"Times New Roman",Times,serif;
+}
+
+/* Monospace font. */
+tt {
+  font-size: inherit;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+tt {
+  font-size: inherit;
+  color: navy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+span#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+span#email {
+}
+span#revnumber, span#revdate, span#revremark {
+}
+
+div#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+div#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+div#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+div#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #777777;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  div#footer-badges { display: none; }
+}
+
+div#toc {
+  margin-bottom: 2.5em;
+}
+
+div#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+window.onload = function(){asciidoc.footnotes();}
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  var cont = document.getElementById("content");
+  var noteholder = document.getElementById("footnotes");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      // Use [\s\S] in place of . so multi-line matches work.
+      // Because JavaScript has no s (dotall) regex flag.
+      note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      spans[i].innerHTML =
+        "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+        "' title='View footnote' class='footnote'>" + n + "</a>]";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+}
+
+}
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_about_perl">About Perl</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Perl is simple and yet powerful scripting language.
+</p>
+</li>
+<li>
+<p>
+It can be used anywhere in the software eco-system – system administration, network, desktop or web.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>In this small notes we will learn how to write simple programs for practice in a lab.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_assumptions_and_limitations">Assumptions and Limitations</h2>
+<div class="sectionbody">
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+It is assumed that perl is already installed in your system.
+</p>
+</li>
+<li>
+<p>
+It is assumed that you are running Linux.
+</p>
+</li>
+<li>
+<p>
+Error checking, debugging, best practices are not covered here.
+</p>
+</li>
+<li>
+<p>
+Anything given in bold+italics is to be practised by the student.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_structure_of_perl_program">Structure of Perl Program</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Perl program is a text file.
+</p>
+</li>
+<li>
+<p>
+You can use any text editor to create the program.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Normally following line will be the first line</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>#! /usr/bin/perl</tt></pre>
+</div></div>
+<div class="paragraph"><p>This tells Linux to use <em>/usr/bin/perl</em> executable to interpret rest of the lines in the program. This line may vary depending on the location of perl binary. Sometimes it may be <em>/usr/local/bin/perl</em> or some other place.
+Commonly <em>.pl</em> extension is used, however you can write without extension also.</p></div>
+<div class="sect2">
+<h3 id="_starting_with_customary_hello_world_program">Starting with customary hello world program.</h3>
+<div class="paragraph"><p>Use any editor and create a file with following contents</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>#! /usr/bin/perl
+print “hello world\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>Assuming that you have saved it as <em>prog.pl</em> , we will see how to run the program.
+Running perl program
+Perl programs can be run in two ways. Assuming prog.pl is your file then</p></div>
+<div class="paragraph"><p>Method a:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ perl prog.pl</tt></pre>
+</div></div>
+<div class="paragraph"><p>Method b: Grant executable permission using chmod command and then invoking program name</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ chmod u+x prog.pl
+$ ./prog.pl</tt></pre>
+</div></div>
+<div class="paragraph"><p>or use full path name like</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ /home/ram/prog.pl</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Note:</strong> For method b to work #! line is compulsory and ensure that #! occupies first and second character in the file.
+If every thing goes well you will see hello world in your prompt.
+Now that we know how to create and run let us go into language details.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_comments">1.Comments:</h2>
+<div class="sectionbody">
+<div class="paragraph"><p># symbol is used for comments. All text from # till end of line is treated as comment.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt># This is a full line comment
+print “hello”; # This is statement+comment</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Note:</strong> There is no multiline comment.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_statement_terminator">2. Statement terminator</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>All Statements end with <strong><em>;</em></strong> like C language.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_print">3.print</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>print is simple function to display/output something on monitor/stdout.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>print “hello world”;</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_4_variables">4.Variables</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Variables are memory location to store information.
+</p>
+</li>
+<li>
+<p>
+Variables are type less i.e there is no data type like int,char.
+</p>
+</li>
+<li>
+<p>
+Every variable is a string and depending on the context will be treated as int, float etc.
+</p>
+</li>
+<li>
+<p>
+There are 4 kinds of variables namely <strong>scalars,lists,arrays,hashes</strong>.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_scalars">5 .Scalars</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Scalar variables contain singular value like 10,hello etc</p></div>
+<div class="paragraph"><p>Name of scalar variable is prefixed with $ symbol.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$name=”ram”;# in string context
+$age=30; # in numerical context
+$age=$age+1; #treated as numeric
+$age1=$age.$age; #treated as string. ‘.’(dot) is a concatenate operator</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_6_handling_quotes">6.Handling quotes</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>” (double quote) is used when interpolation/substitution is required.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$name=”Raman”;
+print “hello $name”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>will substitute $name with its value and output ‘hello Raman’.
+‘ (single quote) is used when it is a literal string. Special characters will not be interpreted.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$name=’Raman’;
+print ‘hello $name’;
+The above line will print ‘hello $name’.</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_7_lists">7.Lists</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>List variables are noted by symbol (). List is just a list of values – may be constants, scalars etc</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>(a,b,c) or ($name,$age,$sex)</tt></pre>
+</div></div>
+<div class="paragraph"><p>They can be referred with index also. The index are specified inside a square bracket [ ].</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$first=(a,b,c)[0];
+print “$first\n”;
+will output a.
+List variables can be assigned like this
+($name,$age)=(‘Raman’,20);</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_8_conditionals_if">8.Conditionals – IF</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The syntax of if statement is</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>if ( condition) {
+}
+elsif (condition){
+}
+else {
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p>The if statement is similar to if in C language, except
+- flower brace is required even for single statement
+- else if is noted by elsif (note missing e).</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$mark=40;
+if ($mark&gt;75){
+print “passed with distinction\n”;
+}
+elsif ($mark&lt;35){
+print “failed\n”;
+}
+else {
+print “passed\n”;
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p>Alternate form of if statement is</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>print “variable a is &gt;10″ if ($a&gt;10);</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_9_accepting_input">9.Accepting input</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Keyboard inputs can be accepted using &lt;STDIN&gt;.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>print “enter your name “;
+$name=&lt;STDIN&gt;;
+print “Welcome $name\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Exercise:</strong>
+Accept age. Type child if age below 12, type senior citizen when age above 60,otherwise type adult</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_10_loops">10.Loops</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_for">for</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+for loop syntax is similar to c.
+</p>
+</li>
+<li>
+<p>
+It can also be used for iterating on a list.
+</p>
+</li>
+<li>
+<p>
+foreach is same as for.
+</p>
+</li>
+<li>
+<p>
+Both for and foreach are used interchangeably.
+</p>
+</li>
+<li>
+<p>
+for readability.
+</p>
+</li>
+<li>
+<p>
+Classical <em>for</em> as in ‘C’
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>for ($i=0;$i&lt;10;$i++){
+print “i=$i\n”;
+}
+The other way of using for is below.
+foreach $i (a,b,c) {
+print uc $i;
+}</tt></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_explanation">Explanation:</h3>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+foreach will execute the body once for every element in the list – 3 times in this case.
+</p>
+</li>
+<li>
+<p>
+Each time the variable $i will get the value it is iterating ie. $i will be ‘a’ first time ‘b’ second time and ‘c’ the third time.
+</p>
+</li>
+<li>
+<p>
+uc – is a perl function to change a string into upper case.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>You can combine functions like ‘print uc $i’ instead of print(uc($i)). Also note that brackets are optional for passing arguments to functions like uc, print.
+The output will be ABC.
+=== while
+while loop is used to iterate and has syntax similar to C. e.g</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$i=0;
+while ($i&lt;10){
+print “i=$i\n”;
+$i++;
+}</tt></pre>
+</div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_11_default_scalar_variable">11. Default scalar variable $_</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>$_ is called default variable. It will be used if no other variable is specified. We will see this by an example.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>foreach (a,b,c){
+print uc ;
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p>The above foreach is similar to what is given under section10, however $i is omitted. Still perl will output same i.e ‘ABC’. This is because perl uses default variable $_ to store and expands the lines as</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>foreach $_ ( a,b,c){
+print uc $_;
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p>Similarly $_ is used in the following case where ‘..’ the generator function is used.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>foreach (1..10){
+print ;
+}</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_12_arrays">12.Arrays</h2>
+<div class="sectionbody">
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+Arrays are used to store multiple ordered values.
+</p>
+</li>
+<li>
+<p>
+Array variables should have prefix @.
+</p>
+</li>
+<li>
+<p>
+The size of array need not be specified beforehand.
+</p>
+</li>
+<li>
+<p>
+Each element of the array is scalar. Index starts with zero.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>Whenever the whole array is required @array will be used. Suppose we want only an element then $array[ ] will be used as every element is a scalar, thus the prefix $.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>@array=(1,2,3);
+print @array;
+Operations on Array
+Assignment – whole array using list
+@array=(1,2,3);
+print “@array”;
+Assigning element
+$array[3]=4;
+print “@array \n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>New element can be appended at the end using push function</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>push @array,’4′;
+print “@array \n”;
+Last element can be removed using pop function</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$last=pop @array;
+print “last=$last\n”;
+First element can be removed using shift function</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>@array=(1,2,3);
+$first=shift @array;
+print “first=$first\n”;
+An element can be inserted at the beginning using unshift.</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>@array=(3,4,5);
+unshift @array,’2′;
+print “array=@array\n”;
+Looping contents of an array using foreach</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>@array=(1,2,3);
+foreach $i (@array){
+print $i;
+}</tt></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+$#array is a special variable containing index of last element.
+</p>
+</li>
+<li>
+<p>
+It will be -1 for an empty array.
+</p>
+</li>
+<li>
+<p>
+In the above example $#array will be 2.
+</p>
+</li>
+<li>
+<p>
+scalar(@array) is function to return the size of array.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Classical for can be used for iterating on array like this</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>@array=(1,2,3);
+for ( $i=0; $i&lt;scalar(@array); $i++ ) {
+print “i=$i array element=$array[$i]\n”;
+}
+for ( $i=0; $i&lt;=$#array; $i++ ) {
+print “i=$i array element=$array[$i]\n”;
+}</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_13_hashes">13.Hashes</h2>
+<div class="sectionbody">
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Hash is associative/named array.
+</p>
+</li>
+<li>
+<p>
+They are key-value pairs.
+</p>
+</li>
+<li>
+<p>
+It is similar to array, except that we can use strings as index instead of 1..n.
+</p>
+</li>
+<li>
+<p>
+Hash variables will have % as prefix.
+</p>
+</li>
+<li>
+<p>
+The contents of hash are called values and index is called key.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>%fruits= (
+‘apple’ =&gt;’red’,
+‘banana’=&gt;’yellow’,
+‘grape’ =&gt;’black’
+);</tt></pre>
+</div></div>
+<div class="paragraph"><p>Other way of populating a hash</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>%fruits =(‘apple’,'red’,'banana’,'yellow’,'grape’,'black’);</tt></pre>
+</div></div>
+<div class="paragraph"><p>Here the list should contain even number of values.</p></div>
+<div class="paragraph"><p>First element will be treated as key, second element value, third element key, fourth value and so on and so forth.</p></div>
+<div class="paragraph"><p>In short odd elements will be keys, even elements will be values.</p></div>
+<div class="paragraph"><p></p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>print “colour of apple is $fruits{apple}\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>Adding new element</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$fruits{‘orange’}=’orange’;</tt></pre>
+</div></div>
+<div class="paragraph"><p>Note the { } instead of [ ] as in the case of array;</p></div>
+<div class="paragraph"><p>Looping on hashes – keys function</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>foreach $f (keys %fruits ) {
+print “Color of $f is $fruits{$f}\n” ;
+}</tt></pre>
+</div></div>
+<div class="sect2">
+<h3 id="_explanation_2">Explanation:</h3>
+<div class="paragraph"><p>keys is a function which return a list of key values.The list ( ) will contain apple,banana,grape while running.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_14_subroutines">14. Subroutines</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Subroutines can be defined using sub keyword. The arguments passed will be in a default array @_;</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$v1=10;$v2=20;
+add($v1,$v2);
+sub add {
+($a,$b)=@_;
+print $a+$b;
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>This should give output 30.</strong></p></div>
+<div class="paragraph"><p>You can return value using return statement.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_15_scope_of_variables">15. Scope of variables</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>By default all variables are global i.e available throughout the file. You can limit scope to a block/sub by using my.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$v1=10; $v2=30; #v1,v2 global
+$v3=30;
+$v3=add( $v1,$v2 );
+sub add{
+my ($i,$j)=@_;
+print “inside add sub value of i=$i j=$j\n”;
+print “inside add sub value of globals v1=$v1 v2=$v2 v3=$v3\n”;
+return $i+$j;
+}
+print ” Value of globals v1=$v1 v2=$v3\n”;
+print ” Value of scoped variables v3=$v3\n”;
+print ” Value of variables inside sub i=$i j=$j\n”;
+You can limit scope to a block also</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>for (my $i=0; $i&lt;10; $i++ ) {
+print “inside for i=$i\n”;
+}
+print “outside for i=$i\n”;</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_16_use_strict">16. use strict</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>In perl you need not define variables before using. By default all variables are global. However, this may lead to errors due scope conflict or errors in naming. ‘use strict‘ is a pragma which will help in avoiding it. Once use strict is used, every variable has to be declared with proper scope using my.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>use strict;
+$v1=10;$v2=20;
+add($v1,$v2);
+sub add {
+($a,$b)=@_;
+print $a+$b;
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p>The above code will not run and produce error. The corrected one will be like this</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>use strict;
+my $v1=10;
+my $v2=20;
+add ( $v1,$v2 ) ;
+sub add {
+my ($a, $b)=@_;
+print $a+$b;
+}</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_17_references">17. References</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>References are address of the variable, similar (but not exactly) to pointers in c. You can take a reference by using \. It can be dereferenced by using $$;</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$a=10;
+$ref_toa=\$a;
+print “value of a using reference = $$ref_toa\n Value of using directly=$a\n Reference of a= $ref_toa”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>==18.File handling</p></div>
+<div class="paragraph"><p>File handling can be done after opening a file and getting handle similar to C.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>open( $fh, “&lt;”, “data.txt” );</tt></pre>
+</div></div>
+<div class="paragraph"><p>here $fh – file handle which is a scalar variable.</p></div>
+<div class="paragraph"><p>Also it is common to uppercased variable like FH.</p></div>
+<div class="paragraph"><p>&lt; – open read only</p></div>
+<div class="paragraph"><p>data.txt – name of the file. Full path name should be given it it is not in current directory</p></div>
+<div class="paragraph"><p>File reading line by line can be done like</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$line=&lt;$fh&gt;;
+File writing
+print $fh “hello”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>Example Problem: Open data.txt file. Copy contents to udata.txt duly converted into upper case</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>open ( $fh, “&lt;”, “data.txt” ); #open file read only
+open ($fh1,”&gt;”,”udata.txt”); #Open file write mode
+while ( $line = &lt;$fh&gt; ) { #read line by
+print “line=$line”; #display content on screen
+print $fh1 uc($line); #write upper cased content to new file
+}
+close($fh);
+close($fh1);</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_19_some_common_functions">19.Some common functions</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>uc :uc is used to convert string into all upper cases</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$name=’raman’;
+$name=uc ($name);
+print “name=$name\n”;
+Similarly lc will convert into lowercase.
+split: split is function which will split a string into components based on delimiter specified, and return a list of values.
+eg. $line=”20/12/2010″;
+($day,$month,$year)=split /\//,$line;
+print “day=$day month=$month year=$year\n”;
+In the above example split will use / as delimiter. Note that / is special character. If we want literal / then we should use \/.
+length: length returns the number of characters in a string.</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_20_context">20.Context</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>In perl many operations/functions perform differently based on context. For example @array will have different meaning like</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>@array=(‘a’,'b’,'c’);
+print “array=@array\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>In the above line perl will print contents of the array.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$size=@array;
+print “array = @array and size=$size\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>In the above example perl will put 3 into $size i.e the number of elements in @array because it is used in scalar context (singular value).</p></div>
+<div class="paragraph"><p>Similarly split will return different values according to context. In the previous split returned a list of values. If used in scalar context split will return number of values i.e count</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$line=”hello how are you”;
+print “number of words=” . split / /,$line . “\n”;</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_21_text_processing_using_perl">21.Text Processing using perl.</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Perl is powerful for text processing applications.
+</p>
+</li>
+<li>
+<p>
+For text processing Regular Expression (RE) helps a lot.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Let us learn some basic Regular expressions.
+- Matching a pattern – m/ or just / is used to match a pattern in a string.
+- match a pattern syntax: /pattern/ or m/pattern/</p></div>
+<div class="paragraph"><p>This example uses default variable $_</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$_=’hello how are you’;
+if (/hello/){
+print “default variable =$_\n”;
+print “found hello\n”;
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p># i modifier ignores case difference</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>if (m/HELLO/i){
+print “found HELLo\n”;
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p>#match with negation</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>if (! /hallo/){
+print “not found hallo\n”;
+}
+print “\n\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>Bind Operator: In the above example we used default variable $_. You can use any variable for any RE using =~ which is called as bind operator.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>#bind operator
+#above example with a variable
+$line=’hello how are you’;
+print “line=$line\n”;
+if ($line =~ /hello/){
+print “found hello\n”;
+}
+print “\n\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>Matching single character : . (dot)
+dot matches any single character except new line.
+at least one character should match</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$line=”help how are you”;
+print “line=$line\n”;
+if ($line=~ /hel.p/){
+print “hel.p was found\n”;
+}
+else {
+print “hel.p was not found\n”;
+}
+if ($line=~ /he.p/){
+print “he.p was found\n”;
+}
+else {
+print “he.p was not found\n”;
+}
+print “\n\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>In the above example you will notice that first if condition fails. This is because there is no character after hel followed by p. The second if condition succeeds because in ‘help’ he is followed by a character and ‘p’.
+Matching any single character zero or one time – ?
+Question mark matches any character zero or one time in a string.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$line=”help how are you”;
+print “line=$line\n”;
+if ($line=~ /hel?p/){
+print “hel? was found\n”;
+}
+else {
+print “hel? was not found\n”;
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p>#another example</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$line=”help how are yu”;
+print “line=$line\n”;
+if ($line=~ /y?u?/){
+print “you? was found\n”;
+}
+else {
+print “you? was not found\n”;
+}
+print “\n\n”;
+Matching a single character including newline – \s
+\s is same as . but including \n
+print ‘ \s is same as . but includes \n character’.”\n”;
+$line= “hel\np how are you”;
+print “line=$line\n”;
+if ($line=~ /hel\sp/){
+print ‘hel\s was found’.”\n”;
+}
+else {
+print ‘ hel\s was not found’.”\n”;
+}
+print “\n\n”;</tt></pre>
+</div></div>
+<div class="sect2">
+<h3 id="_quantifier_zero_or_more_times">quantifier: zero or more times</h3>
+<div class="paragraph"><p>Quantifiers are symbols that will tell perl to match n number of times a particular pattern.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+star is a quantifier to match zero or more times
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$line = “hello how are you”;
+print “line=$line\n”;
+if ($line=~ /hel*o/){
+print ‘hel*o found’.”\n” ;
+}
+else {
+print ‘hel*o not found’.”\n”;
+}
+$line = “helo how are you”;
+print “line=$line\n”;
+if ($line=~ /hel*o/){
+print ‘helo found’.”\n”;
+}
+else {
+print ‘hel*o not found’.”\n”;
+}
+$line = “heo how are you”;
+print “line=$line\n”;
+if ($line=~ /hel*o/){
+print ‘hel*o found ‘.”\n”;
+}
+else {
+print ‘hel*o not found’.”\n”;
+}
+print “\n\n”;
+Match one or more time – + (plus)
+plus quantifies one or more time;
+$line = “hello how are you”;
+print “line=$line\n”;
+if ($line=~ /hel+o/){
+print ‘hel+o found ‘.”\n”;
+}
+else {
+print ‘hel+o not found ‘.”\n”;
+}
+$line = “heo how are you”;
+print “line=$line\n”;
+if ($line=~ /hel+o/){
+print ‘ hel+o found ‘.”\n”;
+}
+else {
+print ‘hel+o not found ‘.”\n”;
+}
+print “\n\n”;</tt></pre>
+</div></div>
+<div class="sect3">
+<h4 id="_grouping">Grouping</h4>
+<div class="paragraph"><p>You can group with ()</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$line =”hhellohhelloh how are you”;
+print “line=$line\n”;
+if ($line=~ /h(hello)+h/){
+print ‘(hello)+ found’.”\n”;
+}
+else {
+print ‘(hello}+ not found ‘.”\n”;
+}
+$line =”hellohello how are you”;
+print “line=$line\n”;
+if ($line=~ /h(hello)*h/){
+print ‘(hello)* found’.”\n”;
+}
+else {
+print ‘(hello}* not found ‘.”\n”;
+}
+print “\n\n”;</tt></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_or_operator">OR operator</h4>
+<div class="paragraph"><p><em>|</em> pipe is or operator used to connect to regex</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$line =”vanakkam how are you”;
+print “line=$line\n”;
+if ($line=~ /(hello)|(vanakkam)/){
+print ‘(hello)|(vanakkam) found ‘.”\n”;
+}
+else
+{
+print ‘(hello)|(vanakkam) not found ‘.”\n”;
+}
+print “\n\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>character class [0-9] [A-Z] [a-z]</p></div>
+<div class="paragraph"><p>[ ] : denotes character class e.g [A-Z] means A to Z</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$line=”pc180a07″;
+print “line=$line\n”;
+if ($line=~ /pc[0-9]+[a-z]07/){
+print ‘pc[0-9]+[a-z] occurred’.”\n”;
+}
+else {
+print ‘pc[0-9]+[a-z] not occurred’.”\n”;
+}
+$line=”pc180b07″;
+print “line=$line\n”;
+if ($line=~ /pc[0-9]+[a,b]07/){
+print ‘pc[0-9]+[a,b] occurred’.”\n”;
+}
+else {
+print ‘pc[0-9]+[a,b] not occurred’.”\n”;
+}
+Inside a character class ^ negates
+$line=”pcaa0b07″;
+print “line=$line\n”;
+if ($line=~ /pc[^0-9]+a/){
+print ‘pc[^0-9]+ found’.”\n”;
+}
+else {
+print ‘pc[^0-9]+ not found ‘.”\n”;
+}
+print “\n\n”;
+shortcut for [0-9] \d
+\d : \d is a short cut for [0-9]
+$line=”pc180a07″;
+print “line=$line\n”;
+if ($line=~ /pc\d+[a-z]07/){
+print ‘pc\d+[a-z]07 occurred’.”\n”;
+}
+else {
+print ‘pc\d+[a-z]07 not occurred’.”\n”;
+}
+tr operator translates characters in a list
+$line=”original string”;
+print “line=$line\n”;
+$line=~ tr/r/xx/;
+print ‘after applying tr/r/xx the result is ‘.”\n”.”$line\n”;
+print “\n”;
+$line=”original string”;
+print “line=$line\n”;
+$line=~ tr/rin/RIN/;
+print ‘after applying tr/rin/RIN/ the result is ‘.”\n”.”$line\n”;
+print “\n\n”;</tt></pre>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_substitution">Substitution</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre><tt>s/// substitutes a substring with given string
+$line=”original string”;
+print “line=$line\n”;
+$line=~ s/r/xx/g;
+print ‘after applying s/r/xx the result is ‘.”\n”.”$line\n”;
+print “\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>Perl has more features than shown above as far as regex is concerned. With what we saw above let us do few exercises.</p></div>
+<div class="paragraph"><p><strong>Exercise</strong></p></div>
+<div class="paragraph"><p><strong>1) Read a file. Count number of words in it. To keep it simple let us define word as a set characters followed by a space. Thus ‘hello how’ will be two words and ‘hello how .’ will be three words.</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>#! /usr/bin/perl
+print “Enter File Name “;
+$filename=&lt;STDIN&gt;;
+#First open the file for reading
+open ($fh,”r”,$filename);
+#read line by line until end of file
+while ($line=&lt;$fh&gt;){
+@words=split $line; #break lines in words and store in an array.
+$nw = $nw + scalar(@words); #no.of element in array = no of words.
+}
+print “Number of Words in the file : $nw \n”;
+close ($fh);</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Practice :</strong></p></div>
+<div class="paragraph"><p>1)a. Modify above program to omit punctuation marks like ., etc and then count</p></div>
+<div class="paragraph"><p>1)b. Modify above program without using scalar().</p></div>
+<div class="paragraph"><p>1)c. Modify the above exercise to count distinct words</p></div>
+<div class="paragraph"><p>1)d. Modify the exercise to count all distinct words whose length is 5 or more</p></div>
+<div class="paragraph"><p>1)e. Modify the exercise to accept a word and then count occurence of that word in a file</p></div>
+<div class="paragraph"><p><strong>2) A text file contains following data in a comma separated method</strong></p></div>
+<div class="paragraph"><p>101,ram,manager,20000</p></div>
+<div class="paragraph"><p>102,baskar,ceo,40000</p></div>
+<div class="paragraph"><p>103,ravi,executive,12000</p></div>
+<div class="paragraph"><p>104,arun,executive,10000</p></div>
+<div class="paragraph"><p>It represents employee details in a firm viz. empid,name,designation,salary. Generate an output containing following details</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>Designation No.of Emp. Total Salary
+ceo             1       40000
+executive       2       22000
+manager         1       20000</tt></pre>
+</div></div>
+<div class="paragraph"><p>List of employees in alphabetical order</p></div>
+<div class="paragraph"><p><strong>Name</strong></p></div>
+<div class="paragraph"><p>arun</p></div>
+<div class="paragraph"><p>baskar</p></div>
+<div class="paragraph"><p>ram</p></div>
+<div class="paragraph"><p>ravi</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>#! /usr/bin/perl
+use strict;
+#declare variables
+my ($fname,$fh);
+my %desig_salary; #Hash to store summary of salary
+my %desig_empno; #Hash to store number of employees per designation
+my @names; #array to store names
+my ($line,$empid,$name,$desig,$salary); #variables to store data from file
+print “enter data file name “;
+$fname=;
+chomp($fname);
+open( $fh,”&lt;”,$fname) or die “could not open file “; #open file for reading
+while ($line=&lt;$fh&gt;){ #read one line
+($empid,$name,$desig,$salary)=split /,/,$line; #break line into values
+#add 1 to no.of.employees for this designation
+$desig_empno{$desig} = $desig_empno{$desig} + 1; #here explicit addition is used
+#add salary to desig hash
+$desig_salary{$desig} += $salary; # Here += style addition is used. Note += is similar to C
+push @names,$name;
+}
+close($fh);
+#desig_salary has contains a hash whose keys are designation and values are the sum of salary
+#iterating on this hash will print first part of our problem
+printf “%15s\t%15s\t%15s\n”,’Designation’,'No.of.Emp’,'Total Salary’;
+foreach my $key (keys %desig_salary){
+printf “%15s\t%15d\t%15f\n”,$key,$desig_empno{$key},$desig_salary{$key};
+}
+#Second part printing names in alphabetical order
+print “Name\n”;
+foreach $name(sort @names){
+print “$name\n”;
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p>Accept a host name from the user. Scan through the hosts file and find out the IP number.</p></div>
+<div class="paragraph"><p>Ensure that comments are not processed. Normally the hosts will contain ipnumber and hostname one entry per line. Comments will start with # and end at the line.</p></div>
+<div class="paragraph"><p><strong>Example:</strong></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>127.0.0.1 localhost
+192.168.1.1 mygateway
+192.168.1.2 myserver # This is my server
+#hosts in another LAN
+192.168.2.1 anothergateway
+#! /usr/bin/perl
+print “enter hostname “;
+$hname=&lt;STDIN&gt;;
+chomp $hname; #remove newline character
+open($fh,’&lt;’,'hosts’);
+while ($line=&lt;$fh&gt;){
+#first remove any comments in the line by substituting with null
+$line=~ s/(\#.*\n)//;
+#print “line after=$line\n”;
+($no,$name)=split ‘ ‘,$line; #note split ‘ ‘. This is a special
+#delimiter which takes care of multiple
+#whitespaces.
+#if hostname is found print the ipno and get out of while loop
+if ($name eq $hname){
+print “hostname=$name IP No.:=$no\n”;
+last;
+}
+}
+close($fh);</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_22_database_interface_using_perl_dbi">22.Database interface using perl dbi.</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><em>DBI</em> – DataBase Interface module (more precisely a collection of modules) is a feature rich, efficient and yet simple tool to access databases using perl.</p></div>
+<div class="paragraph"><p>Almost all Linux distributions have them, if not you can download from cpan.org.</p></div>
+<div class="paragraph"><p>The interface to any DBMS requires two sets of tools – one DBI itself which is generic, two the DBD::the_database.</p></div>
+<div class="paragraph"><p>DBD is the driver component and you should install drivers for whatever database you are using.</p></div>
+<div class="paragraph"><p>DBI drivers are available for almost all standard databases.</p></div>
+<div class="paragraph"><p>Normally database access workflow is like this:</p></div>
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+Connect to the database (logging) using username,password etc., Once properly authenticated a database-handle will be given.
+</p>
+</li>
+<li>
+<p>
+Create the sql query, use database-handle to send the query to the server and ask it to prepare the query.
+</p>
+</li>
+<li>
+<p>
+Server parses the sql, if no errors, returns a statement-handle.
+</p>
+</li>
+<li>
+<p>
+Use the statement-handle to execute the query.
+</p>
+</li>
+<li>
+<p>
+Use statement-handle to fetch data – single row or multiple rows at a time.
+</p>
+</li>
+<li>
+<p>
+Close the statement handle
+</p>
+</li>
+<li>
+<p>
+Repeat steps b to g as long as you want, with new queries
+</p>
+</li>
+<li>
+<p>
+Finally disconnect from database(logout) using database-handle.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>Let us see them by means of a sample code.</p></div>
+<div class="paragraph"><p><strong>Assumptions:</strong></p></div>
+<div class="paragraph"><p>DBD driver for mysql is already installed.</p></div>
+<div class="paragraph"><p>Database Server: mysql running on local host</p></div>
+<div class="paragraph"><p>Database user name: test Password: test123</p></div>
+<div class="paragraph"><p>Database name : testdb</p></div>
+<div class="paragraph"><p>Table : names</p></div>
+<div class="paragraph"><p>Columns in the table: id,name,age</p></div>
+<div class="paragraph"><p><strong>Example 1:</strong>
+1. List all records in the table and find out average age</p></div>
+<div class="paragraph"><p><strong>Step 1:</strong>
+Connecting to the database</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>use DBI;
+my $dbh=DBI-&gt;connect(‘DBI:mysql:database=testdb;host=localhost’,'test’,'test123′);</tt></pre>
+</div></div>
+<div class="paragraph"><p>Connect requires three arguments : datasource, username,password</p></div>
+<div class="paragraph"><p>First argument -datasource gives information about the database server like type of dbms, location etc.</p></div>
+<div class="paragraph"><p>In our example datasource is specified as DBI:mysql:database=testdb;host=localhost</p></div>
+<div class="paragraph"><p>Here DBI:mysql means use mysql driver.</p></div>
+<div class="paragraph"><p>database=testdb means use the database testdb.</p></div>
+<div class="paragraph"><p>host=localhost means the host in which the database is running.</p></div>
+<div class="paragraph"><p>Other two arguments are username and password which need no explanation.</p></div>
+<div class="paragraph"><p><strong>Step 2:</strong></p></div>
+<div class="paragraph"><p>Run the select query on the server.</p></div>
+<div class="paragraph"><p>First store sql in a variable like this</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>my $query=’select * from name ‘;</tt></pre>
+</div></div>
+<div class="paragraph"><p>Then send the sql to the server for parsing and checking</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>my $sth=$dbh-&gt;prepare($query) or die “could not prepare $query\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>In the above statement</p></div>
+<div class="paragraph"><p>$dbh is the database connection handle we got while using DBI&#8594;connect earlier.</p></div>
+<div class="paragraph"><p>$sth is the statement handle returned upon successful preparation.</p></div>
+<div class="paragraph"><p>$query refers to the sql statement. The query can be given directly as string also.</p></div>
+<div class="paragraph"><p>Here we do some error checking by using  die. The $sth that is returned will be required for any further opertion on this query.
+Now we will run the query on the server</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$sth-&gt;execute();</tt></pre>
+</div></div>
+<div class="paragraph"><p>Note here, we are simply using $sth to run the query. Once we call execute, the server runs the query and keeps the result set ready for retrieval.</p></div>
+<div class="paragraph"><p><strong>Step 3</strong></p></div>
+<div class="paragraph"><p>Get results from the server one row at a time.</p></div>
+<div class="paragraph"><p>fetchrow_array() is a function that will return one row of data and store result in an array.</p></div>
+<div class="paragraph"><p>We will use a while loop to fetch all rows from the server.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>while (($id,$name,$age)=$sth-&gt;fetchrow_array()){
+print “id=$id name=$name age=$age\n”;
+}
+$sth-&gt;fetchrow will return a  null when there are no more rows. Thus this loop will run until null.
+($id,$name,$age)=$sth-&gt;fetchrow_array() is used to equate the rows returned to a set of variables.</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Step 4:</strong></p></div>
+<div class="paragraph"><p>Close the statement handle</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$sth-&gt;finish();</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Step 5:</strong></p></div>
+<div class="paragraph"><p>Close the database connection</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$dbh-&gt;disconnect();</tt></pre>
+</div></div>
+<div class="paragraph"><p>Here is the output of running the script.</p></div>
+<div class="paragraph"><p>id=1 name=RAMAN age=45</p></div>
+<div class="paragraph"><p>id=2 name=RAVI age=35</p></div>
+<div class="paragraph"><p>For the sake convenience I am repeating program listing here.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>use DBI;
+my $dbh=DBI-&gt;connect(‘DBI:mysql:database=testdb;host=localhost’,'test’,'test123′);
+my $query=’select * from name ‘;
+my $sth=$dbh-&gt;prepare($query) or die “could not prepare $query\n”;
+$sth-&gt;execute();
+while (($id,$name,$age)=$sth-&gt;fetchrow_array()){
+print “id=$id name=$name age=$age\n”;
+}
+$sth-&gt;finish();
+$dbh-&gt;disconnect()</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Example 2.</strong></p></div>
+<div class="paragraph"><p>Insert a record accepting input from terminal</p></div>
+<div class="paragraph"><p>Here is the code to insert a row into name table.</p></div>
+<div class="paragraph"><p><strong>Step 1:</strong></p></div>
+<div class="paragraph"><p>Establishing connection with database. For explanation see previous example</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>use DBI;
+my $dbh=DBI-&gt;connect(‘DBI:mysql:database=testdb;host=localhost’,'test’,'test123′);</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Step 2:</strong></p></div>
+<div class="paragraph"><p>Accept input from keyboard</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>print ‘Enter id:’;
+$id=&lt;STDIN&gt;;
+print ‘Enter Name:’;
+$name=&lt;STDIN&gt;;
+print ‘Enter age’;
+$age=&lt;STDIN&gt;;
+use chomp to remove any newlines
+chomp $id;
+chomp $age;
+chomp $name;</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Explanation :</strong> The print statement is simple – just shows message on the screen.</p></div>
+<div class="paragraph"><p>$id=&lt;STDIN&gt; means accept value from standard input (by default keyboard) and store the value in the variable $id;</p></div>
+<div class="paragraph"><p><strong>Step 3:</strong></p></div>
+<div class="paragraph"><p>Create the Sql statement</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$query=sprintf “insert into name(id,name,age) values(%d,%s,%d)”,$id,$dbh-&gt;quote($name),$age;</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Explanation:</strong> Here we create a string using sprintf function, by variable substitution.</p></div>
+<div class="paragraph"><p>The sprintf in perl is similar to sprintf in C.</p></div>
+<div class="paragraph"><p>$dbh&#8594;quote() function is used on string values, so that quotes are properly taken care of -e.g names like D’Silva.</p></div>
+<div class="paragraph"><p>It is a best practice to use this.</p></div>
+<div class="paragraph"><p>At the end of this line the $query variable will have an sql which is an insert statement.</p></div>
+<div class="paragraph"><p><strong>Step 4:</strong></p></div>
+<div class="paragraph"><p>Run the query on the server and insert data.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$dbh-&gt;do($query) or die “could not do $query\n”;</tt></pre>
+</div></div>
+<div class="paragraph"><p>The sql execution in the previous example was done in three stages namely prepare, execute,fetchrow_array. </p></div>
+<div class="paragraph"><p>In the case of insert statement no rows are returned.</p></div>
+<div class="paragraph"><p>Hence, we can use do(), which combines all three stages into one. It will return number of rows affected.</p></div>
+<div class="paragraph"><p><strong>Step 5:</strong></p></div>
+<div class="paragraph"><p>Disconnect from the server</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$dbh-&gt;disconnect();</tt></pre>
+</div></div>
+<div class="paragraph"><p>For the sake of convenience the code is repeated here.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>use DBI;
+my $dbh=DBI-&gt;connect(‘DBI:mysql:database=testdb;host=localhost’,'test’,'test123′);
+print ‘Enter id:’;
+$id=&lt;STDIN&gt;;
+print ‘Enter Name:’;
+$name=&lt;STDIN&gt;;
+print ‘Enter age’;
+$age=&lt;STDIN&gt;;
+chomp $id;
+chomp $age;
+chomp $name;
+$query=sprintf “insert into name(id,name,age) values(%d,%s,%d)”,$id,$dbh-&gt;quote($name),$age;
+$dbh-&gt;do($query) or die “could not do $query\n”;
+$dbh-&gt;disconnect();</tt></pre>
+</div></div>
+<div class="paragraph"><p>As you can see from the above examples dbi is pretty simple.</p></div>
+<div class="paragraph"><p>Same code can be used for any database. Only change required will be in connection step.</p></div>
+<div class="paragraph"><p>The performance of dbi is very good, and it has lot features like fetching column names, types etc.</p></div>
+<div class="paragraph"><p><strong>Exercise</strong></p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Accept a name from the user. Then list all records matching that name.
+</p>
+</li>
+<li>
+<p>
+Accept id and delete the record matching this id.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2011-03-05 15:34:13 EST
+</div>
+</div>
+</body>
+</html>
