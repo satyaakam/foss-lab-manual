@@ -612,6 +612,11 @@ It is assumed that you are running Linux
 PHP is explained here as a web programming language alone (though it can be used at command line)
 </p>
 </li>
+<li>
+<p>
+It is assumed that basic HTML markup is known.
+</p>
+</li>
 </ol></div>
 <div class="sect2">
 <h3 id="_how_to_start_the_apache_server">How to start the Apache server?</h3>
@@ -631,15 +636,16 @@ PHP is explained here as a web programming language alone (though it can be used
 You will get a page that says <strong>It works</strong> prominently, followed by some text.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_where_to_save_the_files">Where to save the files</h3>
-<div class="paragraph"><p>The folder <strong>/var/www</strong> is the root directory for the Apache server and all the files should be stored inside it. You can also store the files in folders inside it. For all the examples below, let us assume that the files are stored in a folder named <em>sandbox</em>.</p></div>
-</div>
-<div class="sect2">
 <h3 id="_structure_of_a_php_program">Structure of a PHP program</h3>
 <div class="ulist"><ul>
 <li>
 <p>
-Every php program should be enclosed between <tt>&lt;?php</tt> and <tt>?&gt;</tt>; more often <tt>&lt;?</tt> is used as a shorthand of the starting delimitter <tt>&lt;?php</tt>.
+Every php program should be enclosed between <tt>&lt;?php</tt> and <tt>?&gt;</tt>
+</p>
+</li>
+<li>
+<p>
+More often <tt>&lt;?</tt> is used as a shorthand of the starting delimitter <tt>&lt;?php</tt>.
 </p>
 </li>
 <li>
@@ -649,22 +655,15 @@ HTML code can be written interleaved within PHP code. While starting HTML, the p
 </li>
 </ul></div>
 </div>
-<div class="sect2">
-<h3 id="_how_to_run_a_php_program">How to run a php program?</h3>
-<div class="paragraph"><p>Let us assume that you have stored the
-* Open a web browser of your choice
-* Enter the URL <tt><strong>http://localhost/</strong></tt> followed by the path to the file relative to <em>/var/www</em>. For example, if the filename is <em>prog.php</em>, thhen enter +http://localhost/sandbox/prog.php</p></div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercise_1_hello_world">Exercise 1 : Hello world!</h2>
+<h2 id="_conventional_em_hello_world_em_program">Conventional <em>Hello world!</em> program</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>The conventinal <em>Hello world!</em> program :)</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>&lt;?php
-        echo "Hello world";
+        echo "Hello world!";
 ?&gt;</tt></pre>
 </div></div>
 <div class="sect2">
@@ -680,7 +679,130 @@ echo is a <em>language construct</em> (note that it is not a function, unlike <t
 <em>Strings</em> can be enclosed within <em>single</em> or <em>double quotes</em>
 </p>
 </li>
+<li>
+<p>
+Each statement should end with a semicolon (<tt>;</tt>).
+</p>
+</li>
 </ul></div>
+</div>
+<div class="sect2">
+<h3 id="_where_to_save_the_file">Where to save the file?</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+All the files should be stored inside <strong>/var/www</strong>. (It is the root directory for the Apache server)
+</p>
+</li>
+<li>
+<p>
+You can also store the files in subfolders inside it.
+</p>
+</li>
+<li>
+<p>
+The filename should have the extension <tt>.php</tt>
+Let us store the above program as <em>hello.php</em> in a folder named <em>sandbox</em> inside <em>/var/www/</em>. i.e, the file is at <em>/var/www/sandbox/hello.php</em>.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_how_to_run_the_program">How to run the program?</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Open a web browser of your choice
+</p>
+</li>
+<li>
+<p>
+Enter the URL +http://localhost/sandbox/hello.php
+</p>
+</li>
+<li>
+<p>
+Now you should get "Hello world!" in your browser.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_comments">Comments</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Comments have the same syntax as in C.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Single line comments start with <tt>//</tt>. i.e, All text from <tt>//</tt> till end of line is treated as comment.
+</p>
+</li>
+<li>
+<p>
+Multiline comments are enclosed betweem /* and */.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>//This is a single line comment.
+echo "Hellol";//This is also a single line comment.
+/* This
+is a
+multiline
+comment. */</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_interleaved_html">Interleaved HTML</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>A single PHP file can contain multiple blocks of PHP code, with HTML interleaved among them (optional). Each block should be enclosed within the delimitting characters (<tt>&lt;?</tt> and <tt>?&gt;</tt>)
+Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>&lt;?
+        echo "First PHP segment";
+?&gt;
+&lt;br&gt;First HTML segment.&lt;br&gt;
+&lt;?
+        echo "Second PHP segment";
+?&gt;
+&lt;br&gt;Second HTML segment.&lt;br&gt;</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_">==</h2>
+<div class="sectionbody">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_form_processing">Form processing</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Let us first look at a sample form. For the sake of simplicitym, only the form is given here rather than the entire HTML document.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>&lt;form action="reg_db.php" method="POST"&gt;
+        &lt;label&gt;First name:&lt;input type="text" name="firstname"&gt;&lt;/label&gt;
+        &lt;label&gt;Second name:&lt;input type="text" name="secondname"&gt;&lt;/label&gt;
+        &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</tt></pre>
+</div></div>
+<div class="paragraph"><p>When the form is submitted, the file <tt>reg_db.php</tt> is supposed to handle the form input (more likely to validate and insert them into database). For the sake of sake of explnation, let us leave the validation part as of now.</p></div>
+<div class="sect2">
+<h3 id="_getting_the_form_data">Getting the form data</h3>
+<div class="paragraph"><p>The form input can be retrieved as follows:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>&lt;?
+        $fname = $_POST['firstname'];
+        $lname = $_POST['lastnamme'];
+?&gt;</tt></pre>
+</div></div>
 </div>
 </div>
 </div>
@@ -688,7 +810,7 @@ echo is a <em>language construct</em> (note that it is not a function, unlike <t
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-03-05 15:52:35 IST
+Last updated 2011-03-05 16:56:43 IST
 </div>
 </div>
 </body>
