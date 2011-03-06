@@ -1,54 +1,214 @@
-1. Compilation from Source
-    various build systems
-        GNU Build System
-	    GNU gcc (GNU Compiler Collection)
-	    GNU make (make)
-	    GNU automake (aclocal, automake)
-	    GNU autoconf (autoscan, autoheader, autoreconf)
-	    GNU libtool (libtoolize)
-	    GNU gettext (gettextize)
-	    Installing GNU Build system
-	        RedHat
-	            # yum groupinstall 'Development Tools'
-		Debian
-	            # apt-get install dpkg-dev
-            Steps to compile autotools compatable project
-	        download, untar and compile
-	            $ wget http://www.tcpdump.org/release/libpcap-1.1.1.tar.gz
-		    $ tar -xvzf libpcap-1.1.1.tar.gz 
-		    $ cd libpcap-1.1.1
-		    $ ./configure
-		    $ make all
-		    # make install
-		checkout and compile
-	            $ git clone git://bpf.tcpdump.org/libpcap
-		    $ cd libpcap
-		    $ ./configure
-		    $ make all
-		    # make install
-            Steps to create autotools compatable project
-                creating Makefile.am
-  	        $ autoscan --verbose
-		modify configure.scan file manually and rename it to configure.ac
-		manually executing commands
-		    $ gettextize --force
-		    $ aclocal --verbose --force
-		    $ libtoolize --copy --force
-		    $ autoconf --verbose --force 
-		    $ autoheader --verbose --force
-		    $ automake --verbose --copy --add-missing --force-missing
-		    $ ./configure
-		    $ make all
-		    $ make install
-		    $ make clean
-		autoreconf
-		    $ autoreconf --verbose --force --install
-		./configure
-		make all
-		make install
-	cmake
-2. Kernel Configuration
-checkout current kernel source tree
-configuring various drivers
-compile kernel
-using new kernel
+== Compiling From Source ==
+
+== GNU Build System ==
+
+GNU Compiler Collection ('gcc')::
+    * A compiler to generate machine executable binary files from source files.
+    * Supports following languages
+        ** C
+	** C++
+	** Objective-C
+	** Fortran
+	** Java
+	** Ada
+	** Go
+    * more info: http://gcc.gnu.org/onlinedocs/gcc/
+
+GNU make ('make')::
+    * A program which executes predefined commands based on rules.
+    * A rule is considered to be satisfied if all of its dependencies are satisfied.
+    * GNU 'make' will process Rules, Dependencies and Commands from 'Makefile' or 'makefile'
+    * more info: http://www.gnu.org/software/make/manual/html_node/index.html
+
+GNU automake ('aclocal', 'automake')::
+    * 'automake' is a tool to generate 'Makefile.in' by processing instructions from 'Makefile.am'.
+    * 'configure' script will generate 'Makefile' by replacing dynamic variables in 'Makefile.in'
+    * The final 'Makefile' contains well organized Rules for 'make' command to compile source codes.
+    * 'aclocal' is a tool to copy 'm4' macros from systemwide directory to project directory.
+    * 'automake' uses these 'm4' macros to process instructions from 'Makefile.am'
+    * more info: http://www.gnu.org/software/automake/manual/html_node/index.html
+
+GNU autoconf ('autoscan', 'autoheader', 'autoconf', 'autoreconf')::
+    * 'autoconf' will generate 'configure' script by processing instructions from 'configure.ac'.
+    * 'configure' replaces values for dynamic variables in various '.in' files and generates corresponding output files.
+    * 'autoscan' will generate 'configure.scan' by scanning source and header files.
+    * Developer will modify 'configure.scan' and rename it to 'configure.ac'.
+    * 'autoheader' will generate 'config.h.in' file by scanning C macro definitions from source and header files.
+    * 'autoreconf' command is used for executing autotools commands in proper order.
+    * more info: http://www.gnu.org/software/autoconf/manual/html_node/index.html
+
+GNU libtool (libtoolize)::
+    * 'libtool' is a program used to generate static or dynamic libraries based on system capability.
+    * It will only generate static library if the host is not capable of handling dynamic libraries.
+    * 'libtoolize' synchronizes 'libtool' with autoconf/automake.
+    * more info: http://www.gnu.org/software/libtool/manual/html_node/index.html
+
+GNU gettext (gettextize)::
+    * 'gettext' is a collection of utilities for translating string outputs in source codes to various languages.
+    * 'gettextize' tool synchronizes 'gettext' utilities with autoconf/automake.
+    * more info: http://www.gnu.org/software/gettext/manual/html_node/index.html
+
+Installing GNU Build system::
+--
+    * Installing in RedHat (may work in Fedora, CenOS, SuSE etc.,)
+----------------------------------------------
+        # yum groupinstall 'Development Tools'
+----------------------------------------------
+    * Installing in Debian (may work in Ubuntu, Mint, Knoppix etc.,)
+-----------------------------------------
+        # apt-get install build-essential
+-----------------------------------------
+--
+
+Steps to compile autotools compatable project::
+--
+    * Example for download, untar and compile
+------------------------------------------------------------------
+        $ wget http://www.tcpdump.org/release/libpcap-1.1.1.tar.gz
+	$ tar -xvzf libpcap-1.1.1.tar.gz
+	$ cd libpcap-1.1.1
+	$ ./configure
+	$ make all
+	# make install
+------------------------------------------------------------------
+    * Example for checkout and compile
+-------------------------------------------------
+        $ git clone git://bpf.tcpdump.org/libpcap
+	$ cd libpcap
+	$ ./configure
+	$ make all
+	# make install
+-------------------------------------------------
+NOTE: After extraction or checkout, you may not see 'configure' script, but
+you may find 'autogen.sh'. Executing 'autogen.sh' will automatically run
+autotools commands in proper order to generate 'configure' script
+--
+
+Steps to create autotools compatable project (with simple c project)::
+--
+    * create project directory and switch to that directory
+--------------------------
+        $ mkdir helloworld
+	$ cd helloworld
+--------------------------
+    * create 'helloworld.h'
+-----------------------------------
+        #ifndef __HELLOWORLD__
+	#define __HELLOWORLD__
+	
+	#define GNU_SOURCE
+	#include <stdio.h>
+	#include <stdlib.h>
+	
+	#endif /* __HELLOWORLD__ */
+-----------------------------------
+    * create 'helloworld.c'
+---------------------------------------------
+        #include <helloworld.h>
+	
+	int main(int argc, char *argv[])
+	{
+	    fprintf(stdout, "hello world\n");
+	    return(0);
+	}
+---------------------------------------------
+    * create 'Makefile.am'
+------------------------------------------------------
+        AUTOMAKE_OPTIONS = foreign
+	bin_PROGRAMS = helloworld
+	helloworld_SOURCES = helloworld.c helloworld.h
+	helloworld_CFLAGS = -Wall
+------------------------------------------------------
+    * scan source files with autoscan
+----------------------------
+        $ autoscan --verbose
+----------------------------
+    * modify 'configure.scan' file manually and rename it to 'configure.ac'
+    * 'configure.scan'
+------------------------------------------------------------------------
+        #                                               -*- Autoconf -*-
+        # Process this file with autoconf to produce a configure script
+        
+        AC_PREREQ([2.67])
+        AC_INIT([FULL-PACKAGE-NAME], [VERSION], [BUG-REPORT-ADDRESS])
+        AC_CONFIG_SRCDIR([helloworld.c])
+        AC_CONFIG_HEADERS([config.h])
+        
+        # Checks for programs.
+        AC_PROG_CC
+        
+        # Checks for libraries.
+        n
+        # Checks for header files.
+        AC_CHECK_HEADERS([stdlib.h])
+        
+        # Checks for typedefs, structures, and compiler characteristics.
+        
+        # Checks for library functions.
+        
+        AC_CONFIG_FILES([Makefile])
+        AC_OUTPUT
+------------------------------------------------------------------------
+    * 'configure.ac'
+------------------------------------------------------------------------
+        #                                               -*- Autoconf -*-
+        # Process this file with autoconf to produce a configure script.
+        
+        AC_INIT([helloworld], [0.1], [ilugc@ae.iitm.ac.in])
+	AM_INIT_AUTOMAKE
+        AC_CONFIG_SRCDIR([helloworld.c])
+        AC_CONFIG_HEADERS([config.h])
+        
+        # Checks for programs.
+        AC_PROG_CC
+        
+        # Checks for libraries.
+        
+        # Checks for header files.
+        AC_CHECK_HEADERS([stdlib.h])
+        
+        # Checks for typedefs, structures, and compiler characteristics.
+        
+        # Checks for library functions.
+        
+        AC_CONFIG_FILES([Makefile])
+        AC_OUTPUT
+------------------------------------------------------------------------
+    * execute autotools commands manually (follow these steps if you want to mess with autotools)
+-------------------------------------------------------
+	$ aclocal
+	$ autoconf --force 
+	$ autoheader --force
+	$ automake --copy --add-missing --force-missing
+-------------------------------------------------------
+    * execute autotools commands automatically (preferred way to use autotools)
+--------------------------------------
+        $ autoreconf --force --install
+--------------------------------------
+    * compile
+---------------------
+        $ ./configure
+	$ make all
+---------------------
+    * execute
+----------------------
+        $ ./helloworld
+----------------------
+    * install
+----------------------
+	# make install
+----------------------
+    * uninstall
+------------------------
+        # make uninstall
+------------------------
+    * clean for recompiling (removing .o object files and temporary files)
+--------------------
+        $ make clean
+--------------------
+--
+
+Reference::
+    * http://sources.redhat.com/autobook/ [AutoBook, by Gary V. Vaughan, Ben Elliston, Tom Tromey and Ian Lance Taylor]
+    * http://www.seul.org/docs/autotut/ [autotut: Using GNU auto{conf,make,header}, by Felipe Bergo]
+    * http://www.network-theory.co.uk/docs/gccintro/ [An Introduction to GCC, by Brian J. Gough]
