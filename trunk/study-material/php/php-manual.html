@@ -572,8 +572,7 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>author <a href="mailto:viky.nandha@gmail.com">viky.nandha@gmail.com</a>
-5th March 2011</p></div>
+<div class="paragraph"><p>author <a href="mailto:viky.nandha@gmail.com">viky.nandha@gmail.com</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -617,6 +616,11 @@ PHP is explained here as a web programming language alone (though it can be used
 It is assumed that basic HTML markup is known.
 </p>
 </li>
+<li>
+<p>
+It is assumed that C is already known.
+</p>
+</li>
 </ol></div>
 <div class="sect2">
 <h3 id="_how_to_start_the_apache_server">How to start the Apache server?</h3>
@@ -630,10 +634,20 @@ It is assumed that basic HTML markup is known.
 <div class="content">
 <pre><tt># /etc/init.d/httpd start</tt></pre>
 </div></div>
-<div class="paragraph"><p>To ensure that the server is running fine,
-* Open a web browser of your choice
-* Enter the URL <tt><strong>http://localhost/</strong></tt>
-You will get a page that says <strong>It works</strong> prominently, followed by some text.</p></div>
+<div class="paragraph"><p>To ensure that the server is running fine,</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Open a web browser of your choice
+</p>
+</li>
+<li>
+<p>
+Enter the URL <tt><strong>http://localhost/</strong></tt>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>You will get a page that says <strong>It works</strong> prominently, followed by some text.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_structure_of_a_php_program">Structure of a PHP program</h3>
@@ -650,7 +664,7 @@ More often <tt>&lt;?</tt> is used as a shorthand of the starting delimitter <tt>
 </li>
 <li>
 <p>
-HTML code can be written interleaved within PHP code. While starting HTML, the php part should be closed (by <tt>?&gt;</tt>).
+HTML code can be written interleaved within PHP code.
 </p>
 </li>
 </ul></div>
@@ -691,7 +705,7 @@ Each statement should end with a semicolon (<tt>;</tt>).
 <div class="ulist"><ul>
 <li>
 <p>
-All the files should be stored inside <strong>/var/www</strong>. (It is the root directory for the Apache server)
+All the files should be stored inside <strong>/var/www</strong>. (It is the root directory for the Apache server).
 </p>
 </li>
 <li>
@@ -717,12 +731,12 @@ Open a web browser of your choice
 </li>
 <li>
 <p>
-Enter the URL +http://localhost/sandbox/hello.php
+Enter the URL <tt>http://localhost/sandbox/hello.php</tt>
 </p>
 </li>
 <li>
 <p>
-Now you should get "Hello world!" in your browser.
+Now you should get <em>Hello world!</em> in your browser.
 </p>
 </li>
 </ul></div>
@@ -732,11 +746,11 @@ Now you should get "Hello world!" in your browser.
 <div class="sect1">
 <h2 id="_comments">Comments</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Comments have the same syntax as in C.</p></div>
+<div class="paragraph"><p>PHP supports <em>C</em>, <em>C++</em> and Unix shell-style (Perl style) comments.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-Single line comments start with <tt>//</tt>. i.e, All text from <tt>//</tt> till end of line is treated as comment.
+Single line comments start with <tt>//</tt> or <tt>#</tt>. i.e, All text from <tt>//</tt> till end of line is treated as comment.
 </p>
 </li>
 <li>
@@ -749,11 +763,24 @@ Multiline comments are enclosed betweem /* and */.
 <div class="listingblock">
 <div class="content">
 <pre><tt>//This is a single line comment.
-echo "Hellol";//This is also a single line comment.
+echo "Hello!";//This is also a single line comment.
+#Another Single line comment
+echo "Hello!";#Yet another single line comment.
 /* This
 is a
 multiline
 comment. */</tt></pre>
+</div></div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">Nesting comments may cause problems.</td>
+</tr></table>
+</div>
 </div></div>
 </div>
 </div>
@@ -776,8 +803,259 @@ Example:</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_">==</h2>
+<h2 id="_variables">Variables</h2>
 <div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Variables in PHP are represented by a dollar sign (<tt>$</tt>) followed by the name of the variable.
+</p>
+</li>
+<li>
+<p>
+Variable names are case-sensitive.
+</p>
+</li>
+<li>
+<p>
+Variables are typeless in PHP. i.e, there is no need to specify datatype explicitly.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conditional_statements">Conditional statements</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>In PHP we have the following conditional statements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+if statement - use this statement to execute some code only if a specified condition is true
+</p>
+</li>
+<li>
+<p>
+if&#8230;else statement - use this statement to execute some code if a condition is true and another code if the condition is false
+</p>
+</li>
+<li>
+<p>
+if&#8230;elseif&#8230;.else statement - use this statement to select one of several blocks of code to be executed
+</p>
+</li>
+<li>
+<p>
+switch statement - use this statement to select one of many blocks of code to be executed
+</p>
+</li>
+</ul></div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">All the above statements have the same syntax as in <em>C/C++</em>.</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect2">
+<h3 id="_the_tt_if_tt_statement">The <tt>if</tt> statement</h3>
+<div class="sect3">
+<h4 id="_example">Example:</h4>
+<div class="listingblock">
+<div class="content">
+<pre><tt>&lt;?php
+  $d=date("D");
+  if ($d=="Fri")
+    echo "Have a nice weekend!";
+?&gt;</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_tt_if_else_tt_statement">The <tt>if..else</tt> statement</h3>
+<div class="sect3">
+<h4 id="_example_2">Example:</h4>
+<div class="listingblock">
+<div class="content">
+<pre><tt>&lt;?php
+$d=date("D");
+if ($d=="Fri")
+  echo "Have a nice weekend!";
+else
+  echo "Have a nice day!";
+?&gt;</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_tt_if_elseif_else_tt_statement">The <tt>if..elseif..else</tt> statement</h3>
+<div class="sect3">
+<h4 id="_example_3">Example:</h4>
+<div class="listingblock">
+<div class="content">
+<pre><tt>&lt;?php
+$d=date("D");
+if ($d=="Fri")
+  echo "Have a nice weekend!";
+elseif ($d=="Sun")
+  echo "Have a nice Sunday!";
+else
+  echo "Have a nice day!";
+?&gt;</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_tt_switch_tt_statement">The  <tt>switch</tt> statement</h3>
+<div class="paragraph"><p>The difference from the <tt>switch</tt> in <em>C</em> is that the values given at <tt>case</tt> are not restricted to <tt>int</tt> and <tt>char</tt>; it can also be string.</p></div>
+<div class="sect3">
+<h4 id="_example_4">Example:</h4>
+<div class="listingblock">
+<div class="content">
+<pre><tt>&lt;?php
+switch ($i) {
+  case "apple":
+    echo "i is apple";
+    break;
+  case "bar":
+    echo "i is bar";
+    break;
+  case "cake":
+    echo "i is cake";
+    break;
+}
+?&gt;</tt></pre>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_loops">Loops</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>In PHP we have the following conditional statements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>for</tt> loop
+</p>
+</li>
+<li>
+<p>
+<tt>foreach</tt> loop
+</p>
+</li>
+<li>
+<p>
+<tt>while</tt> loop
+</p>
+</li>
+<li>
+<p>
+<tt>do..while</tt> loop
+</p>
+</li>
+</ul></div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">All the above statements, except the <tt>foreach</tt> loop have the same syntax as in <em>C/C++</em>.</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect2">
+<h3 id="_the_tt_for_tt_loop">The <tt>for</tt> loop</h3>
+<div class="sect3">
+<h4 id="_example_5">Example:</h4>
+<div class="listingblock">
+<div class="content">
+<pre><tt>&lt;?
+for ($i=1; $i&lt;=5; $i++)
+  {
+    echo "The number is " . $i . "&lt;br /&gt;";
+  }
+?&gt;</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_tt_foreach_tt_loop">The <tt>foreach</tt> loop</h3>
+<div class="paragraph"><p>The foreach loop is used to loop through arrays.
+Syntax:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>foreach ($array as $value)
+  {
+  code to be executed;
+  }</tt></pre>
+</div></div>
+<div class="paragraph"><p>For every loop iteration, the value of the current array element is assigned to $value (and the array pointer is moved by one) - so on the next loop iteration, you&#8217;ll be looking at the next array value.</p></div>
+<div class="sect3">
+<h4 id="_example_6">Example:</h4>
+<div class="listingblock">
+<div class="content">
+<pre><tt>&lt;?php
+$x=array("one","two","three");
+foreach ($x as $value)
+  {
+  echo $value . "&lt;br /&gt;";
+  }
+?&gt;</tt></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_output">Output:</h4>
+<div class="listingblock">
+<div class="content">
+<pre><tt>one
+two
+three</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_tt_while_tt_loop">The <tt>while</tt> loop</h3>
+<div class="sect3">
+<h4 id="_example_7">Example:</h4>
+<div class="listingblock">
+<div class="content">
+<pre><tt>&lt;?php
+$i=1;
+while($i&lt;=5)
+  {
+  echo "The number is " . $i . "&lt;br /&gt;";
+  $i++;
+  }
+?&gt;</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_tt_do_while_tt_loop">The <tt>do..while</tt> loop</h3>
+<div class="sect3">
+<h4 id="_example_8">Example:</h4>
+<div class="listingblock">
+<div class="content">
+<pre><tt>&lt;?php
+$i=1;
+do
+  {
+  $i++;
+  echo "The number is " . $i . "&lt;br /&gt;";
+  }
+while ($i&lt;=5);
+?&gt;</tt></pre>
+</div></div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -810,7 +1088,7 @@ Example:</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-03-05 16:56:43 IST
+Last updated 2011-03-07 01:32:27 IST
 </div>
 </div>
 </body>
