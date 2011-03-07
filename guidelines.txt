@@ -64,13 +64,13 @@ Vijay Kumar <vijaykumar@bravegnu.org>
     networks and backbone network.
 -------
 
-  * For sessions based on programming languages it is better to have
-    examples and exercises. Detailed explanation of the programming
-    language
+  * For sessions based on programming languages, it is better to have
+    examples and exercises alone. Detailed explanation of the
+    programming language should go into the study material.
 
-  * For sessions involing sequence of commands, list the sequence of
+  * For sessions involving sequence of commands, list the sequence of
     instructions be performed, and give exercises to change the
-    sequence in minor ways to acheive different results.
+    sequence in minor ways to achieve different results.
 
   * The main file for Lab Manual will be `lab-manual/lab-manual.txt`.
     Each session will be in a separate file and will be included from
@@ -89,7 +89,7 @@ Vijay Kumar <vijaykumar@bravegnu.org>
   * The study material for each lab session will be provided under the
     lab sessions' sub-section.
 
-== Instructor Manual Strcuture
+== Instructor Manual Structure
 
 FIXME
 
@@ -100,7 +100,7 @@ FIXME
     AsciiDoc's User Guide.
 
   * When you refer to filenames, variables, functions, keywords,
-    etc. from your code put them inside backticks like `\`printf()\``
+    etc. from your code put them inside back-ticks like `\`printf()\``
     This will render the text in monospace.
 
 == File Naming Guidelines
