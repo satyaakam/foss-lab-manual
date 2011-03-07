@@ -20,16 +20,21 @@ Vijay Kumar <vijaykumar@bravegnu.org>
 == Lab Manual Structure
 
   * The Lab Manual is split into chapters one for each topic mentioned
-    in the syllabus. The chapter are top level AsciiDoc sections
+    in the syllabus. The chapters are level one sections in
+    AsciiDoc. The following example shows to chapters "Python" and
+    "Perl", as level one sections.
 
 -----
 == Python
 ...
+...
 == Perl
+...
+...
 -----
 
   * Each chapter is split into lab sessions. Each session covers the
-    activity to be performed one 45min lab session.
+    activity to be performed in one 45min lab session.
 
   * The no. of sessions for each topic is mentioned in `sessions.txt`.
     
@@ -71,8 +76,8 @@ Vijay Kumar <vijaykumar@bravegnu.org>
     Each session will be in a separate file and will be included from
     `lab-manual/lab-manual.txt`, using AsciiDoc's `include` macro.
 
-  * The sessions files will be named as
-    <session-name>-<session-no>.txt. Example `python-1.txt`,
+  * The sessions files will be named
+    `<session-name>-<session-no>.txt`. Example `python-1.txt`,
     `kernel-2.txt`.
 
   * Please do not create sub-directories within `lab-manual/`.
@@ -82,7 +87,7 @@ Vijay Kumar <vijaykumar@bravegnu.org>
   * The study material is also structured like the Lab Manual.
 
   * The study material for each lab session will be provided under the
-    sessions' sub-section.
+    lab sessions' sub-section.
 
 == Instructor Manual Strcuture
 
