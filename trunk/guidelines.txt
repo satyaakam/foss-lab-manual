@@ -1,0 +1,142 @@
+FOSS Manual Contribution Guidelines 
+===================================
+Vijay Kumar <vijaykumar@bravegnu.org>
+
+== Top level Structure
+
+  * The manual has been split into three parts
+    - Instructor Manual (dir. `instructor-manual`)
+    - Lab Manual (dir. `lab-manual`)
+    - Study Material (dir. `study-material`)
+
+  * The Instructor Manual is for lecturer handling the lab. Setup to
+    be done in the lab for a certain lab sessions, etc.
+
+  * The Lab Manual is for the student during the lab session.
+
+  * The Study Material will be a collection of reading material, that
+    the student has to read before each lab session.
+
+== Lab Manual Structure
+
+  * The Lab Manual is split into chapters one for each topic mentioned
+    in the syllabus. The chapter are top level AsciiDoc sections
+
+-----
+== Python
+...
+== Perl
+-----
+
+  * Each chapter is split into lab sessions. Each session covers the
+    activity to be performed one 45min lab session.
+
+  * The no. of sessions for each topic is mentioned in `sessions.txt`.
+    
+  * Each session should be a AsciiDoc level-2 section in the
+    `lab-manual/lab-manual.txt`. See the following for an example.
+
+------
+== Python
+=== Session 1
+...
+
+=== Session 2
+...
+------
+
+  * A session should have an objective, which describes what the
+    student will learn by the end of that lab session.
+
+-------
+=== Session 1
+
+==== Objective
+
+  * Learn how to configure an IP network of two computers.
+  * Learn how to configure an IP network involving 2 link layer networks.
+  * Learn how to configure an IP network involving 2 link layer
+    networks and backbone network.
+-------
+
+  * For sessions based on programming languages it is better to have
+    examples and exercises. Detailed explanation of the programming
+    language
+
+  * For sessions involing sequence of commands, list the sequence of
+    instructions be performed, and give exercises to change the
+    sequence in minor ways to acheive different results.
+
+  * The main file for Lab Manual will be `lab-manual/lab-manual.txt`.
+    Each session will be in a separate file and will be included from
+    `lab-manual/lab-manual.txt`, using AsciiDoc's `include` macro.
+
+  * The sessions files will be named as
+    <session-name>-<session-no>.txt. Example `python-1.txt`,
+    `kernel-2.txt`.
+
+  * Please do not create sub-directories within `lab-manual/`.
+
+== Study Material Structure
+
+  * The study material is also structured like the Lab Manual.
+
+  * The study material for each lab session will be provided under the
+    sessions' sub-section.
+
+== Instructor Manual Strcuture
+
+FIXME
+
+== Formatting
+
+  * The manual is to be written in AsciiDoc format. Please see
+    http://www.methods.co.nz/asciidoc/userguide.html for the
+    AsciiDoc's User Guide.
+
+  * When you refer to filenames, variables, functions, keywords,
+    etc. from your code put them inside backticks like `\`printf()\``
+    This will render the text in monospace.
+
+== File Naming Guidelines
+
+   * File names should be all lower case. Keeping the files in the
+     same case helps. 
+  
+   * Words in the filename are to be separated by a hyphen. The hyphen
+     is preferred over space, underscore and camel-casing.
+
+   * Please avoid spaces in filenames.
+
+== Coding Standard
+
+   * Please follow the appropriate coding standards, while writing
+     example code.
+
+   * For Python code, Python's PEP 8 coding style will be used. The
+     coding style document can be accessed from
+     http://www.python.org/dev/peps/pep-0008/
+
+   * For C code, the Linux kernel coding style will be used. The
+     coding style document is available in the Linux kernel source
+     tree. It can also be accessed from
+     http://lxr.linux.no/linux/Documentation/CodingStyle
+
+   * For PHP code, FIXME: I am not sure. How about
+     http://pear.php.net/manual/en/standards.php ?
+
+   * For Perl code, the coding standard mentioned in the Perl style
+     guide will be used. The document can be accessed from
+     http://perldoc.perl.org/perlstyle.html will be used.
+
+== Contributing
+
+  * Before writing for a session in the manual. Please send a mail to
+    foss-lab-manual-dev@googlegroups.com mailing list with the
+    objectives of the session, a gist of the examples and exercises to
+    be provided. Ask for feedback, discuss it over and then move on to
+    writing the session.
+
+  * Please do not commit generated files to SVN. Only the AsciiDoc
+    text file should be committed the HTML file *should* not be
+    committed to SVN.
