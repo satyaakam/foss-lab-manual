@@ -415,3 +415,4 @@ while ($row = mysql_fetch_array($result, MYSQL_BOTH)) {
 
 ?>
 ----------
+This method is just a combination of `mysql_fetch_row` and `mysql_fetch_assoc`.
