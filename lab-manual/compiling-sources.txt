@@ -1,4 +1,14 @@
 == Compiling From Source ==
+--
+Most open source projects uses a build-system to compile their source files. Here is the
+list of popular build-systems used by various open source projects.
+
+    * GNU Build System (Used by Kernel.org, freedesktop.org, X.org, Gnome etc.,)
+    * Cmake (used by most of the projects in KDE environment and by KDE itself)
+    * Ant (popular build system for Java)
+    * SCons (used by Blender project)
+    * Ninja (incremental build system for chromium project by google)
+--
 
 == GNU Build System ==
 
@@ -60,7 +70,7 @@ Installing GNU Build system::
 -----------------------------------------
 --
 
-Steps to compile autotools compatable project::
+Steps to compile autotools compatible Project::
 --
     * Example for download, untar and compile
 ------------------------------------------------------------------
@@ -84,7 +94,7 @@ you may find 'autogen.sh'. Executing 'autogen.sh' will automatically run
 autotools commands in proper order to generate 'configure' script
 --
 
-Steps to create autotools compatable project (with simple c project)::
+Steps to create autotools compatible C Project::
 --
     * create project directory and switch to that directory
 --------------------------
@@ -206,9 +216,140 @@ Steps to create autotools compatable project (with simple c project)::
 --------------------
         $ make clean
 --------------------
+    * generate bz2 distribution tarball (helloworld-0.1.bz2)
+-------------------------
+        $ make dist-bzip2
+-------------------------
 --
 
 Reference::
     * http://sources.redhat.com/autobook/ [AutoBook, by Gary V. Vaughan, Ben Elliston, Tom Tromey and Ian Lance Taylor]
     * http://www.seul.org/docs/autotut/ [autotut: Using GNU auto{conf,make,header}, by Felipe Bergo]
     * http://www.network-theory.co.uk/docs/gccintro/ [An Introduction to GCC, by Brian J. Gough]
+
+== CMake ==
+--
+Python programs to build, test and package source files.
+
+    * 'cmake' will generate host specific build files to compile sources
+    * 'ctest' is used to test generated output executables
+    * 'cpack' is used to pack generated executables into various formats
+--
+
+Installing CMake::
+--
+    * Installing in RedHat (may work in Fedora, CenOS, SuSE etc.,)
+---------------------------
+        # yum install cmake
+---------------------------
+    * Installing in Debian (may work in Ubuntu, Mint, Knoppix etc.,)
+-------------------------------
+        # apt-get install cmake
+-------------------------------
+--
+
+Steps to compile CMake compatible Project::
+--
+    * Example for download, untar and compile
+-------------------------
+        $ wget FIXME
+	$ tar -xvzf FIXME
+	$ cd FIXME
+	$ cmake .
+	$ make all
+	# make install
+-------------------------
+    * Example for checkout and compile
+-------------------------
+        $ git clone FIXME
+	$ cd FIXME
+	$ cmake .
+	$ make all
+	# make install
+-------------------------
+--
+
+Steps to create CMake compatible C++ Project::
+--
+    * create project directory and switch to that directory
+--------------------------
+        $ mkdir helloworld
+	$ cd helloworld
+--------------------------
+    * create 'helloworld.h'
+-----------------------------------
+        #ifndef __HELLOWORLD__
+        #define __HELLOWORLD__
+        
+        #define GNU_SOURCE
+        #include <iostream>
+        
+        class helloworld
+        {
+         public:
+          void print(void);
+        };
+        
+        #endif /* __HELLOWORLD__ */
+-----------------------------------
+    * create 'helloworld.cpp'
+--------------------------------------------------
+        #include <helloworld.h>
+        
+        void helloworld::print(void)
+        {
+          std::cout << "hello world" << std::endl;
+        }
+--------------------------------------------------
+    * create 'main.cpp'
+----------------------------------------
+        #include <helloworld.h>
+        
+        int main(int argc, char *argv[])
+        {
+          helloworld hobject;
+          hobject.print();
+          return(0);
+        }
+----------------------------------------
+    * create 'CMakeLists.txt'
+--------------------------------------------------------------------------------
+        project(helloworld)
+        cmake_minimum_required(VERSION 2.8)
+        include_directories(${helloworld_SOURCE_DIR})
+        add_executable(helloworld main.cpp helloworld.cpp helloworld.h)
+        set_target_properties(helloworld PROPERTIES COMPILE_FLAGS "-Wall -ggdb")
+        install(PROGRAMS helloworld DESTINATION bin)
+	include(CPack)
+--------------------------------------------------------------------------------
+    * compile
+------------------
+        $ cmake .
+	$ make all
+------------------
+    * execute
+----------------------
+        $ ./helloworld
+----------------------
+    * install
+----------------------
+	# make install
+----------------------
+    * uninstall
+------------------------
+        # make uninstall
+------------------------
+    * clean for recompiling (removing .o object files and temporary files)
+--------------------
+        $ make clean
+--------------------
+    * generate bz2 distribution tarball ('helloworld-0.1.1.bz2')
+-----------------------
+        $ cpack -G TBZ2
+-----------------------
+--
+
+Reference::
+    * http://www.cmake.org/cmake/help/documentation.html [CMake Documentation]
+    * http://www.cmake.org/cmake/help/cmake_tutorial.html [CMake Tutorial]
+    * http://techbase.kde.org/Development/Tutorials/CMake [CMake Tutorial from KDE]
