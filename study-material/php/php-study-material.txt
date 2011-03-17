@@ -93,12 +93,13 @@ In PHP, we can print the output in a variety of ways. Let's have a look at the 3
 * `printf` - outputs *a formatted string* (similar to the `printf` 'in C')
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 === echo ===
 * A language construct that outputs *one or more strings*.
 * This is not a function and parentheses are optional.
 * It can be written in shorthand as an equal sign following the opening tag. (e.g. `<?=$foo?>`)
 
-==== Example ====
+Example:
 ----------
 <?php
 
@@ -113,7 +114,7 @@ echo 'This ' . 'string ' . 'was ' . 'made ' . 'with concatenation.' . "\n";
 * A language construct that outputs *a string*.
 * This is not a function and parentheses are optional, but this behaves more like a function than `echo` in some context.
 
-==== Example ====
+Example:
 ----------
 <?php
 
@@ -126,6 +127,7 @@ print ('Another sample output :-)');
 
 == Interleaved HTML ==
 A single PHP file can contain multiple blocks of PHP code, with HTML interleaved among them (optional). Each block should be enclosed within the delimitting characters (`<?php` and `?>`)
+
 Example:
 ------------
 <?php
@@ -142,6 +144,7 @@ echo "Second PHP segment";
 ------------
 
 == Variables ==
+
 * Variables in PHP are represented by a dollar sign (`$`) followed by the name of the variable.
 * Variable names are case-sensitive.
 * Variables are typeless in PHP. i.e, there is no need to specify datatype explicitly.
@@ -159,7 +162,9 @@ NOTE: All the above statements have the same syntax as in 'C/C++'.
 ===========
 
 === The `if` statement ===
-==== Example: ====
+
+Example:
+
 ----------
 <?php
 $d=date("D");
@@ -169,7 +174,9 @@ echo "Have a nice weekend!";
 ----------
 
 === The `if..else` statement ===
-==== Example: ====
+
+Example:
+
 ----------
 <?php
 $d=date("D");
@@ -181,7 +188,9 @@ else
 ----------
 
 === The `if..elseif..else` statement ===
-==== Example: ====
+
+Example:
+
 ----------
 <?php
 $d=date("D");
@@ -198,7 +207,7 @@ if ($d=="Fri") {
 === The  `switch` statement ===
 The difference from the `switch` in 'C' is that the values given at `case` are not restricted to `int` and `char`; it can also be `string`.
 
-==== Example: ====
+Example:
 --------------
 <?php
 switch ($i) {
@@ -228,7 +237,7 @@ NOTE: All the above statements, except the `foreach` loop have the same syntax a
 ===========
 
 === The `for` loop ===
-==== Example: ====
+Example:
 -----------
 <?
 for ($i=1; $i<=5; $i++) {
@@ -240,7 +249,7 @@ for ($i=1; $i<=5; $i++) {
 === The `foreach` loop ===
 The foreach loop is used to loop through arrays.
 
-==== Syntax: ====
+Syntax:
 ------------
 foreach ($array as $value) {
     code to be executed;
@@ -248,7 +257,7 @@ foreach ($array as $value) {
 ------------
 For every loop iteration, the value of the current array element is assigned to $value (and the array pointer is moved by one) - so on the next loop iteration, you'll be looking at the next array value.
 
-==== Example: ====
+Example:
 
 ----------
 <?php
@@ -259,7 +268,7 @@ foreach ($x as $value) {
 ?>
 ----------
 
-==== Output: ====
+Output:
 ----------
 one
 two
@@ -267,7 +276,7 @@ three
 ----------
 
 === The `while` loop ===
-==== Example: ====
+Example:
 -----------
 <?php
 $i=1;
@@ -279,7 +288,7 @@ while($i<=5) {
 -----------
 
 === The `do..while` loop ===
-==== Example: ====
+Example:
 -----------
 <?php
 $i=1;
@@ -302,7 +311,9 @@ Let us first look at a sample form. For the sake of simplicity, only the form is
 When the form is submitted, the file `reg_db.php` is supposed to handle the form input (more likely to validate and insert them into database). For the sake of sake of explanation, let us leave the validation part as of now.
 
 === Getting the form data ===
-The form input can be retrieved as follows:
+Form data can be sent from the client to the server in two methods: `GET` and `POST`. On the server side, these data are available in associative arrays `$_GET` and `$_POST` respectively. These can be fetched to separate variables for convenience and elegant programming.
+
+Example:
 -------------
 <?php
 
@@ -311,10 +322,22 @@ $lname = $_POST['lastname'];
 
 ?>
 -------------
-Now the variables `$fname` and `$lname` have the values entered in the fields with name `firstname` and `lastname` respectively.
+
+In the above example, the variables `$fname` and `$lname` have the values entered in the fields with name `firstname` and `lastname` respectively. The `GET` data can be fetched similarly, as shown below.
+
+Example:
+-----------------
+<?php
+
+$fname = $_GET['firstname'];
+$lname = $_GET['lastname'];
+
+?>
+-------------
 
 == Connecting to database ==
 Though PHP can connect to various DBMS systems, it's used with *MySQL* more than with any other. Connecting to MySQL database is a matter of two lines of code, as seen in the following example.
+
 ---------
 <?php
 
@@ -336,6 +359,7 @@ The function `mysql_select_db` selects the database to be used.
 
 == Executing queries and fetching results ==
 Having established the connection and chosen the database, we can go ahead with executing queries as follows:
+
 ---------
 <?php
 
@@ -363,7 +387,8 @@ When the query returns some result (e.g. `select`), the function returns a 'reso
 === `mysql_fetch_row()` ===
 Gets a result row as an enumerated array.
 
-==== Example ====
+Example:
+
 ----------
 <?php
 
@@ -381,7 +406,8 @@ while ($row=mysql_fetch_row($result)) {
 === `mysql_fetch_assoc()` ===
 Fetches a result row as an associative array.
 
-==== Example: ====
+Example:
+
 ----------
 <?php
 
@@ -398,7 +424,8 @@ while ($row = mysql_fetch_assoc($result)) {
 === `mysql_fetch_array()` ===
 Fetches a result row as an associative array, a numeric array, or both.
 
-==== Example: ====
+Example:
+
 ----------
 <?php
 
@@ -415,4 +442,6 @@ while ($row = mysql_fetch_array($result, MYSQL_BOTH)) {
 
 ?>
 ----------
+
 This method is just a combination of `mysql_fetch_row` and `mysql_fetch_assoc`.
+
