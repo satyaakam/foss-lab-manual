@@ -1,7 +1,7 @@
 == Compiling From Source ==
 --
 Most open source projects uses a build-system to compile their source files. Here is the
-list of popular build-systems used by various open source projects.
+list of popular build-systems.
 
     * GNU Build System (Used by Kernel.org, freedesktop.org, X.org, Gnome etc.,)
     * Cmake (used by most of the projects in KDE environment and by KDE itself)
@@ -336,9 +336,8 @@ Steps to create CMake compatible C++ Project::
 	# make install
 ----------------------
     * uninstall
-------------------------
-        # make uninstall
-------------------------
+        ** CMake will not provide 'uninstall' target by default.
+        ** Check this link for more details http://www.cmake.org/Wiki/CMake_FAQ#Can_I_do_.22make_uninstall.22_with_CMake.3F
     * clean for recompiling (removing .o object files and temporary files)
 --------------------
         $ make clean
