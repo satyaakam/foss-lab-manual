@@ -1,7 +1,9 @@
-Opensource Lab Manual
-=====================
+Open Source Lab 
+===============
 
 == Getting Started
+
+FIXME
 
 == Python
 
@@ -9,16 +11,14 @@ FIXME
 
 == GUI Programming
 
-One of the following
-FIXME: GUI Programming with Gambas
-FIXME: GUI Programming with Python
+FIXME
 
-== Virtualization 
+== Virtualization
 
-FIXME: VirtualBox
-FIXME: Qemu
+include::virt-1.txt[]
+include::virt-2.txt[]
 
-== Installing Various Software Packages
+== Packages
 
 FIXME
 
@@ -26,11 +26,11 @@ FIXME
 
 FIXME
 
-== Introduction to Package Management System
+== Package Management System
 
 FIXME
 
-== Version Control System
+== Version Control Systems
 
 FIXME
 
@@ -39,9 +39,10 @@ FIXME
 FIXME
 
 == Perl
+
 FIXME
 
-== Setting up the complete Network
+== Networking
 
 FIXME
 
@@ -49,6 +50,6 @@ FIXME
 
 FIXME
 
-== Kernel Configuration, Compilation and Installation
+== Kernel
 
 FIXME
