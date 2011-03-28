@@ -1,0 +1,135 @@
+=== Virtualization Lab 2
+
+==== Objective
+
+Learn how to share and transfer files between the host and the guest.
+
+==== Transferring Files 
+
+.Step 1: Boot the Linux guest system.
+
+Boot the Linux guest with disk image from http://fosslab/linux.qcow2.
+
+.Step 2: Transfer files using `scp`.
+
+Qemu simulates a network between the host and the guest. The host has
+a network address of `10.0.2.2`. Files can be transferred from the
+host to the guest and vice-versa using the `scp` command. The
+`/etc/passwd` file on the host can be transferred to the guest using
+the following command in the guest.
+
+------
+[guest]$ scp user@10.0.2.2:/etc/passwd .
+------
+
+Replace `user` with your user-name on the host system.
+
+.Step 3: Mount a remote folder using SSH Filesystem.
+
+Though files can be transferred using `scp`, it would be more
+convenient if a host folder can be shared between the host and the
+guest. The FUSE based SSH Filesystem, can be used to mount a remote
+folder locally. The home folder in the host can be mounted in the
+guest using the following command sequence. 
+
+------
+[guest]$ mkdir host-home
+[guest]$ sshfs user@10.0.2.2: host-home
+------
+
+The host files are visible in the guest and all changes made in the
+guest are immediately reflected in the host.
+
+==== Modifying Raw Images
+
+.Step 1: Ensure guest is not booted.
+
+Get the disk image from http://fosslab/freedos.img. Disk images should
+not be modified when they are in use by a guest system. Make sure
+there are no guest systems using the disk image.
+
+.Step 2: Determine the partition offset.
+
+The disk image usually has partitions within it. Determine the
+partition offsets using the `fdisk` command. Specify the disk image as
+argument. Specify the `-l` option to list the partitions. Specify the
+`-u` option to specify the partition offsets in sectors.
+
+------
+[host]$ /sbin/fdisk -l -u freedos.img
+You must set cylinders.
+You can do this from the extra functions menu.
+
+Disk hd.img: 0 MB, 0 bytes
+16 heads, 63 sectors/track, 0 cylinders, total 0 sectors
+Units = sectors of 1 * 512 = 512 bytes
+
+ Device Boot      Start         End      Blocks   Id  System
+hd.img1   *          63      204623      102280+   e  W95 FAT16 (LBA)
+------
+
+The offset of the partition in bytes is specified in
+sectors. Calculate the byte offset by multiplying the offset by the
+size of a sector (512 bytes). `63 * 512 = 32256`.
+
+.Step 3: Associate the partition to a loopback device.
+
+Associate a partition in the disk image to a loopback device using the
+`losetup` command. Specify the loopback device file and the raw disk
+image file as arguments. Specify the partition offset using `--offset`
+option. The option accepts the offset in bytes.
+
+------
+[host]$ losetup --offset=32256 /dev/loop0 freedos.img
+------
+
+.Step 4: Mount the loopback device.
+
+Create a mount point and mount the loopback device using the mount
+command.
+
+------
+[host]$ mkdir raw-contents
+[host]$ mount /dev/loop0 raw-contents
+------
+
+==== Modifying Qcow2 Images
+
+.Step 1: Ensure guest is not booted.
+
+Get the disk image from http://fosslab/freedos.qcow2. Disk images
+should not be modified when they are in use by a guest system. Make
+sure there are no guest systems using the disk image.
+
+.Step 2: Serve the image as a block device.
+
+Expose a partition in the `qcow2` image as a block device using the
+`qemu-nbd` command. Specify the disk image as argument to
+`qemu-nbd`. Specify the partition to be exposed using the
+`--partition` option. The option accepts the partition no. as
+argument. Specify the port to listen on using the `--port` option. The
+option accepts the port no. as argument. The default port is 1024.
+
+------
+[host]$ qemu-nbd --persistent --partition=1 linux.qcow2 &
+------
+
+.Step 3: Use the exposed block device
+
+Associate the exposed block device with a Network Block Device using
+the `nbd-client`. Pass the server host, server port and an nbd device
+file as argument to `nbd-client`.
+
+------
+[host]$ nbd-client localhost 1024 /dev/nbd0
+------
+
+.Step 4: Mount the block device
+
+Create a mount point and mount the network block device using the
+`mount` command.
+
+------
+[host]$ mkdir qcow2-contents
+[host]$ mount /dev/nbd0 qcow2-contents
+------
