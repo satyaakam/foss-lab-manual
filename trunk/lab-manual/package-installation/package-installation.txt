@@ -2,6 +2,11 @@
 
 Authors - dhilip.jec@gmail.com, sagarun@gmail.com
 
+== Objectives
+
+Introduce packages and package managements systems to students.
+
+
 == Prerequisites
 
 1. The student should be able to work in a terminal and familiar with Linux command line
@@ -97,6 +102,8 @@ Installed:
 Complete!
 ----------------------------
 
+After installing the package, check whether the it is working my typing 'sl'
+
 == Uninstall a package
 
 Lets try removing the package,
@@ -190,7 +197,7 @@ yum -y update
 
 == Conclusion
 
-In this lab session, we learnt what is a package and how to do basic operations with package manager.
+In this lab session, we learnt how to use package manager to manage various packages in Linux.
 
 == References
 * http://www.rpm.org/max-rpm/
