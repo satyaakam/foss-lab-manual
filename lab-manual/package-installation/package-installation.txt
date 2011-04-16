@@ -1,49 +1,196 @@
 == Managing Packages With Yum
 
-Author - dhilip.jec@gmail.com
+Authors - dhilip.jec@gmail.com, sagarun@gmail.com
+
+== Prerequisites
+
+1. The student should be able to work in a terminal and familiar with Linux command line
+2. The student should have some knowledge on compiling software and installing them in Linux (not mandatory, recommended)
 
 
-There are numerous package managers available for Linux systems. Several of the package managers offer graphical front-ends, contain search capabilities, allow updates to be installed from remote locations, and provide E-mail notifications when new packages are available. One package manager that provides all of these capabilities is YUM __(YellowDog Updater Modified)__. This manual will provide an introduction to package management with yum.
+== Background
 
-== Configuring yum
+In the beginning systems administrators and users have to install new applications and utlities in Linux by compiling them from source. Compiling software and 
+installing them from source has lot of draw backs. I have listed some of them below, 
 
-Yum reads it's configuration from one or more configuration files. 
+1. The user/administrator has to install necessary dependend libraries and other helper software before actually compiling and installing the application from source
+2. It is difficult to keep track the software installed on a system
+3. It is difficult to remove the software once installed from the source. 
+4. It is difficult to keep them updated
 
-The main configuration file is typically stored in __ /etc/yum.conf__, and contains the default settings to use when retrieving and intalling packages. A sample configuration file from a CentOS 5.5 server is shown below:
+
+Enter packages and package management. The biggest advantage of package is, it knows the steps needed to install/uninstall itself on your system. 
+What used to be a painful manual process is now a straightforward procedure. What used to be a mass of 20,000 files becomes a couple hundred packages.
+A package manager keep tracks of the packages installed. It also keep tracks of what is inside a package.
 
 
-----------
-$cat /etc/yum.conf 
-[main]
-cachedir=/var/cache/yum
-keepcache=0
-debuglevel=2
-logfile=/var/log/yum.log
-distroverpkg=redhat-release
-tolerant=1
-exactarch=1
-obsoletes=1
-gpgcheck=1
-plugins=1
+For example the following command lists the files installed  by a particular package (in our case the kernel) on your system,
+--------------------
+rpm -qil kernel
+-------------------
+ 
 
-# Note: yum-RHN-plugin doesn't honor this.
-metadata_expire=1h
+Package is a prebuilt opensource component. Normally 'package maintainer' of an application creates the package. If you are curious about how to create a package 
+have a look at http://fedoraproject.org/wiki/PackageMaintainers/CreatingPackageHowTo . Once the package is created, it is  published to centralized location 
+called 'repository'. Repositories hold collection of packages and their metadata (metadata holds data about the packages available).
+ 
 
-# Default.
-# installonly_limit = 3
+In a modern Linux distributions like Fedora, Debian, Centos, operations(update,remove,install) on a package can be initated by just specifying operation and 
+the package name. The package manager will take care of all the dirty details.
 
-# PUT YOUR REPOS HERE OR IN separate fil
-----------
 
-In addition to the main yum.conf configuration file which is described in the yum.conf manual page, yum will look for remote repository definitions in the directory /etc/yum.repos.d. 
+There are numerous package managers available for Linux systems. Several of the package managers offer graphical front-ends, contain search capabilities, 
+allow updates to be installed from remote locations, and provide E-mail notifications when new packages are available. One package manager that provides all of these 
+capabilities is YUM __(YellowDog Updater Modified)__. This manual will provide an introduction to package management with yum.
 
-------
-[base]
-name=CentOS-$releasever - Base
-mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
-#baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/
-gpgcheck=1
-gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-centos4
-------
 
-Each repository definition starts with a descriptive name that is enclosed in brackets. Inside each repository definition stanza is a line with a descriptive name, a flag to indicate if GPG signatures should be checked, and the locations to retrieve updates and the GPG keys that are used to sign the updates. Variables can be be used in URLs, and in the example above the $releasever and $basearch variables are used to reference the Operating System release and the file system base where updates are located.
+== Installing software using yum
+
+Before installing software using yum,
+
+1. Make sure that your internet/network connection is working
+2. If you are behind a proxy server, add __proxy=http://IPAddress:Port__ at the end of yum configuration file __/etc/yum.conf__
+3. Make sure that you have appropriate permission to install the package (ask your system administrator)
+
+Enough talk, lets install a package. Enter the following command,
+
+--------------------------------
+yum install sl
+--------------------------------
+
+Press 'y' when the command asks your confirmation, The output of the command should be
+
+-------------------------------
+[root@gnubox lab-manual]# yum install sl
+Loaded plugins: presto, refresh-packagekit
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package sl.i686 0:3.03-9.fc12 set to be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================
+ Package                             Arch                                  Version                                        Repository             
+================================================================================================================================================
+Installing:
+ sl                                  i686                                  3.03-9.fc12                                    fedora                
+
+Transaction Summary
+=================================================================================================================================================
+Install       1 Package(s)
+
+Total size: 11 k
+Installed size: 11 k
+Is this ok [y/N]: y
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : sl-3.03-9.fc12.i686                                                                                                                              1/1 
+
+Installed:
+  sl.i686 0:3.03-9.fc12                                                                                                                                               
+
+Complete!
+----------------------------
+
+== Uninstall a package
+
+Lets try removing the package,
+
+--------------------------
+yum -y remove sl
+-------------------------
+
+Note the '-y' option in the command, it instructs the 'yum' to assume 'yes'(y) to all the questions, You don't have to press the 'y' key.
+
+---------------------------------
+[root@gnubox package-installation]# yum remove sl
+Loaded plugins: presto, refresh-packagekit
+Setting up Remove Process
+Resolving Dependencies
+--> Running transaction check
+---> Package sl.i686 0:3.03-9.fc12 set to be erased
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+======================================================================================================================================
+ Package                             Arch                                  Version                                       Repository   
+======================================================================================================================================
+Removing:
+ sl                                  i686                                  3.03-9.fc12                                   @fedora      
+
+Transaction Summary
+======================================================================================================================================
+Remove        1 Package(s)
+
+Installed size: 11 k
+Is this ok [y/N]: y
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Erasing        : sl-3.03-9.fc12.i686                                                                               
+
+Removed:
+  sl.i686 0:3.03-9.fc12                                                                                                                                               
+
+Complete!
+[root@gnubox package-installation]# 
+
+-------------------------------------------------
+
+If you closely look at the above output, you can infer that the package 'sl' belongs to repository 'fedora'.
+
+
+== searching for a package
+
+Lets try searching for some games in linux,
+
+---------------------
+yum search game
+--------------------
+
+-------------------------------------------
+[root@gnubox package-installation]# yum search game
+Loaded plugins: presto, refresh-packagekit   
+============================================================================ Matched: game ====================================================
+kdegames.i686 : KDE Games
+kdegames3.i686 : KDE 3 Games not ported to KDE 4
+kdegames-minimal.i686 : Minimal set of KDE Games
+tecnoballz.i686 : A Brick Busting game
+atanks.i686 : Remake of a classic DOS game "Scorched Earth"
+clanbomber.i686 : Lay bombs and Blast the other players of the field game using ClanLib
+puzzles.i686 : A collection of one-player puzzle games
+slingshot.noarch : A Newtonian strategy game
+abe.i686 : Scrolling, platform-jumping, ancient pyramid exploring game
+alienarena.i686 : Multiplayer retro sci-fi deathmatch game
+bsd-games.i686 : Collection of text-based games
+extremetuxracer.i686 : 3D racing game featuring Tux
+freeciv.i686 : A multi-player strategy game
+freecol.noarch : Turn-based multi-player strategy game
+<output snipped for brevity>
+
+-------------------------------------
+
+
+== Updating your system
+
+Updates keeps your software free from bugs and crashes. Lets try updating the packages using package manager yum.
+
+----------------
+yum -y update
+----------------
+
+
+== Conclusion
+
+In this lab session, we learnt what is a package and how to do basic operations with package manager.
+
+== References
+* http://www.rpm.org/max-rpm/
