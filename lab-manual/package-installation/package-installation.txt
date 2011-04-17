@@ -1,6 +1,7 @@
 == Managing Packages With Yum
 
-Authors - dhilip.jec@gmail.com, sagarun@gmail.com
+authors  dhilip.jec@gmail.com, sagarun@gmail.com
+revision 0.3 April 17 2011
 
 == Objectives
 
@@ -155,7 +156,7 @@ Complete!
 If you closely look at the above output, you can infer that the package 'sl' belongs to repository 'fedora'.
 
 
-== searching for a package
+== Searching for a package
 
 Lets try searching for some games in linux,
 
@@ -193,6 +194,67 @@ Updates keeps your software free from bugs and crashes. Lets try updating the pa
 ----------------
 yum -y update
 ----------------
+
+== Lab excercises 
+
+=== Task 1
+
+==== Objective
+
+Make your media players play mp3 files by installing necessary gstreamer plugins
+
+==== Installing gstreamer plugins
+
+.Step 1:  
+
+Make sure rpmfusion-free, rpmfusion-nonfree repositories are enabled
+
+---------------------
+yum repolist enabled
+---------------------
+
+Above command list's the enabled repositories on your system.
+
+-----------------------------------
+[root@gnubox zer0c00l]# yum repolist
+Loaded plugins: presto, refresh-packagekit
+repo id                                                                repo name                                                                               
+Dropbox                                                                Dropbox Repository                                                                      
+adobe-linux-i386                                                       Adobe Systems Incorporated                                                              
+fedora                                                                 Fedora 14 - i386                                                                        
+fedora-firefox4                                                        Firefox 4 Web Browser                                                                   
+google-chrome                                                          google-chrome                                                                           
+livna                                                                  rpm.livna.org for 14 - i386                                                             
+remi                                                                   Les RPM de remi pour Fedora 14 - i386                                                   
+rpmfusion-free                                                         RPM Fusion for Fedora 14 - Free                                                         
+rpmfusion-free-updates                                                 RPM Fusion for Fedora 14 - Free - Updates                                               
+rpmfusion-nonfree                                                      RPM Fusion for Fedora 14 - Nonfree                                                      
+rpmfusion-nonfree-updates                                              RPM Fusion for Fedora 14 - Nonfree - Updates                                            
+updates                                                               Fedora 14 - i386 - Updates                                                             
+repolist: 25,829
+-------------------------------------
+
+.Step 2:
+      
+Enable rpmfusion repositories if they are not enabled
+
+-----------
+rpm -ivh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
+rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+-----------
+
+.Step 3:
+
+Install necessary packages
+
+--------------
+yum -y install gstreamer-plugins-bad gstreamer-plugins-ugly xine-lib-extras-nonfree
+yum -y install xmms,xmms-mp3
+-------------
+
+.Step 4:
+
+Open an audio file and test the installation.
 
 
 == Conclusion
