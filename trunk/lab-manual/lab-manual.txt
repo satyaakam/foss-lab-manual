@@ -7,7 +7,7 @@ FIXME
 
 == Python
 
-FIXME
+include::python-1.txt[]
 
 == GUI Programming
 
