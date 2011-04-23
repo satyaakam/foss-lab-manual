@@ -1,72 +1,73 @@
-= PHP (PHP: Hypertext Preprocessor) =
+PHP (PHP: Hypertext Preprocessor)
+=================================
 
 author viky.nandha@gmail.com
 
-== Prerequisites ==
+== Prerequisites
 . Apache server
 . PHP engine
 
-== Assumptions ==
+== Assumptions
 . It is assumed that above prerequisites are already installed in your system
 . It is assumed that you are running Linux
 . PHP is explained here as a web programming language alone (though it can be used at command line)
 . It is assumed that basic HTML markup is known.
 . It is assumed that C is already known.
 
-=== How to start the Apache server? ===
+=== How to start the Apache server?
 In Debian based systems (Debian, Ubuntu, etc)
--------------
+-----
 # /etc/init.d/apache2 start
--------------
+-----
 In RedHat based systems (RedHat, CentOS Fedora, etc)
-------------
+-----
 # /etc/init.d/httpd start
-------------
+-----
 To ensure that the server is running fine,
 
 * Open a web browser of your choice
-* Enter the URL `*http://localhost/*`
+* Enter the URL `http://localhost/`
 
-You will get a page that says *It works* prominently, followed by some text.
+You will get a page that says "*It works*" prominently, followed by some text.
 
-=== Structure of a PHP program ===
+=== Structure of a PHP program
 * Every php program should be enclosed between `<?php` and `?>`
 * More often `<?` is used as a shorthand of the starting delimitter `<?php`.
 * HTML code can be written interleaved within PHP code.
 
-== Conventional 'Hello world!' program ==
----------------
+== Conventional 'Hello world!' program
+-----
 <?php
 
 echo "Hello world!";
 
 ?>
----------------
+-----
 
-=== A closer look ===
+=== A closer look
 * echo is a 'language construct' (note that it is not a function, unlike `printf` in C)
 * 'Strings' can be enclosed within 'single' or _double quotes_
 * Each statement should end with a semicolon (`;`).
 
-=== Where to save the file? ===
+=== Where to save the file?
 * All the files should be stored inside */var/www*. (It is the root directory for the Apache server).
 * You can also store the files in subfolders inside it.
 * The filename should have the extension `.php`
 Let us store the above program as 'hello.php' in a folder named 'sandbox' inside '/var/www/'. i.e, the file is at '/var/www/sandbox/hello.php'.
 
-=== How to run the program? ===
+=== How to run the program?
 * Open a web browser of your choice
 * Enter the URL `http://localhost/sandbox/hello.php`
 * Now you should get 'Hello world!' in your browser.
 
-== Comments ==
+== Comments
 PHP supports 'C', 'C++' and Unix shell-style (Perl style) comments.
 
 * Single line comments start with `//` or `#`. i.e, All text from `//` till end of line is treated as comment.
 * Multiline comments are enclosed betweem /* and */.
 
-Example:
--------------
+*Example:*
+-----
 <?php
 
 //This is a single line comment.
@@ -79,13 +80,13 @@ multiline
 comment. */
 
 ?>
------------
+-----
 
 ==========
 WARNING: Nesting comments may cause problems.
 ===========
 
-== Printing output ==
+== Printing output
 In PHP, we can print the output in a variety of ways. Let's have a look at the 3 most common ways:
 
 * `echo` - outputs *one or more strings*
@@ -94,13 +95,13 @@ In PHP, we can print the output in a variety of ways. Let's have a look at the 3
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-=== echo ===
+=== echo
 * A language construct that outputs *one or more strings*.
 * This is not a function and parentheses are optional.
 * It can be written in shorthand as an equal sign following the opening tag. (e.g. `<?=$foo?>`)
 
-Example:
-----------
+*Example:*
+-----
 <?php
 
 echo "This string was made with single parameter";
@@ -108,28 +109,28 @@ echo 'This ', 'string ', 'was ', 'made ', 'with multiple parameters.';
 echo 'This ' . 'string ' . 'was ' . 'made ' . 'with concatenation.' . "\n";
 
 ?>
-----------
+-----
 
-=== print ===
+=== print
 * A language construct that outputs *a string*.
 * This is not a function and parentheses are optional, but this behaves more like a function than `echo` in some context.
 
-Example:
-----------
+*Example:*
+-----
 <?php
 
 print 'Sample output :-)';
 print ('Another sample output :-)');
 
 ?>
-----------
+-----
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-== Interleaved HTML ==
+== Interleaved HTML
 A single PHP file can contain multiple blocks of PHP code, with HTML interleaved among them (optional). Each block should be enclosed within the delimitting characters (`<?php` and `?>`)
 
-Example:
-------------
+*Example:*
+-----
 <?php
 echo "First PHP segment";
 ?>
@@ -141,15 +142,15 @@ echo "Second PHP segment";
 ?>
 
 <br>Second HTML segment.<br>
-------------
+-----
 
-== Variables ==
+== Variables
 
 * Variables in PHP are represented by a dollar sign (`$`) followed by the name of the variable.
 * Variable names are case-sensitive.
 * Variables are typeless in PHP. i.e, there is no need to specify datatype explicitly.
 
-== Conditional statements ==
+== Conditional statements
 In PHP we have the following conditional statements:
 
 * if statement - use this statement to execute some code only if a specified condition is true
@@ -161,23 +162,23 @@ In PHP we have the following conditional statements:
 NOTE: All the above statements have the same syntax as in 'C/C++'.
 ===========
 
-=== The `if` statement ===
+=== The `if` statement
 
-Example:
+*Example:*
 
-----------
+-----
 <?php
 $d=date("D");
 if ($d=="Fri")
 echo "Have a nice weekend!";
 ?>
-----------
+-----
 
-=== The `if..else` statement ===
+=== The `if..else` statement
 
-Example:
+*Example:*
 
-----------
+-----
 <?php
 $d=date("D");
 if ($d=="Fri")
@@ -185,13 +186,13 @@ if ($d=="Fri")
 else
     echo "Have a nice day!";
 ?>
-----------
+-----
 
-=== The `if..elseif..else` statement ===
+=== The `if..elseif..else` statement
 
-Example:
+*Example:*
 
-----------
+-----
 <?php
 $d=date("D");
 if ($d=="Fri") {
@@ -202,13 +203,13 @@ if ($d=="Fri") {
     echo "Have a nice day!";
 }
 ?>
-----------
+-----
 
-=== The  `switch` statement ===
+=== The  `switch` statement
 The difference from the `switch` in 'C' is that the values given at `case` are not restricted to `int` and `char`; it can also be `string`.
 
-Example:
---------------
+*Example:*
+-----
 <?php
 switch ($i) {
     case "apple":
@@ -222,9 +223,9 @@ switch ($i) {
         break;
 }
 ?>
--------------
+-----
 
-== Loops ==
+== Loops
 In PHP we have the following conditional statements:
 
 * `for` loop
@@ -236,48 +237,50 @@ In PHP we have the following conditional statements:
 NOTE: All the above statements, except the `foreach` loop have the same syntax as in 'C/C++'.
 ===========
 
-=== The `for` loop ===
-Example:
------------
+=== The `for` loop
+*Example:*
+-----
 <?
 for ($i=1; $i<=5; $i++) {
     echo "The number is " . $i . "<br />";
 }
 ?>
------------
+-----
 
-=== The `foreach` loop ===
+=== The `foreach` loop
 The foreach loop is used to loop through arrays.
 
 Syntax:
-------------
+
+-----
 foreach ($array as $value) {
     code to be executed;
 }
-------------
+-----
 For every loop iteration, the value of the current array element is assigned to $value (and the array pointer is moved by one) - so on the next loop iteration, you'll be looking at the next array value.
 
-Example:
+*Example:*
 
-----------
+-----
 <?php
 $x=array("one","two","three");
 foreach ($x as $value) {
     echo $value . "<br />";
 }
 ?>
-----------
+-----
 
 Output:
-----------
+
+-----
 one
 two
 three
-----------
+-----
 
-=== The `while` loop ===
-Example:
------------
+=== The `while` loop
+*Example:*
+-----
 <?php
 $i=1;
 while($i<=5) {
@@ -285,11 +288,11 @@ while($i<=5) {
     $i++;
 }
 ?>
------------
+-----
 
-=== The `do..while` loop ===
-Example:
------------
+=== The `do..while` loop
+*Example:*
+-----
 <?php
 $i=1;
 do {
@@ -297,55 +300,55 @@ do {
     echo "The number is " . $i . "<br />";
 } while ($i<=5);
 ?>
------------
+-----
 
-== Form processing ==
+== Form processing
 Let us first look at a sample form. For the sake of simplicity, only the form is given here rather than the entire HTML document.
---------------
+-----
 <form action="reg_db.php" method="POST">
     <label>First name:<input type="text" name="firstname"></label>
     <label>Second name:<input type="text" name="secondname"></label>
     <input type="submit" value="Submit">
 </form>
---------------
+-----
 When the form is submitted, the file `reg_db.php` is supposed to handle the form input (more likely to validate and insert them into database). For the sake of sake of explanation, let us leave the validation part as of now.
 
-=== Getting the form data ===
+=== Getting the form data
 Form data can be sent from the client to the server in two methods: `GET` and `POST`. On the server side, these data are available in associative arrays `$_GET` and `$_POST` respectively. These can be fetched to separate variables for convenience and elegant programming.
 
-Example:
--------------
+*Example:*
+-----
 <?php
 
 $fname = $_POST['firstname'];
 $lname = $_POST['lastname'];
 
 ?>
--------------
+-----
 
 In the above example, the variables `$fname` and `$lname` have the values entered in the fields with name `firstname` and `lastname` respectively. The `GET` data can be fetched similarly, as shown below.
 
-Example:
------------------
+*Example:*
+-----
 <?php
 
 $fname = $_GET['firstname'];
 $lname = $_GET['lastname'];
 
 ?>
--------------
+-----
 
-== Connecting to database ==
+== Connecting to database
 Though PHP can connect to various DBMS systems, it's used with *MySQL* more than with any other. Connecting to MySQL database is a matter of two lines of code, as seen in the following example.
 
----------
+-----
 <?php
 
 $conn = mysql_connect('localhost', 'root', 'rootpassword') or die("Could not connect to database!");
 $db = mysql_select_db('mydatabase',$conn);
 
 ?>
----------
+-----
 
 The function `mysql_connect` creates a connection to the database.
 
@@ -357,21 +360,21 @@ The function `mysql_select_db` selects the database to be used.
 * The first argument is the name of the database to be used.
 * The second argument is the link identifier and is *optional*. By default it takes the last connection opened using `mysql_connect`.
 
-== Executing queries and fetching results ==
+== Executing queries and fetching results
 Having established the connection and chosen the database, we can go ahead with executing queries as follows:
 
----------
+-----
 <?php
 
 $mysql_query("some query",$conn);
 
 ?>
----------
+-----
 
-Here also, the second argument is optional. When the query returns no results (e.g. `insert`,`update`), the function returns just a `bool` value indicating if it was executed successfully.
+Here also, the second argument is optional. When the query returns no results (e.g. `insert`, `update`), the function returns just a `bool` value indicating if it was executed successfully.
 
-Example:
------------
+*Example:*
+-----
 <?php
 
 $result = mysql_query("INSERT INTO users VALUES('$fname','$lname')");
@@ -380,16 +383,16 @@ if(!result) {
 }
 
 ?>
------------
+-----
 
 When the query returns some result (e.g. `select`), the function returns a 'resource'. The resource cannot be used as such; we need to fetch the result and manipulate them. This can be done in several ways.
 
-=== `mysql_fetch_row()` ===
+=== `mysql_fetch_row()`
 Gets a result row as an enumerated array.
 
-Example:
+*Example:*
 
-----------
+-----
 <?php
 
 $result = mysql_query("SELECT * FROM users");
@@ -401,14 +404,14 @@ while ($row=mysql_fetch_row($result)) {
 }
 
 ?>
-----------
+-----
 
-=== `mysql_fetch_assoc()` ===
+=== `mysql_fetch_assoc()`
 Fetches a result row as an associative array.
 
-Example:
+*Example:*
 
-----------
+-----
 <?php
 
 $result = mysql_query("SELECT * FROM users");
@@ -419,14 +422,14 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 
 ?>
-----------
+-----
 
-=== `mysql_fetch_array()` ===
+=== `mysql_fetch_array()`
 Fetches a result row as an associative array, a numeric array, or both.
 
-Example:
+*Example:*
 
-----------
+-----
 <?php
 
 $result = mysql_query("SELECT * FROM users");
@@ -441,7 +444,152 @@ while ($row = mysql_fetch_array($result, MYSQL_BOTH)) {
 }
 
 ?>
-----------
+-----
 
 This method is just a combination of `mysql_fetch_row` and `mysql_fetch_assoc`.
 
+== Cookies
+Cookies are a mechanism for storing data in the remote browser and thus tracking or identifying return users.
+
+A cookie can be used for 
+
+* authentication
+* storing site preferences
+* shopping cart contents
+* the identifier for a server-based session (see the next session) or
+* anything else that can be accomplished through storing text data.
+
+A cookie consists of one or more *name-value pairs* containing bits of information.
+
+=== Setting a cookie
+You can set cookies using the `setcookie()` function.
+
+*Example:*
+-----
+setcookie("cookiename","cookievalue");
+-----
+
+Cookies are part of the HTTP header, so `setcookie()` must be called before any output is sent to the browser. However, the setcookie function provides many other optional parameters. The function prototype is as follows:
+ 
+-----
+bool setcookie ( string $name [, string $value [, int $expire = 0 [, string $path [, string $domain [, bool $secure = false [, bool $httponly = false ]]]]]] )
+-----
+
+*Example:*
+-----
+$value = 'something from somewhere';
+
+setcookie("TestCookie", $value);
+setcookie("TestCookie", $value, time()+3600);  /* expire in 1 hour */
+setcookie("TestCookie", $value, time()+3600, "/~rasmus/", ".example.com", 1);
+-----
+
+Here the third parameter denotes the time the cookie expires. This is in number of seconds since the reference time. So it is mostly used with `time()` function plus the number of seconds the cookie has to live.
+
+=== Accessing cookies
+
+Once the cookies have been set, they can be accessed on the next page load with the `$_COOKIE`, `$_REQUEST` and `$HTTP_COOKIE_VARS` arrays. Any cookies sent to you from the client will automatically be included into the `$_COOKIE` auto-global array.
+
+-----
+<?php
+// Print an individual cookie
+echo $_COOKIE["TestCookie"];
+echo $HTTP_COOKIE_VARS["TestCookie"];
+
+// Another way to debug/test is to view all cookies
+print_r($_COOKIE); // print_r displays information about a variable in human-readable form.
+?>
+-----
+
+=== Deleting cookies
+
+The cookies that were set by any means (using PHP or in the client side using Javascript, etc) can be deleted manually by using the same `setcookie()` function. Just set the expiration time to a value that is in the past.
+
+*Example:*
+-----
+// set the expiration date to one hour ago
+setcookie ("TestCookie", "", time() - 3600);
+-----
+
+== Sessions
+
+HTTP is a stateless protocol; i.e, there is no continuity between subsequent HTTP requests. Session management is the technique used by the web developer *to accomplish continuity*. For example, once a user has authenticated oneself to the web server, it should not ask him/her for his/her account and password in the subsequent HTTP requests.
+
+A visitor accessing your web site is assigned a unique id, the so-called session id. This is either stored in a cookie on the user side or is propagated in the URL.
+
+=== Starting a session
+
+To start a new session, simply call the function `session_start()`.
+
+-----
+session_start();
+-----
+
+=== Setting session variables
+
+Session variables are stored in an auto-global array `$_SESSION`. Once the session has been started, the session variables can be set or changed as follows:
+
+-----
+$_SESSION['color'] = 'green';
+$_SESSION['lang']  = 'en';
+$_SESSION['time']  = time();
+-----
+
+=== Naming a session
+
+The sessions can be named using the function `session_name()`. The same function can be used to both set and get the session name.
+
+Syntax:
+
+-----
+string session_name ([ string $name ] )
+-----
+
+`session_name()` returns the name of the current session. If name is given, `session_name()` will update the session name and return the old session name.
+
+*Example:*
+-----
+$previous_name = session_name("WebsiteID");
+$new_name = session_name();
+-----
+
+The function should be called
+* for every request
+* before calling `start_session()`.
+
+*Example:*
+-----
+session_name("SomeName");
+session_start();
+-----
+
+=== Session Id
+A session is identified by a unique identifier called the session id. The session id can be set using the function `session_id()`.
+
+*Example:*
+-----
+$s = session_id('some_id');
+-----
+
+The function returns the session id that has been set. However, the session id should be set before calling `session_start()`.
+
+The session id can be retrieved using the same function, just by omitting the paramter.
+
+*Example:*
+-----
+$s = session_id();
+-----
+
+The session id is usually stored as a *cookie* on the 'client' side. This can be used to identify the corresponding session among others.
+
+=== Ending a session
+
+The session may need to be destroyed either because the session has expired or because of other events such as logging out by the user. This can be done using the `session_destroy()` function.
+
+-----
+session_destroy();
+-----
+
+This destroys all of the data associated with the current session. It does not unset any of the global variables associated with the session, or unset the session cookie. To use the session variables again, session_start() has to be called.
+
+In order to kill the session altogether, like to log the user out, the session id must also be unset. If a cookie is used to propagate the session id (default behavior), then the session cookie must be deleted. `setcookie()` may be used for that.
