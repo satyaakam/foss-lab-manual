@@ -28,6 +28,7 @@ interactive prompt.
 >>> farenheit = (9 * celsius / 5) + 32
 >>> print farenheit
 212
+>>>
 -------
 
 ==== Lists and slicing
@@ -52,6 +53,7 @@ day, obtained every 2 hours, starting from 12:00am: 3, 5, 3, 2, 0, 0,
 >>> last = wind_speed[-1]
 >>> print last
 2
+>>>
 ------
 
 ==== List iteration
@@ -63,15 +65,16 @@ in Task 3.
 >>> wind_speed = [3, 5, 3, 2, 0, 0, 5, 5, 11, 5, 10, 0]
 >>> sum = 0
 >>> for item in wind_speed:
-...	sum = sum + item <1>
-... <2>
+...	sum = sum + item
+... 
 >>> avg = sum / len(wind_speed)
 >>> print avg
 4
+>>>
 ------
 
-<1> The line should be preceded by a single TAB.
-<2> The loop body is terminated by a blank line.
+The line should be preceded by a single TAB. The loop body is
+terminated by a blank line.
 
 ==== Emulate C's `for` statement
 
@@ -87,6 +90,7 @@ function to emulate C's for statement: `for (i = 0; i < 10; i++)`.
 ...	a, b = b, a+b
 ...
 1 1 2 3 5 8 13 21 34 55
+>>>
 ------
 
 ==== Strings and slicing
@@ -107,6 +111,7 @@ e
 news
 >>> print word[4:10]
 worthy
+>>>
 ------
 
 ==== String iteration and concatenation
@@ -117,10 +122,11 @@ Reverse the word "linux" using string iteration and concatenation.
 >>> word = "linux"
 >>> reversed = ""
 >>> for ch in word:
-... 	reversed = reversed + ch
+... 	reversed = ch + reversed
 ...
 >>> print reversed
 xunil
+>>>
 ------
 
 ==== String multiplication
@@ -130,13 +136,14 @@ Print a 5 step right-angled triangle using string multiplication.
 ------
 >>> max = 5
 >>> for i in range(0, max):
-...    print "*" * i
+...    print "*" * (i+1)
 ...
-*   
+*
 **
 ***
 ****
 *****
+>>>
 ------
 
 ==== Writing Python scripts
