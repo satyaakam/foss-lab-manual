@@ -8,6 +8,7 @@ FIXME
 == Python
 
 include::python-1.txt[]
+include::python-2.txt[]
 
 == GUI Programming
 
