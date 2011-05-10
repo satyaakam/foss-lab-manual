@@ -1,0 +1,273 @@
+=== Python Lab II
+
+==== Objective
+
+  1. Learn about functions - definition, default arguments, multiple
+     return values, variable arguments.
+
+  2. Learn Python's data structures - lists, dictionaries,
+     and tuples, in detail.
+
+==== Defining functions
+
+Write a function that accepts a text and a character as argument and
+returns the no. of occurrences of the character in the text.
+
+------
+def count(text, ch):
+    n = 0
+    for t in text:
+        if ch == t:
+           n += 1
+    return n   
+
+# Test
+print count("coordination", "o")
+------
+
+==== Default argument values
+
+Modify the function in the previous task, such that the caller can
+specify whether case should be ignored. The default is to ignore case.
+
+------
+def count(text, ch, ignore_case=True):
+    if ignore_case:
+        text = text.lower() 
+        ch = ch.lower()
+    
+    n = 0
+    for t in text:
+        if ch == t:
+           n += 1
+    return n   
+
+# Test
+print count("coordinatiOn", "O", False)
+print count("coordination", "O", True)
+print count("coordination", "O")
+------
+
+==== Multiple return values
+
+Write a function that returns the smallest and largest element in a
+list.
+
+------
+def min_max(numbers):
+    smallest = largest = numbers[0]
+    for item in numbers:
+        if item > largest:
+            largest = item
+        elif item < smallest:
+            smallest = item
+    return smallest, largest
+
+# Test
+smallest, largest = min_max([1, 2, 7, 6, 3, 1, 2, 8, 4])
+------
+
+==== Tuples
+
+Color is represented using three bytes, one each for red, green and
+blue. For the color with components red = 240, green = 50 and blue = 150.
+
+   1. Represent the color as a tuple.
+   2. Show that tuples are immutable.
+   3. Represent the color as a tuples using the alternate syntax
+      (without parenthesis).
+   4. Extract the components into separate variable for red, green, and blue.
+
+-------
+>>> rgb = (240, 50, 150)
+>>>
+>>> rgb[0] = 150
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>>
+>>> rgb = 240, 50, 150
+>>> print rgb
+(240, 50, 150)
+>>>
+>>> r, g, b = rgb
+>>> print r
+240
+>>> print g
+50
+>>> print b
+150
+>>>
+-------
+
+==== Dictionaries
+
+A table of names and telephone no. is given below.
+
+`------`-------------
+Name   Telephone
+---------------------
+jack   4098
+sape   4139
+---------------------
+
+   1. Represent the table as dictionary mapping names to telephone
+      numbers.
+   2. Add a new entry that maps guido to 4127.
+   3. Get the telephone no. of jack, from the dictionary.
+   4. Remove the entry for sape from the dictionary.
+   5. Get the names from the dictionary.
+   6. Get the telephone nos. from the dictionary.
+   7. Check if guido is in the dictionary.
+
+------
+>>> tel = {'jack': 4098, 'sape': 4139}
+>>>
+>>> tel['guido'] = 4127
+>>> tel == {'sape': 4139, 'guido': 4127, 'jack': 4098}
+True
+>>>
+>>> print tel['jack']
+4098
+>>>
+>>> tel.pop('sape')
+4139
+>>> tel == {'guido': 4127, 'jack': 4098}
+True
+>>>
+>>> print sorted(tel.keys())
+['guido', 'jack']
+>>>
+>>> print sorted(tel.values())
+[4098, 4127]
+>>>
+>>> print 'guido' in tel
+True
+>>>
+------
+
+==== Dictionaries, looping and defaults
+
+Write a python script to determine the occurrence of each character in a
+given string.
+
+------
+def count(text):
+    text = text.lower()
+    
+    stat = {}
+    for ch in text:
+        n = stat.get(ch, 0)
+        stat[ch] = n + 1
+    return stat
+
+def display(stat):
+    for key in stat:
+    	print key, stat[key]
+
+stat = count("Hello World")
+display(stat)
+------
+
+==== Lock step iteration
+
+Define a function that accepts the student names as a list in the
+first argument, and the student's mark as a list in the second
+argument and prints the name and the mark.
+
+------
+# Non-pythonic
+def print_marks1(names, marks):
+    for i in range(len(names)):
+        print names[i], marks[i]
+        
+# Pythonic
+def print_marks2(names, marks):
+    for n, m in zip(names, marks):
+    	print n, m
+
+names = ["alice", "bob", "charlie", "dave"]
+marks = [85, 90, 95, 80]
+print_marks2(names, marks)
+------
+
+==== Enumerated Iteration
+
+Write a function that print a list of menu items to choose from.
+
+------
+# Non-Pythonic
+def print_menu1(menu_items):
+    nitems = len(menu_items):
+    for i in range(nitems):
+    	print i+1, item[i]
+    print "Select an item 1 -", nitems
+
+# Pythonic
+def print_menu2(menu_items):
+    nitems = len(menu_items)
+    for i, item in enumerate(menu_items):
+    	print i+1, item
+    print "Select an item 1 -", nitems
+
+# Test
+print_menu2(["Naan", "Chappathi", "Puri", "Parotha"])
+------    
+
+==== List Comprehension
+
+Use list comprehension to perform the following operations on the list
+of words - abc, algol, c, c++, haskel, java, lisp, modula-3.
+
+  1. Create a list containing the words in title case (First letter in
+     upper case.)
+  2. Create a list of words whose length is greater than 3.
+
+------
+>>> words = ["abc", "algol", "c", "c++", "haskel", "java", "lisp", "modula-3"]
+>>>
+>>> titles = [w.title() for w in words]
+>>> print titles
+['Abc', 'Algol', 'C', 'C++', 'Haskel', 'Java', 'Lisp', 'Modula-3']
+>>>
+>>> filtered = [w for w in words if len(w) > 3]
+>>> print filtered
+['algol', 'haskel', 'java', 'lisp', 'modula-3']
+>>>
+------
+
+==== Variable Arguments
+
+Write a function to generate an SQL insert statement, given the table
+name and field values. Use variable arguments to get the field values.
+
+------
+def quote(x):
+    return "'" + str(x) + "'"
+
+def sql_insert1(table, *fields):
+    query = []
+    query += "INSERT INTO " + table + " "
+    query += "VALUES ("
+    query += ", ".join([quote(field) for field in fields])
+    query += ")"
+
+    query = "".join(query)
+    return query
+
+def sql_insert2(table, **fields):
+    query = []
+    query += "INSERT INTO " + table + " ("
+    query += ", ".join(fields.keys()),
+    query += ") VALUES (",
+    query += ", ".join([quote(field) for field in fields.values()])
+    query += ")"    
+
+    query = "".join(query)
+    return query
+
+# Test
+print sql_insert1("order", "PO001", "22/7/2011", 2000.00)
+print sql_insert2("order", code="PO001", date="22/7/2011", total=2000.00)
+------
+
