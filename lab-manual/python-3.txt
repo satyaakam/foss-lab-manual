@@ -1,0 +1,120 @@
+=== Python Lab III
+
+==== Objective
+
+  1. Learn about modules, imports, listing module contents, standard
+     modules.
+
+  2. Learn to build simple Python apps.
+
+==== Modules
+
+  1. Write a module with the following contents, and name it `fibo.py`.
++
+------
+# Fibonacci numbers module
+
+def fib(n):    # write Fibonacci series up to n
+    a, b = 0, 1
+    while b < n:
+        print b,
+        a, b = b, a+b
+
+def fib2(n): # return Fibonacci series up to n
+    result = []
+    a, b = 0, 1
+    while b < n:
+        result.append(b)
+        a, b = b, a+b
+    return result
+------
++
+  2. Import the module.
+  3. Access the function `fib` defined within the module.
+  4. Access and print the module's name.
+  5. Assign a local name for the function `fibo.fib`, and invoke the
+     function using local name.
+  6. Import the function `fibo.fib` directly into the local name
+     `fib`.
+
+------
+>>> import fibo
+
+>>> fibo.fib(1000)
+1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
+
+>>> print fibo.__name__
+fibo
+
+>>> myfib = fibo.fib
+>>> myfib(500)
+1 1 2 3 5 8 13 21 34 55 89 144 233 377
+
+>>> from fibo import fib
+>>> fib(500)
+1 1 2 3 5 8 13 21 34 55 89 144 233 377
+>>>
+------
+
+==== Builtins and Standard Modules
+
+Perform the following operations at the Python interpreter prompt.
+
+  1. Import the `random` module.
+  2. List the contents of the `random` module.
+  3. Print the help information for `random.randint`.
+  4. Invoke the `random.randint` function.
+  5. List the builtin functions.
+  6. Create a variable and a function and list the contents of the
+     local name space.
+
+------
+>>> import random
+
+>>> dir(random)
+[...'randint', 'random', 'randrange'...]
+
+>>> help(random.randint)
+Help on method randint in module random:
+<BLANKLINE>
+randint(self, a, b) method of random.Random instance
+    Return random integer in range [a, b], including both end points.
+<BLANKLINE>
+
+>>> random.randint(1, 99)
+57
+
+>>> dir(__builtins__)
+['ArithmeticError'...'zip']
+
+>>> def testfunc():
+... 	pass
+... 
+>>> testvar = 10
+>>> dir()
+['__builtins__'...'testfunc', 'testvar']
+>>>
+------
+
+==== Arithmetic Quiz
+
+In the Arithmetic Quiz program, the computer prints an arithmetic
+expression using the two 2 digit numbers (selected in random) and the
+operator + or - (selected in random). The user has to find out the
+value of the expression. Based on the user's input the computer
+updates the user's score. After 20 repetitions the computer prints the
+user's score. A sample run is shown below.
+
+-----
+10 + 15 ? 25
+Correct!
+21 + 33 ? 55
+Wrong!
+31 - 10 ? 21
+Correct!
+...
+...
+Your score is 18/20.
+-----
+
+Write a Python script that implements the Arithmetic Quiz.
