@@ -1,0 +1,143 @@
+== Package management using yum additional lab workouts
+
+=== Optional Task 
+
+==== Objective
+
+Install VLC in Fedora Linux
+
+
+[NOTE]
+===============================
+VLC media player is not available in default Fedora repositories because of problems related to software patents. Learn more about evil software patents here
+http://fedoraproject.org/wiki/Software_Patents
+
+The end users  have to get the vlc media player from independent repository named rpmfusion(see http://rpmfusion.org/Configuration)
+================================
+
+.Step 0:
+
+Switch to root user by using the below command and entering the password
+
+-----------------
+$ su root
+password:
+-----------------
+
+
+.Step 1:  
+
+Make sure rpmfusion-free, rpmfusion-nonfree repositories are enabled. 
+
+---------------------
+yum repolist enabled
+---------------------
+
+Above command list's the enabled repositories on your system.
+
+-----------------------------------
+[root@gnubox zer0c00l]# yum repolist
+Loaded plugins: presto, refresh-packagekit
+repo id                                  repo name                                                                               
+Dropbox                                  Dropbox Repository                                                                      
+adobe-linux-i386                         Adobe Systems Incorporated                                                              
+fedora                                   Fedora 14 - i386                                                                        
+fedora-firefox4                          Firefox 4 Web Browser                                                                   
+google-chrome                            google-chrome                                                                           
+livna                                    rpm.livna.org for 14 - i386                                                             
+remi                                     Les RPM de remi pour Fedora 14 - i386                                                   
+rpmfusion-free                           RPM Fusion for Fedora 14 - Free                                                         
+rpmfusion-free-updates                   RPM Fusion for Fedora 14 - Free - Updates                                               
+rpmfusion-nonfree                        RPM Fusion for Fedora 14 - Nonfree                                                      
+rpmfusion-nonfree-updates                RPM Fusion for Fedora 14 - Nonfree - Updates                                            
+updates                                 Fedora 14 - i386 - Updates                                                             
+repolist: 25,829
+-------------------------------------
+
+.Step 2:
+      
+Enable rpmfusion repositories if they are not enabled
+
+-----------
+Fixme: (check fosslab server URL)
+rpm -ivh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
+rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+-----------
+
+.Step 3
+
+Search and find out exact file name of the vlc package
+
+------------------
+yum search vlc
+-----------------
+
+-------------------------------
+phonon-backend-vlc.i686 : VLC phonon backend
+python-vlc.noarch : VLC Media Player binding for Python
+vlc-core.i686 : VLC media player core
+vlc-devel.i686 : Development files for vlc
+vlc-extras.i686 : VLC media player with extras modules
+vlc-plugin-jack.i686 : JACK audio plugin for VLC
+vlc.i686 : The cross-platform open-source multimedia framework, player and server
+----------------------------------
+
+
+.Step 4
+
+Below is the base package for vlc media player
+------------------------------
+vlc.i686 : The cross-platform open-source multimedia framework, player and server
+------------------------------
+
+Install vlc media player
+
+------------
+yum -y  install vlc
+------------
+
+[NOTE]
+=====================
+'-y' in 'yum -y install vlc' is an option that assumes 'yes' for all 'yes/no' queries
+=====================
+
+.Step 5
+
+Test the installation by opening a video file using vlc media player
+
+
+=== Optional Task
+
+==== Objective
+
+Remove a  package (VLC) from Fedora. 
+
+
+.Step 1
+
+Switch to root user by using the below command and entering the password
+
+------------
+$su root
+password:
+#
+-----------
+
+
+.Step 2
+
+Remove vlc from the system
+
+--------------
+yum -y remove vlc
+-------------
+
+
+.Step 3
+
+check whether vlc media player is indeed removed from the system
+
+-------------
+rpm  -qil vlc
+package vlc is not installed
+------------
