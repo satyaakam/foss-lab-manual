@@ -1,0 +1,64 @@
+=== Kernel Lab I
+
+==== Objective
+
+Learn to compile the Linux Kernel, with a given configuration.
+
+==== Kernel Compilation
+
+.Step 1: Download the linux kernel source.
+
+Download the linux-kernel from http://fosslab/linux-2.6.39.1.tar.bz2
+
+.Step 2: Unpack the kernel
+
+Extract the linux kernel package using the following command.
+
+------
+[guest]$ tar -jxvf linux-2.6.39.1.tar.bz2
+------
+
+.Step 3: Kernel Configuration
+
+Configure the kernel with the default configuration.
+
+------
+[guest]$ cd linux-2.6.39.1/
+[guest]$ make defconfig
+------
+
+.Step 4: Kernel Compilation
+
+Compile and generate the base kernel image, and the kernel modules.
+
+------
+[guest]$ make
+------
+
+.Step 5: Kernel Installation
+
+Install the kernel and modules using the below mentioned command
+
+------
+[guest]$ make modules_install install
+------
+
+.Step 6: Update the GRUB Bootloader
+
+Update the GRUB bootloader using the following steps
+
+FIXME
+
+------
+[guest]# cd /boot/
+[guest]# grub-mkconfig
+[guest]# grub-mkconfig . > grub/grub.cfg
+------
+
+.Step 7: Reboot & Select kernel
+
+Reboot and select the new kernel installed in the GRUB Bootloader.
+
+------
+[guest]# reboot
+------

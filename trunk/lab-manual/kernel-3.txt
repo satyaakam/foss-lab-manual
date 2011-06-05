@@ -1,0 +1,41 @@
+=== Kernel Lab III
+
+==== Objective
+
+Learn to make minor modifications to the kernel source.
+
+==== Modifying the Kernel Source
+
+.Step 1: Build the Kernel
+
+Download the linux kernel and build as specified in Kernel Lab I.
+
+.Step 2: Modify the Kernel Source
+
+Edit file `init/main.c` look for 
+
+------
+printk(KERN_NOTICE "%s", linux_banner);"
+------
+
+Add the following line, next to it so that the kernel prints an
+additional message.
+
+------
+printk(KERN_NOTICE "%s", linux_banner);"
+printk(KERN_NOTICE "Kernel Modified By <Your Name Goes Here> ");"
+------
+
+.Step 4: Rebuild the kernel
+
+Invoke `make` to rebuild the kernel image.
+
+------
+[guest]$ make -j
+------
+
+.Step 5: Install and Reboot
+
+Install the kernel & update the bootloader as mentioned in Kernel Lab
+I. Reboot the system and check to see if you message appears on
+boot-up.

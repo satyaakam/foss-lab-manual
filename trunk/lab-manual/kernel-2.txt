@@ -1,0 +1,36 @@
+=== Kernel Lab II
+
+==== Objective
+
+Learn to modify the kernel configuration to add a feature.
+
+==== Sequence of Steps to Be Followed
+
+.Step 1: Build the Kernel
+
+Download the linux kernel and build as specified in Kernel Lab I.
+
+.Step 2: Modify the Configuration
+
+FIXME
+
+.Step 4: Kernel Compilation
+
+Use the following command to compile the kernel
+
+------
+[guest]$ make 
+------
+
+.Step 4: Rebuild the kernel
+
+Invoke `make` to rebuild the kernel image.
+
+------
+[guest]$ make -j
+------
+
+.Step 5: Install and Reboot
+
+Install the kernel & update the bootloader as mentioned in Kernel Lab
+I. Reboot the system and check to see FIXME.
