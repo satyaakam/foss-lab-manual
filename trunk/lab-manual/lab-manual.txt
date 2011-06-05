@@ -26,7 +26,7 @@ FIXME
 
 == Compiling from source
 
-FIXME
+include::compiling-sources.txt[]
 
 == Package Management System
 
@@ -42,11 +42,11 @@ FIXME
 
 == Perl
 
-FIXME
+include::perl-lab.txt[]
 
 == Networking
 
-FIXME
+include::network.txt[]
 
 == Writing Userspace Drivers
 
