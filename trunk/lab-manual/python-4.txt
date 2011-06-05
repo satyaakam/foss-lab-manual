@@ -1,0 +1,173 @@
+=== Python Lab IV
+
+==== Objective
+
+  1. Learn about string formatting and file I/O.
+  2. Learn about errors, exceptions and exception handling.
+
+==== String Formatting
+
+Write a python script to print the current date in the following
+format.
+
+------
+Wed May 25 02:26:23 IST 2011
+------
+
+The function `time.localtime` returns the time as object, with the
+following members.
+
+`----------`----------------------------------------
+`tm_year`  Year
+`tm_mon`   Month, range [1,12], January is 1
+`tm_mday`  Day of the month
+`tm_hour`  Hours in 24hr format
+`tm_min`   Minutes
+`tm_sec`   Seconds
+`tm_wday`  Day of the week, range [0,6], Monday is 0
+`tm_yday`  Day of the year
+-----------------------------------------------------
+
+------
+from time import localtime
+
+week = [ "Mon", "Tue", "Wed", "Thu", "Fri", "Sun" ]
+year = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
+        
+def print_date():
+    t = localtime()
+    fmt = "%s %s %d %02d:%02d:%02d IST %d"
+    day = week[t.tm_wday]
+    mon = year[t.tm_mon - 1]
+    print  fmt % (day, mon, t.tm_mday, t.tm_hour, t.tm_min,
+                  t.tm_sec, t.tm_year)
+
+print_date()
+------
+
+==== Reading Text Files
+
+Write a function that prints the contents of a file in uppercase. The
+function should accept the filename as argument.
+
+------
+def upper(filename):
+    infile = open(filename)
+    for line in infile:
+    	print line.upper(),
+    infile.close()
+
+upper("test.txt")
+------
+
+==== Writing to Text Files
+
+Write a function that sorts that contents of the file. The function
+should accept the filename as argument.
+
+------
+def sort(filename):
+    infile = open(filename)
+    lines = infile.readlines()
+    infile.close()
+
+    lines.sort()
+
+    outfile = open(filename, "w")
+    outfile.writelines(lines)
+    outfile.close()
+
+sort("test.txt")
+------
+
+==== Errors and Exceptions
+
+Generate the following errors/exceptions, at the Python prompt.
+
+  1. Generate a syntax error.
+  2. Generate a ZeroDivisionError.
+  3. Generate a NameError.
+  4. Generate a TypeError.
+
+------
+>>> l = [1, 2, 3]]
+  File "<stdin>", line 1
+    l = [1, 2, 3]]
+                 ^
+SyntaxError: invalid syntax
+
+>>> 10 * (1/0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+ZeroDivisionError: integer division or modulo by zero
+
+>>> 4 + spam*3
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+NameError: name 'spam' is not defined
+
+>>> '2' + 2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+TypeError: cannot concatenate 'str' and 'int' objects
+------
+
+==== Handling Exceptions
+
+Write a function that inputs an integer from the user. If the user
+input is not a valid no. the function should ask the user to re-enter
+the no.
+
+------
+def input_num(msg):
+    while True:
+    	try:
+            num = raw_input(msg)
+            num = int(num)
+	    return num
+        except ValueError:
+            print "Invalid integer", num
+            
+print input_num("Enter a number: ")
+------
+
+==== Capital Quiz
+
+Write a python script that quizzes the user about countries and their
+capitals. The program maintans a list of countries and their capitals
+in a file called `capitals.txt`. The program prints a country name in
+random and the user is supposed to enter the country's capital. This
+goes on till all the countries in the list are exhausted.
+
+Each line in `capitals.txt`, is in the format
+
+------
+country:capital
+------
+
+An example file is shown below.
+
+------
+Australia:Canberra
+Bangladesh:Dhaka
+Bhutan:Thimphu
+Egypt:Cairo
+India:New Delhi
+Indonesia:Jakarta
+Japan:Tokyo
+Nepal:Kathmandu
+Pakistan:Islamabad
+Sri Lanka:Kotte
+Thailand:Bangkok
+China:Beijing
+------
+
+The program should be print an appropriate error message, if
+`capitals.txt` is malformed, or error occurs while opening the file.
+
+------
+include::capital.py[]
+------
+
+
