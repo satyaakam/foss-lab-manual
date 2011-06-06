@@ -1,0 +1,94 @@
+=== Python Lab V
+
+==== Objective 
+
+  1. Learn to access MySQL databases from Python.
+  2. Learn the Decimal datatype.
+
+==== Required Reading
+
+  * Section 'Decimal Floating Point Arithmetic' of the
+    http://docs.python.org/tutorial/[Python Tutorial]
+
+  * http://www.kitebird.com/articles/pydbapi.html[Writing MySQL
+    Scripts with Python DB-API]
+
+==== Accounts Database
+
+Wrie a Python script to create a populate a customer account balance
+database. The database consists of records of 3 fields:
+
+  1. Account ID
+  2. Account Name
+  3. Account Balance
+
+.Solution
+
+Make sure you know the username, password and database on your MySQL
+server. Create the file `conf.py` with the following contents. Replace
+your server hostname, username, password and database name.
+
+.`conf.py`
+------
+server = "your-server-name-here"
+username = "your-username-here"
+password = "your-password-here"
+database = "your-databaes-here"
+------
+
+------
+include::accounts-create.py[]
+------
+
+==== Displaying Account Balance
+
+Write Python script to display the current balance in the accounts
+database.
+
+==== Decimal Datatype
+
+Demonstrate the following properties of the Decimal datatype.
+
+  1. Exact representation.
+  2. Ability to test for equality
+  3. User alterable precision.
+
+------
+>>> from decimal import *
+>>> 1 + 0.1
+1.1000000000000001
+>>> 1 + Decimal(0.1)
+Decimal(1.1)
+
+>>> val = 0
+>>> for i in range(10):
+...     val += 1.1
+>>> print val == 11
+False
+>>> val = 0
+>>> for i in range(10):
+... 	val += Decimal(1.1)
+>>> print val == 11
+True
+
+>>> getcontext().prec = 4
+>>> Decimal("1") / Decimal("3") 
+Decimal('0.3333')
+>>> getcontext().prec = 28
+>>> Decimal("1") / Decimal("3") 
+Decimal('0.3333333333333333333333333333')
+------
+
+==== Updating Account Balance
+
+Accounting transactions are used to update the account balance. Each
+transaction consists of the account no. and the amount. The amount can
+be positive or negative depending upon whether the transaction is
+credit or debit.
+
+Write a Python program that takes in transactions as input, updates
+the database.
+
+------
+include::accounts.py[]
+------
