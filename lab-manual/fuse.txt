@@ -1,0 +1,9 @@
+Fuse applications using python are available at
+http://code.google.com/p/fusepy/
+http://www.cslab.ece.ntua.gr/~verigak/fusepy.html
+
+Have to test the examples provided there
+
+
+
+
