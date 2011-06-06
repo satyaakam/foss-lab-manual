@@ -336,7 +336,7 @@ tar cvzf docs.tar.gz linux_distros.txt  list_of_linux_distributions.txt
 ==== Extract a compressed file
 
 
-Extract the compressed file "docs.tat.gz"
+Extract the compressed file "docs.tar.gz"
 ----
 
 tar xvzf docs.tar.gz
