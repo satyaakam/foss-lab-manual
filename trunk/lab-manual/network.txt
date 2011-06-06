@@ -104,9 +104,20 @@ To Activate the Network Interface Card
 
 == View current Routing Table ==
 
-To view the current Routing Table
+To view the current Kernel IP  Routing Table
 
---------------------------------
+
+----------------------------------------------------------------------------
+[root@localhost lab-manual]#route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+192.168.113.0     *             255.255.255.0   U     2      0        0 eth0
+192.168.122.0     *             255.255.255.0   U     1000   0        0 virbr0
+169.254.0.0       *             255.255.255.0   U     1000   0        0 eth0
+default         192.168.113.1   0.0.0.0         UG    0      0        0 eth0
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
 [root@localhost lab-manual]# netstat -nr
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
@@ -114,7 +125,7 @@ Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
 192.168.122.0   0.0.0.0         255.255.255.0   U         0 0          0 virbr0
 169.254.0.0     0.0.0.0         255.255.0.0     U         0 0          0 eth0
 0.0.0.0         192.168.113.1   0.0.0.0         UG        0 0          0 eth0
-------------------------------------
+-------------------------------------------------------------------------------
 
 
 == Change the default Gateway ==
