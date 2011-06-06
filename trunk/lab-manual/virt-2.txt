@@ -4,6 +4,11 @@
 
 Learn how to share and transfer files between the host and the guest.
 
+==== Required Reading
+
+The required reading for this lab is
+http://en.wikibooks.org/wiki/QEMU/Images
+
 ==== Transferring Files 
 
 .Step 1: Boot the Linux guest system.

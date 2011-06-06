@@ -4,6 +4,11 @@
 
 Learn how to install and run a guest OS within Qemu.
 
+==== Required Reading
+
+The required reading for this lab is
+http://en.wikibooks.org/wiki/QEMU/Images
+
 [[boot-freedos]]
 ==== Booting FreeDOS
 
