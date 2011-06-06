@@ -39,7 +39,7 @@ packages
 
    11. Running Python : some simple exercise – e.g. Connecting with MySql database
 
-   12. Set up the complete network interface usinf ifconfig command liek setting gateway, DNS, IP
+   12. Set up the complete network interface usinf ifconfig command like setting gateway, DNS, IP
          tables, etc.,
 
 Resources :
