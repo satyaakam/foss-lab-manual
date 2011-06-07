@@ -8,6 +8,14 @@
   2. Learn Python's data structures - lists, dictionaries,
      and tuples, in detail.
 
+==== Required Reading
+
+  * Section 'More Control Flow Tools' of the
+    http://docs.python.org/tutorial/[Python Tutorial].
+ 
+  * Section 'Data Structures' of the
+    http://docs.python.org/tutorial/[Python Tutorial].
+
 ==== Defining functions
 
 Write a function that accepts a text and a character as argument and

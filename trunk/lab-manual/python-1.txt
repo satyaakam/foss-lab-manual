@@ -5,6 +5,14 @@
 Get started with Python and learn the basic types and control flow
 statements.
 
+==== Required Reading
+
+  * Section 'An Informal Introduction to Python' of the 
+    http://docs.python.org/tutorial/[Python Tutorial].
+
+  * Section 'More Control Flow Tools' of the
+    http://docs.python.org/tutorial/[Python Tutorial].
+
 ==== Starting Python
 
 Start Python in interactive mode by invoking `python` in the command
