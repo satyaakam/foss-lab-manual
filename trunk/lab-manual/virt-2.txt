@@ -6,8 +6,8 @@ Learn how to share and transfer files between the host and the guest.
 
 ==== Required Reading
 
-The required reading for this lab is
-http://en.wikibooks.org/wiki/QEMU/Images
+  * Section 'Creating and Manipulating Images' of the
+    http://en.wikibooks.org/wiki/QEMU[QEMU Wikibook].
 
 ==== Transferring Files 
 
