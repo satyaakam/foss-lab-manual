@@ -1,44 +1,39 @@
-== Package management with yum lab 
-
-=== Task 1 
+=== Package Management
 
 ==== Objective
 
-Install bsd games in Fedora
+Learn to install and uninstall packages in Fedora.
 
-.Step 0
+==== Installing Packages
 
-Switch to root user by using the below command and entering the password
+.Step 1: Switch to Root
+
+Switch to root user by using the `su` command and entering the `root`
+password.
 
 -----------------
-$ su root
+$ su
 password:
 -----------------
 
+.Step 2: Find the Package Name
 
-.Step 1
-
-Search and find out the exact package name to be installed
+For the keywords `bsd` and `games`, search and find out the exact
+package name to be installed.
 
 ------
-yum search bsd games
-------
-
-Result
-
--------------
 # yum search bsd games
 Loaded plugins: langpacks, presto, refresh-packagekit
 ============================== N/S Matched: bsd, games =============================
 bsd-games.i686 : Collection of text-based games
 -------------
 
-From the search result the package name can be identified as 'bsd-games'
+From the search result the package name can be identified as
+`bsd-games`.
 
+.Step 3: Install the Package
 
-.Step 2
-
-Install bsd-games
+Install the package `bsd-games`.
 
 ------
 # yum -y install bsd-games
@@ -46,63 +41,50 @@ Install bsd-games
 
 [NOTE]
 =====================
-'-y' in 'yum -y install vlc' is an option that assumes 'yes' for all 'yes/no' queries
+'-y' in 'yum -y install bsd-games' is an option that assumes 'yes' for all 'yes/no' queries.
 =====================
 
-.Step 3
+.Step 4: Verify
 
-Test whether the games are installed
-
-Below command must show up snakes games on the terminal if the package is installed
-
----------------------
-# snake
---------------------
-
-or 
-
-Below command must list the list of files installed by the package bsd-games
+List the files installed by the package `bsd-games`.
 
 ------------
 rpm -qil bsd-games
 ------------
 
+Try running the `snake` game.
+
+---------------------
+# snake
+--------------------
 
 
-=== Task 2
+==== Uninstalling Packages
 
-==== Objective
+.Step 1: Switch to Root
 
-Remove bsd-games package from the system
-
-.Step 0
-
-Switch to root user by using the below command and entering the password
+Switch to root user by using the `su` command and entering the `root`
+password.
 
 -----------------
-$ su root
+$ su
 password:
 -----------------
 
+.Step 2: Remove the Package
 
-.Step 1
-
-Remove bsd-games from the system
+Remove `bsd-games` from the system.
 
 --------------
 # yum -y remove bsd-games
 -------------
 
-.Step 2
+.Step 3: Verify
 
-Test whether package has been removed from  the system
+Check whether package has been removed from  the system.
 
 --------------
 # rpm -qil bsd-games
--------------
-
---------------
-Output:
 Package bsd-games is not installed
 -------------
 
