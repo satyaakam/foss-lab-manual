@@ -8,10 +8,10 @@
 ==== Required Reading
 
   * Section 'Decimal Floating Point Arithmetic' of the
-    http://docs.python.org/tutorial/[Python Tutorial]
+    http://docs.python.org/tutorial/[Python Tutorial].
 
   * http://www.kitebird.com/articles/pydbapi.html[Writing MySQL
-    Scripts with Python DB-API]
+    Scripts with Python DB-API].
 
 ==== Accounts Database
 

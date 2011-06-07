@@ -7,6 +7,11 @@
 
   2. Learn to build simple Python apps.
 
+==== Required Reading
+
+  * Section 'Modules' of the http://docs.python.org/tutorial/[Python
+    Tutorial].
+
 ==== Modules
 
   1. Write a module with the following contents, and name it `fibo.py`.
@@ -118,3 +123,4 @@ Your score is 18/20.
 -----
 
 Write a Python script that implements the Arithmetic Quiz.
+

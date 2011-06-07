@@ -5,6 +5,14 @@
   1. Learn about string formatting and file I/O.
   2. Learn about errors, exceptions and exception handling.
 
+==== Required Reading
+
+  * Section 'Input and Output' of the
+    http://docs.python.org/tutorial/[Python Tutorial].
+
+  * Section 'Errors and Exceptions' of the
+    http://docs.python.org/tutorial/[Python Tutorial].
+
 ==== String Formatting
 
 Write a python script to print the current date in the following
