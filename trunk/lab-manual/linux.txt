@@ -2,7 +2,8 @@
 
 ==== Objective
 
-Getting started with Linux, learn basic commands and directory structure, execute file and directory operations
+Getting started with Linux, learn basic commands and directory
+structure, execute file and directory operations
 
 ==== Starting Terminal
 
@@ -42,7 +43,8 @@ OpenSuSE
 
 ==== Copy a file to another file
 
-Copy the file "linux_distros.txt" to a new file "list_of_linux_distributions.txt"
+Copy the file "linux_distros.txt" to a new file
+"list_of_linux_distributions.txt"
 
 --------
 $ cp linux_distros.txt list_of_linux_distributions.txt
@@ -90,7 +92,8 @@ $ rmdir foss
 
 ==== Create directory with parent directories
 
-Create the following directory structure with a single command: one/two/three
+Create the following directory structure with a single command:
+one/two/three
 
 ----
 $ mkdir -p one/two/three
@@ -170,7 +173,8 @@ $ history
 
 === Find the free space available in the system
 
-Find how much of space is used and how much of space is available free in the system
+Find how much of space is used and how much of space is available free
+in the system
 
 ----
 $ df -h
@@ -239,7 +243,8 @@ $ ls -l linux_distros.txt
 
 ==== Change the permissions of a file to writable by any user
 
-Change the permissions of the file "linux_distros.txt" to writable by any user
+Change the permissions of the file "linux_distros.txt" to writable by
+any user
 
 ----
 $ chmod a+w linux_distros.txt
@@ -247,7 +252,8 @@ $ chmod a+w linux_distros.txt
 
 ==== Change the permissions of a file to executable by any user
 
-Change the permissions of the file "linux_distros.txt" to executable by any user
+Change the permissions of the file "linux_distros.txt" to executable
+by any user
 
 ----
 $ chmod a+x linux_distros.txt
