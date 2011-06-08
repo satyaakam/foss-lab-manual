@@ -11,7 +11,7 @@ Select Application -> Accesories -> Terminal
 
 ==== Create a file using *cat*
 
-Create file named "linux_distros.txt".
+Create file named `linux_distros.txt`.
 Add the names of the linux distributions you know.
 
 ----------
@@ -28,7 +28,7 @@ OpenSuSE
 
 ==== Display file content with *cat*
 
-Display the content of the file "linux_distros.txt".
+Display the content of the file `linux_distros.txt`.
 
 ---------
 $ cat linux_distros.txt
@@ -42,8 +42,8 @@ OpenSuSE
 
 ==== Copy a file to another file
 
-Copy the file "linux_distros.txt" to a new file
-"list_of_linux_distributions.txt".
+Copy the file `linux_distros.txt` to a new file
+`list_of_linux_distributions.txt`.
 
 --------
 $ cp linux_distros.txt list_of_linux_distributions.txt
@@ -51,7 +51,7 @@ $ cp linux_distros.txt list_of_linux_distributions.txt
 
 ==== Rename a file
 
-Rename the file "list_of_linux_distributions.txt" to "linux.txt".
+Rename the file `list_of_linux_distributions.txt` to `linux.txt`.
 
 -------
 $ mv list_of_linux_distributions.txt linux.txt
@@ -59,7 +59,7 @@ $ mv list_of_linux_distributions.txt linux.txt
 
 ==== Delete a file
 
-Delete the file "linux.txt".
+Delete the file `linux.txt`.
 
 -----
 $ rm linux.txt
@@ -75,7 +75,7 @@ $ ls
 
 ==== Create a directory
 
-Create a directory called "foss".
+Create a directory called `foss`.
 
 ----
 $ mkdir foss
@@ -83,7 +83,7 @@ $ mkdir foss
 
 ==== Remove the directory
 
-Delete the directory "foss"
+Delete the directory `foss`
 
 ----
 $ rmdir foss
@@ -92,7 +92,7 @@ $ rmdir foss
 ==== Create directory with parent directories
 
 Create the following directory structure with a single command:
-one/two/three.
+`one/two/three`.
 
 ----
 $ mkdir -p one/two/three
@@ -100,7 +100,7 @@ $ mkdir -p one/two/three
 
 ==== Delete a directory recursively
 
-Delete the directory "one" with all its sub directories.
+Delete the directory `one` with all its sub directories.
 
 ----
 $ rm -r one
@@ -116,7 +116,7 @@ $ pwd
 
 ==== Create a hidden file
 
-Create a hidden file called .a.
+Create a hidden file called `.a`.
 
 ----
 $ touch .a
@@ -124,7 +124,7 @@ $ touch .a
 
 ==== Create a hidden directory
 
-Create a hidden directory called .config.
+Create a hidden directory called `.config`.
 
 ----
 $ mkdir .config
@@ -148,7 +148,7 @@ $ ls -la
 
 ==== Count the number of lines in a file
 
-Count the number of lines in the file "linux_distros.txt".
+Count the number of lines in the file `linux_distros.txt`.
 
 ----
 $ cat linux_distros.txt | wc -l
@@ -156,7 +156,7 @@ $ cat linux_distros.txt | wc -l
 
 ==== Read a man page 
 
-Read the man page for the command 'mkdir'.
+Read the man page for the command `mkdir`.
 
 ----
 $ man mkdir
@@ -189,7 +189,7 @@ $ free -m
 
 ==== Display a file with *more*
 
-Display the file "linux_distros.txt" using the command 'more'.
+Display the file `linux_distros.txt` using the command `more`.
 
 ----
 $ more linux_distros.txt
@@ -197,7 +197,7 @@ $ more linux_distros.txt
 
 ==== Display a file with *less*
 
-Display the file "linux_distros.txt" using the command 'less'.
+Display the file `linux_distros.txt` using the command `less`.
 
 ----
 $ less linux_distros.txt
@@ -216,7 +216,7 @@ $ file /etc/passwd
 
 ==== Create a soft link to a file
 
-Create a soft link to the file "linux_distros.txt" in /tmp.
+Create a soft link to the file `linux_distros.txt` in `/tmp`.
 
 ----
 $ ln -s linux_distros.txt /tmp/linux.txt
@@ -224,7 +224,7 @@ $ ln -s linux_distros.txt /tmp/linux.txt
 
 ==== Create a hard link to a file
 
-Create a hard link to the file "linux_distros.txt" in /tmp.
+Create a hard link to the file `linux_distros.txt` in `/tmp`.
 
 ----
 $ ls linux_distros.txt /tmp/distros.txt
@@ -232,7 +232,7 @@ $ ls linux_distros.txt /tmp/distros.txt
 
 ==== Get the ownership and permissions of a file
 
-Display the ownership and permissions of the file "linux_distros.txt".
+Display the ownership and permissions of the file `linux_distros.txt`.
 
 ----
 $ ls -l linux_distros.txt
@@ -240,7 +240,7 @@ $ ls -l linux_distros.txt
 
 ==== Change the permissions of a file to writable by any user
 
-Change the permissions of the file "linux_distros.txt" to writable by
+Change the permissions of the file `linux_distros.txt` to writable by
 any user.
 
 ----
@@ -249,7 +249,7 @@ $ chmod a+w linux_distros.txt
 
 ==== Change the permissions of a file to executable by any user
 
-Change the permissions of the file "linux_distros.txt" to executable
+Change the permissions of the file `linux_distros.txt` to executable
 by any user.
 
 ----
@@ -283,7 +283,7 @@ $ du -h
 
 ==== Create a compressed file
 
-Create a compresed file called "docs.tat.gz".
+Create a compresed file called `docs.tar.gz`.
 
 ----
 $ tar cvzf docs.tar.gz linux_distros.txt  list_of_linux_distributions.txt
@@ -291,11 +291,8 @@ $ tar cvzf docs.tar.gz linux_distros.txt  list_of_linux_distributions.txt
 
 ==== Extract a compressed file
 
-Extract the compressed file "docs.tar.gz".
+Extract the compressed file `docs.tar.gz`.
 
 ----
 $ tar xvzf docs.tar.gz
 ----
-
-
-
