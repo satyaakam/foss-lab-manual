@@ -31,15 +31,13 @@ OpenSuSE
 Display the content of the file "linux_distros.txt"
 
 ---------
-
-cat linux_distros.txt
+$ cat linux_distros.txt
 debian
 fedora
 ubuntu
 slackware
 centos
 OpenSuSE
-
 ---------
 
 ==== Copy a file to another file
@@ -47,9 +45,7 @@ OpenSuSE
 Copy the file "linux_distros.txt" to a new file "list_of_linux_distributions.txt"
 
 --------
-
-cp linux_distros.txt list_of_linux_distributions.txt
-
+$ cp linux_distros.txt list_of_linux_distributions.txt
 -------
 
 ==== Rename a file
@@ -57,17 +53,15 @@ cp linux_distros.txt list_of_linux_distributions.txt
 Rename the file "list_of_linux_distributions.txt" to "linux.txt"
 
 -------
-mv list_of_linux_distributions.txt linux.txt
-
+$ mv list_of_linux_distributions.txt linux.txt
 ------
 
 ==== Delete a file
 
 Delete the file "linux.txt"
+
 -----
-
-rm linux.txt
-
+$ rm linux.txt
 -----
 
 ==== List the files in the directory
@@ -75,155 +69,135 @@ rm linux.txt
 Get a list of files in the current directory
 
 -----
-ls
-
-
-
+$ ls
 -----
 
 ==== Create a directory
 
-
 Create a directory called "foss"
 
 ----
-mkdir foss
-
+$ mkdir foss
 ----
 
-
 ==== Remove the directory
-
 
 Delete the directory "foss"
 
 ----
-rmdir foss
+$ rmdir foss
 ----
 
-
 ==== Create directory with parent directories
-
 
 Create the following directory structure with a single command: one/two/three
 
 ----
-mkdir -p one/two/three
-
+$ mkdir -p one/two/three
 ----
 
 ==== Delete a directory recursively
 
-
 Delete the directory "one" with all its sub directories
+
 ----
-
-rm -r one
-
+$ rm -r one
 ----
 
 ==== Get current working directory
 
 Print the path of current working directory
+
 ----
-pwd
+$ pwd
 ----
 
 ==== Create a hidden file
 
 Create a hidden file called .a
+
 ----
-touch .a
+$ touch .a
 ----
 
 ==== Create a hidden directory
 
 Create a hidden directory called .config
-----
-mkdir .config
 
+----
+$ mkdir .config
 ----
 
 ==== List all files [ including hidden files ]
 
 List all the files in the current directory including hidden files
-----
-
-ls -a
 
 ----
-
+$ ls -a
+----
 
 ==== Long list the files in a directory
 
 Get the list of files in the long list format
+
 ----
-
-ls -la
-
+$ ls -la
 ----
 
 ==== Count the number of lines in a file
 
 Count the number of lines in the file "linux_distros.txt"
-----
-
-cat linux_distros.txt | wc -l
 
 ----
-
+$ cat linux_distros.txt | wc -l
+----
 
 ==== Read a man page 
 
 Read the man page for the command 'mkdir'
+
 ----
-
-man mkdir
-
+$ man mkdir
 ----
 
 ==== Show the list of already executed commands
 
 Show the list of already executed commands recently
+
 ----
-
-history
-
+$ history
 ----
 
 === Find the free space available in the system
 
 Find how much of space is used and how much of space is available free in the system
+
 ----
-
-df -h
-
+$ df -h
 ----
 
 ==== Find the RAM and swap availble in the system
 
-
 Find how much of RAM and swap space are available and their usage
+
 ----
-
-free -m
-
+$ free -m
 ----
 
 ==== Display a file with *more*
 
 Display the file "linux_distros.txt" using the command 'more'
+
 ----
-
-more linux_distros.txt
-
+$ more linux_distros.txt
 ----
 
 ==== Display a file with *less*
 
 Display the file "linux_distros.txt" using the command 'less'
+
 ----
-less linux_distros.txt
+$ less linux_distros.txt
 ----
 
 
@@ -235,10 +209,8 @@ Find the file types of the following files :
 /etc/passwd
 
 ----
-
-file /bin/bash
-file /etc/passwd
-
+$ file /bin/bash
+$ file /etc/passwd
 ----
 
 ==== Create a soft link to a file
@@ -246,9 +218,7 @@ file /etc/passwd
 Create a soft link to the file "linux_distros.txt" in /tmp
 
 ----
-
-ln -s linux_distros.txt /tmp/linux.txt
-
+$ ln -s linux_distros.txt /tmp/linux.txt
 ----
 
 ==== Create a hard link to a file
@@ -256,38 +226,31 @@ ln -s linux_distros.txt /tmp/linux.txt
 Create a hard link to the file "linux_distros.txt" in /tmp
 
 ----
-
-ls linux_distros.txt /tmp/distros.txt
-
+$ ls linux_distros.txt /tmp/distros.txt
 ----
 
 ==== Get the ownership and permissions of a file
 
 Display the ownership and permissions of the file "linux_distros.txt"
+
 ----
-
-ls -l linux_distros.txt
-
+$ ls -l linux_distros.txt
 ----
 
 ==== Change the permissions of a file to writable by any user
 
-
 Change the permissions of the file "linux_distros.txt" to writable by any user
+
 ----
-
-chmod a+w linux_distros.txt
-
+$ chmod a+w linux_distros.txt
 ----
 
 ==== Change the permissions of a file to executable by any user
 
-
 Change the permissions of the file "linux_distros.txt" to executable by any user
 
 ----
-chmod a+x linux_distros.txt
-
+$ chmod a+x linux_distros.txt
 ----
 
 
@@ -296,9 +259,7 @@ chmod a+x linux_distros.txt
 Display the list of available partitions in the system
 
 ----
-
-fdisk -l (run as root)
-
+$ fdisk -l (run as root)
 ----
 
 
@@ -307,40 +268,32 @@ fdisk -l (run as root)
 Display the list of mounter partitions in the system
 
 ----
-
-mount
-df -h
-
+$ mount
+$ df -h
 ----
 
 ==== Find the size of current folder
 
 Find the size of the current folder
+
 ----
-
-du -h
-
+$ du -h
 ----
 
 ==== Create a compressed file
 
-
 Create a compresed file called "docs.tat.gz"
 
 ----
-
-tar cvzf docs.tar.gz linux_distros.txt  list_of_linux_distributions.txt
-
+$ tar cvzf docs.tar.gz linux_distros.txt  list_of_linux_distributions.txt
 ----
 
 ==== Extract a compressed file
 
-
 Extract the compressed file "docs.tar.gz"
+
 ----
-
-tar xvzf docs.tar.gz
-
+$ tar xvzf docs.tar.gz
 ----
 
 
