@@ -1,0 +1,63 @@
+=== PHP Lab III
+
+==== Objective
+Learn how to retrieve data from database and manipulate it.
+
+==== Generating a login form
+Let us consider a login form which requires retrieval of password corresponding to the given username and matching it against the given password.
+
+----
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Login form</title>
+    </head>
+    <body>
+        <form action"login-db.php" method="POST">
+            <input type="text" name="username">
+            <input type="password" name="passwd">
+            <input type="submit" value="Login">
+        </form>
+    </body>
+</html>
+----
+
+==== Matching the user data with database
+
+For the sake of simplicity it is assumed that password is stored as plain text (without any encryption) in the database. However it should be encrypted.
+
+----
+<?php
+    //Get the credentials entered by user 
+    $user = $_POST['username'];
+    $passwd = $_POST['passwd'];
+    
+    //Encrypt the password (this encryption should be same as the one done while inserting the entry into database)
+    $salt = "somesalt"
+    $passwd = md5($salt.$passwd.$salt);
+    
+    //Connect to database
+    $conn = mysql_connect("localhost", "root", "mypassword") or die("Could not connect to database!");
+    $db = mysql_select_db("mydatabase");
+    
+    //Get the stored credentials
+    $sql = "SELECT `user`,`passwd` FROM `users` WHERE `user`='$user';"
+    $res = mysql_query($sql);
+    
+    //Validate the credentials
+    if($res && mysql_num_rows($res)) {
+        $obj = mysql_fetch_object($res);
+        if($user == $obj->user && $password == $obj->passwd)
+        {
+            setcookie('user',$user);
+            echo "Welcome, ".$user."!";
+        }
+    }
+    else {
+        echo "Your username and password do not match. Please try again."; //Or redirect to the login page with the error passed as a get argument, as in subimt.php; 
+    }
+?>
+----
+
+NOTE: For more details on salt, refer http://en.wikipedia.org/wiki/Salt_(cryptography)[here]

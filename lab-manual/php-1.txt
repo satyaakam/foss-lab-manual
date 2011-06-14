@@ -1,7 +1,7 @@
 === PHP Lab I
 
 ==== Objective
-Learn how to generate and manipulate form data using PHP.
+Learn how to generate forms and manipulate form data using PHP.
 
 ==== Generating a registration form with HTML and PHP
 Though the contents of a form are static, PHP can be used to make the task easier, as shown below.
@@ -14,14 +14,6 @@ Though the contents of a form are static, PHP can be used to make the task easie
         <title>Login form with PHP</title>
     </head>
     <body>
-        <span style="color:red">
-        <?
-            $msg = $_GET['m'];
-            $message = array('iv'=>'Form data invalid!', 'db'=>'Database error! Please try again.');
-            
-            echo $message[$msg];
-        ?>
-        </span>
         <form action="submit.php" method="POST">
             <label>Username:<input type="text" name="username"></label><br>
 			<label>Password:<input type="password" name="password"></label><br>
@@ -54,40 +46,26 @@ Though the contents of a form are static, PHP can be used to make the task easie
 -----
 
 ===== Output
+The output of the above code looks something like this in your browser:
+
 image::images/php-1.png[]
 
-==== Getting and validating the form data
-The file `submit.php` goes like this:
+==== Getting the form data
+The file `submit.php` goes like this (For the sake of simplicity, the following code does not include validation of the input; validation is included in the next exercise):
 
 -----
 <?php
     
-    // Getting the form data
+    // Get the form data
     
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if (preg_match('/^[0-9]$/',$_POST['dob_day']))
-        $_POST['dob_day'] = '0'.$_POST['dob_day'];
-    if (preg_match('/^[0-9]$/',$_POST['dob_month']))
-        $_POST['dob_month'] = '0'.$_POST['dob_month'];
-        
     $dob = $_POST['dob_year'].'-'.$_POST['dob_month'].'-'.$_POST['dob_day'];
-    
-    // Validation
-    
-    $flag = array('username' => 0, 'dob' => 0);
-    if (preg_match('/^[a-zA-Z][a-zA-Z0-9.]*$/',$username))
-        $flag['username'] = 1;
-    if (preg_match('/^(19|20)\d\d[- \/.](0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])$/',$dob))
-            $flag['dob'] = 1;
-            
-    if (($flag['username'] == 0) || ($flag['dob'] == 0))
-        header("Location:ex1.php?m=iv");
     
     // Insert into database
     
-    $conn = mysql_connect('localhost', 'root', 'mypassword') or die("Could not connect to database!");
-    $db = mysql_select_db('mydatabase');
+    $conn = mysql_connect("localhost", "root", "mypassword") or die("Could not connect to database!");
+    $db = mysql_select_db("mydatabase");
     $sql = "INSERT INTO `users`(`user`,`passwd`,`dob`) VALUES('$username','$password','$dob');";
     $q = mysql_query($sql);
     if (!$q) {
