@@ -1,36 +1,42 @@
-=== Getting started with Linux
+=== Getting Started Lab I
 
 ==== Objective
 
 Getting started with Linux, learn basic commands and directory
 structure, execute file and directory operations
 
+==== Required Reading
+
+  * Introduction
+  * Getting Started
+  * Work Effectively on the Unix Command Line
+
 ==== Starting Terminal
 
 Select Application -> Accesories -> Terminal
 
-==== Create a file using *cat*
+==== File Commands
 
-Create file named `linux_distros.txt`.
-Add the names of the linux distributions you know.
+Perform the following file related operations at the shell prompt.
+
+  1. Create file named `linux_distros.txt` Add the names of the linux
+     distributions you know.
+  2. Display the content of the file `linux_distros.txt`.
+  3. Copy the file `linux_distros.txt` to a new file
+     `list_of_linux_distributions.txt`.
+  4. Rename the file `list_of_linux_distributions.txt` to `linux.txt`.
+  5. Delete the file `linux.txt`.
 
 ----------
-cat > linux_distros.txt
+$ cat > linux_distros.txt
 debian
 fedora
 ubuntu
 slackware
 centos
 OpenSuSE
-^d
-----------
+^D
 
-
-==== Display file content with *cat*
-
-Display the content of the file `linux_distros.txt`.
-
----------
 $ cat linux_distros.txt
 debian
 fedora
@@ -38,261 +44,167 @@ ubuntu
 slackware
 centos
 OpenSuSE
----------
 
-==== Copy a file to another file
-
-Copy the file `linux_distros.txt` to a new file
-`list_of_linux_distributions.txt`.
-
---------
 $ cp linux_distros.txt list_of_linux_distributions.txt
--------
 
-==== Rename a file
-
-Rename the file `list_of_linux_distributions.txt` to `linux.txt`.
-
--------
 $ mv list_of_linux_distributions.txt linux.txt
-------
 
-==== Delete a file
-
-Delete the file `linux.txt`.
-
------
 $ rm linux.txt
 -----
 
-==== List the files in the directory
+==== Directory Commands
 
-Get a list of files in the current directory.
+Perform the following directory related operations at the shell
+prompt.
 
------
-$ ls
------
+  1. Get a list of files in the current directory.
+  2. Create a directory called `foss`.
+  3. Delete the directory `foss`
+  4. Create the following directory structure with a single command:
+     `one/two/three`.
+  5. Delete the directory `one` with all its sub directories.
+  6. Print the path of current working directory.
 
-==== Create a directory
+==== Hidden files
 
-Create a directory called `foss`.
+Perform the following hidden files related operations at the shell
+prompt.
 
-----
-$ mkdir foss
-----
-
-==== Remove the directory
-
-Delete the directory `foss`
-
-----
-$ rmdir foss
-----
-
-==== Create directory with parent directories
-
-Create the following directory structure with a single command:
-`one/two/three`.
-
-----
-$ mkdir -p one/two/three
-----
-
-==== Delete a directory recursively
-
-Delete the directory `one` with all its sub directories.
-
-----
-$ rm -r one
-----
-
-==== Get current working directory
-
-Print the path of current working directory.
-
-----
-$ pwd
-----
-
-==== Create a hidden file
-
-Create a hidden file called `.a`.
+  1. Create a hidden file called `.a`.
+  2. Create a hidden directory called `.config`.
+  3. List all the files in the current directory including hidden
+     files.
 
 ----
 $ touch .a
-----
 
-==== Create a hidden directory
-
-Create a hidden directory called `.config`.
-
-----
 $ mkdir .config
-----
 
-==== List all files [ including hidden files ]
-
-List all the files in the current directory including hidden files.
-
-----
 $ ls -a
+.       ..      .a      .config
 ----
 
-==== Long list the files in a directory
+==== Multiple Files
 
-Get the list of files in the long list format.
+The directory `pattern` has files with names containing specific
+patterns. Perform the following operations on the files.
 
-----
-$ ls -la
-----
+  1. Goto the directory `pattern`.
+  2. Remove all files starting with `a`.
+  3. Remove files ending with `1.txt`.
+  4. Remove all files start with `doc` and ending with `.txt`.
+  5. Remove all files.
 
-==== Count the number of lines in a file
+-------
+$ cd pattern
 
-Count the number of lines in the file `linux_distros.txt`.
+$ rm a*
 
-----
-$ cat linux_distros.txt | wc -l
-----
+$ rm *1.txt
 
-==== Read a man page 
+$ rm doc*.txt
 
-Read the man page for the command `mkdir`.
+$ rm *
+-------
 
-----
-$ man mkdir
-----
+==== Shell Variables
 
-==== Show the list of already executed commands
+Perform the following shell variable related operations at the shell
+prompt.
 
-Show the list of already executed commands recently.
+  * Store the string `~/mybin` in a variable `myvar`
+  * List the contents of the directory using the variable.
+  * Copy the contents of the directory to `/tmp` using the variable.
 
-----
-$ history
-----
+------
+$ myvar=~/mybin
 
-=== Find the free space available in the system
+$ ls $myvar
+hello   ls
 
-Find how much of space is used and how much of space is available free
-in the system.
+$ cp $myvar/* /tmp
+------
 
-----
-$ df -h
-----
+==== `PATH` Variable
 
-==== Find the RAM and swap availble in the system
+There are two executables `ls` and `hello` in `~/mybin`. Perform the
+following operations related to the `PATH` environment variable.
 
-Find how much of RAM and swap space are available and their usage.
+  1. Take a backup of the `PATH` variable.
+  2. Invoke `hello`, the command will fail.
+  3. Add the directory `mybin` to the end of `PATH`, invoke `ls` and
+     `hello`.
+  4. Add the directory `mybin` to the beginning of `PATH`, invoke `ls` and 
+     `hello`.
+  5. Restore your original `PATH`.
 
-----
-$ free -m
-----
+------
+$ BPATH=$PATH
 
-==== Display a file with *more*
+$ hello
+bash: hello: command not found
 
-Display the file `linux_distros.txt` using the command `more`.
+$ PATH=$PATH:~/mybin
+$ hello
+Hello user!
+$ ls
+...
 
-----
-$ more linux_distros.txt
-----
+$ PATH=~/mybin:$PATH
+$ hello
+Hello user!
+$ ls
+custom ls from ~/mybin!
 
-==== Display a file with *less*
+$ PATH=$BPATH
+------
 
-Display the file `linux_distros.txt` using the command `less`.
+==== Finding Files
 
-----
-$ less linux_distros.txt
-----
+  1. Using `find` determine the locations of all HTML files under
+     `/usr`.
 
-==== Identyfy the type of a file
+  2. Using `find` determine the location of all directories called
+     `bin` under `/usr`.
+
+  3. Using `locate` find out the location of all PNG files in the
+     system.
+
+------
+$ find /usr -name "*.html"
+...
+
+$ find /usr -name bin -type d 
+/usr/bin
+...
+
+$ locate *.jpg
+...
+------
+
+==== File Type
 
 Find the file types of the following files:
-/bin/bash
-/etc/passwd
+
+  1. `/bin/bash`
+  2. `/etc/passwd`
 
 ----
 $ file /bin/bash
+/bin/bash: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.18, stripped
+
 $ file /etc/passwd
+/etc/passwd: ASCII text
 ----
 
-==== Create a soft link to a file
+==== Getting Help
 
-Create a soft link to the file `linux_distros.txt` in `/tmp`.
+  1. Print the command usage for `mkdir`.
+  2. Read the manual page for `mkdir`. Press `q` to quit.
 
-----
-$ ln -s linux_distros.txt /tmp/linux.txt
-----
+------
+$ mkdir --help
+...
 
-==== Create a hard link to a file
-
-Create a hard link to the file `linux_distros.txt` in `/tmp`.
-
-----
-$ ls linux_distros.txt /tmp/distros.txt
-----
-
-==== Get the ownership and permissions of a file
-
-Display the ownership and permissions of the file `linux_distros.txt`.
-
-----
-$ ls -l linux_distros.txt
-----
-
-==== Change the permissions of a file to writable by any user
-
-Change the permissions of the file `linux_distros.txt` to writable by
-any user.
-
-----
-$ chmod a+w linux_distros.txt
-----
-
-==== Change the permissions of a file to executable by any user
-
-Change the permissions of the file `linux_distros.txt` to executable
-by any user.
-
-----
-$ chmod a+x linux_distros.txt
-----
-
-==== Display list of partitions
-
-Display the list of available partitions in the system.
-
-----
-$ fdisk -l (run as root)
-----
-
-==== Display mounted partitions
-
-Display the list of mounter partitions in the system.
-
-----
-$ mount
-$ df -h
-----
-
-==== Find the size of current folder
-
-Find the size of the current folder.
-
-----
-$ du -h
-----
-
-==== Create a compressed file
-
-Create a compresed file called `docs.tar.gz`.
-
-----
-$ tar cvzf docs.tar.gz linux_distros.txt  list_of_linux_distributions.txt
-----
-
-==== Extract a compressed file
-
-Extract the compressed file `docs.tar.gz`.
-
-----
-$ tar xvzf docs.tar.gz
-----
+$ man mkdir
+------

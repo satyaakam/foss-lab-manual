@@ -1,0 +1,78 @@
+=== Getting Started Lab III
+
+==== Required Reading
+
+  * Filesystem Concepts
+  * Create and Change Hard and Symbolic Links
+  * Manage File Ownership
+  * Use File Permissions to Control Access to Files
+  * Find System Files and Place Files in the Correct Location
+
+==== Links
+
+Perform the following links related operations, at the shell prompt.
+
+  1. Create a file, and then create a soft link to the file.
+
+  2. Check what happens when the original file is deleted.
+
+  3. Create a file, and then create a hard link to the file.
+
+  4. Check what happens when the original file is deleted.
+
+  5. Try creating a soft link and a hard link to a directory.
+  
+==== Permissions and Ownership
+
+Perform the following permissions and ownership related operations, at
+the shell prompt.
+
+  1. Find the user-owner and group-owner of the file `/etc/passwd`.
+
+  2. Find the user-owner and group-owner of the file `linux-distros.txt`.
+
+  3. Change the permissions of the file `linux_distros.txt`, such that 
+     the file is writable by any user.
+
+  4. Change the permissions of the file `linux_distros.txt`, such that
+     nobody can read the contents of the file.
+
+----
+$ ls -l /etc/passwd
+-rw-r--r-- 1 root root 1553 Apr 19 17:38 /etc/passwd
+
+$ ls -l linux_distros.txt
+-rw-r--r-- 1 user user 0 Jun 15 06:29 linux_distros.txt
+
+$ chmod a+w linux_distros.txt
+
+$ chmod a-r linux_distros.txt
+$ cat linux_distros.txt
+cat: linux_distros.txt: Permission denied
+----
+
+==== Disk space 
+
+  1. Find the size of the current folder using `du`.
+  2. Find how much of space is used and how much of space is available free
+     in the system.
+
+----
+$ du -s -h
+...
+
+$ df -h
+...
+----
+
+==== Filesystem Hierarchy Standard
+
+Determine the location of the following file based on the Filesystem
+Hierarchy Standard.
+
+  1. `cat` and `ls` executable.
+  2. `firefox` executable.
+  3. C library file `libc.so.6`.
+  4. Icons used by the program `gimp`.
+  5. Kernel log file `kern.log`.
+
