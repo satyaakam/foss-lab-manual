@@ -3,13 +3,17 @@ Open Source Lab
 
 == Getting Started
 
-FIXME
+include::linux.txt[]
+include::linux-2.txt[]
+include::linux-3.txt[]
 
 == Python
 
 include::python-1.txt[]
 include::python-2.txt[]
 include::python-3.txt[]
+include::python-4.txt[]
+include::python-5.txt[]
 
 == GUI Programming
 
@@ -30,7 +34,7 @@ include::compiling-sources.txt[]
 
 == Package Management System
 
-FIXME
+include::package-installation/package-installation.txt[]
 
 == Version Control Systems
 
@@ -54,4 +58,6 @@ FIXME
 
 == Kernel
 
-FIXME
+include::kernel-1.txt[]
+include::kernel-2.txt[]
+include::kernel-3.txt[]
