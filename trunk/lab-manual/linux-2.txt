@@ -1,0 +1,117 @@
+=== Getting Started Lab II
+
+==== Required Reading
+
+  * Process Text Streams Using Text Processing Filters, filters `wc`,
+    `sort`, `uniq`, `cut`, `head`, `tail`.
+  * Use Unix Streams, Pipes and Redirects
+  * Job Control
+  * Create, Monitor and Kill Processes
+
+==== Redirection
+
+Perform the following redirection related operations.
+
+  1. Perform a file copy using the `cat` command and redirection
+     operators.
+  2. Join the 3 files `elements1.txt`, `elements2,txt`, `elements3.txt`
+     into a single file using a single `cat` command and the
+     redirection operator.
+  3. Join the 3 files using multiple `cat` commands and the redirection
+     with append operator.
+
+------
+$ cat < cities.txt > copy.txt
+
+$ cat elements1.txt elements2.txt elements3.txt > concat1.txt
+
+$ cat elements1.txt > concat2.txt
+$ cat elements2.txt >> concat2.txt
+$ cat elements3.txt >> concat2.txt
+------
+
+==== Pagers
+
+  * Display the file `elements.txt` using the command `more`.
+  * Display the file `elements.txt` using the command `less`.
+
+==== `head` and `tail`
+
+The file `cities.txt` contains the 10 largest cities in the world (by
+population). Perform the following operations using `head` and `tail`.
+
+  1. Display the largest city in the world.
+  2. Display the 10th largest city in the world.
+  3. Display the 3rd largest city in the world.
+  
+------
+$ cat cities.txt | head -n 1
+
+$ cat cities.txt | tail -n 1
+
+$ cat cities.txt | head -n 3 | tail -n 1
+------
+
+==== `cut` and `sort`
+
+The file `elements.txt` contains the list of elements and their
+abbreviation. Perform the following operations on `elements.txt`,
+using `cut` and `sort`.
+
+  1. Sort all elements in `elements.txt` on the basis of abbreviation.
+  2. Display only the element names in `elements.txt`.
+
+==== Job Control
+
+  1. Run `sleep 20`, suspend and resume it in the foreground.
+  2. Run `sleep 20`, suspend and resume it in the background.
+  3. Start `sleep 20` in the background.
+  4. Start multiple `sleep 20` in the background, kill a `sleep`
+     process with the kill command, verify using `jobs`.
+
+------
+$ sleep 20
+^Z
+[1]+  Stopped                 sleep 20
+$ fg
+sleep 20
+$
+------
+
+------
+$ sleep 20
+^Z
+[1]+  Stopped                 sleep 20
+$ bg
+[1]+ sleep 20 &
+$
+[1]+  Done                    sleep 20
+------
+
+------
+$ sleep 20 &
+[1] 32172
+$ 
+[1]+  Done                    sleep 20
+------
+
+------
+$ sleep 20 &
+[1] 32178
+$ sleep 20 &
+[2] 32179
+$ kill %1
+[1]-  Terminated              sleep 20
+$ jobs
+[2]+  Running                 sleep 20 &
+------
+
+==== Processes
+
+Perform the following process related operations at the shell prompt.
+
+  1. List all the processes in the system.
+  2. List all processes belonging to `root`.
+  3. List all processes corresponding to the program `getty`.
+  4. List the process tree of the system.
+
