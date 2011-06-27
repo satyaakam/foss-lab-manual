@@ -1,0 +1,120 @@
+=== Python Lab VI
+
+==== Objective 
+
+  1. Learn Object Oriented Programming in Python.
+  2. Learn operator overloading and inheritance.
+
+==== Required Reading
+
+  * Chapter 13, 14, 15, 16 and 17 of the book
+    http://openbookproject.net/thinkcs/python/english2e/[How to Think
+    Like a Computer Scientist].
+
+  * Section 'HTMLParser - Simple HTML and XHTML parser' of
+    http://docs.python.org/library/[The Python Standard Library].
+
+==== Classes and Objects
+
+Write a `Time` class that has three fields: hours, minutes and
+seconds. The class should have the following methods.
+
+	 1. Initialization method.
+	 2. `print_time` - that prints the time.
+	 3. `increment` - that increments the time.
+
+------
+class Time:
+    def __init__(self, hours=0, minutes=0, seconds=0):
+        self.hours = hours
+        self.minutes = minutes
+        self.seconds = seconds
+
+    def print_time(self):
+        print (str(self.hours) + ":" +
+               str(self.minutes) + ":" +
+               str(self.seconds))
+
+    def increment(self, seconds):
+        self.seconds = seconds + self.seconds
+
+        while self.seconds >= 60:
+            self.seconds = self.seconds - 60
+            self.minutes = self.minutes + 1
+
+        while self.minutes >= 60:
+            self.minutes = self.minutes - 60
+            self.hours = self.hours + 1
+
+# Test
+time = Time(10, 0, 0)
+time.print_time()
+time.increment(60)
+time.print_time()
+------
+
+==== Operator Overloading
+
+Write a `Point` class that has two fields: `x` and `y`. The class
+should have the following methods. The `Point` objects should overload
+`+` to support addition and should overload `*` to support dot
+product.
+
+------
+class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __mul__(self, other):
+    	return self.x * other.x + self.y * other.y
+
+    def __str__(self):
+    	return "(%d, %d)" % (self.x, self.y)
+
+# Test
+p1 = Point(1, 2)
+p2 = Point(3, 4)
+print p1, p2
+print p1 + p2
+print p1 * p2
+------
+
+==== Inheritance
+
+Write a HTML parser that counts the occurrence of each tag in a HTML
+page, and has a `stats` method to print the statistics.
+
+------
+from HTMLParser import HTMLParser
+
+class MyParser(HTMLParser):
+    def __init__(self):
+        HTMLParser.__init__(self);
+    	self.counter = {}
+
+    def handle_starttag(self, tag, attrs):
+    	val = self.counter.get(tag, 0)
+	self.counter[tag] = val + 1
+
+    def stats(self):
+    	for key in self.counter:
+	    print key, self.counter[key]
+	
+parser = MyParser()
+
+parser.feed("""<html>
+<body>
+<ol>
+<li>Hello</li>
+<li>World</li>
+<li>Linux</li>
+</body>
+</html>""")
+
+parser.stats()
+------
+
