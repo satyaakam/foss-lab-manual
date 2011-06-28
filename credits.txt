@@ -1,0 +1,7 @@
+The following is a not so complete list of people who have contributed
+to the FOSS Lab Manual project.
+
+  * Balakrishnan <balakpm101@gmail.com> - contributed PyGTK+ and PyQt
+    examples.
+
+
