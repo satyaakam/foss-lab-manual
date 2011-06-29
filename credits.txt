@@ -1,7 +1,34 @@
 The following is a not so complete list of people who have contributed
 to the FOSS Lab Manual project.
 
-  * Balakrishnan <balakpm101@gmail.com> - contributed PyGTK+ and PyQt
-    examples.
+  * Allen B. Downey - Python OOP examples were adapted from his book
+    "Think Python: How to Think Like a Computer Scientist"
 
+  * Arun S.A.G., sagarun@gmail.com - wrote the Packages section.
 
+  * Balakrishnan, balakpm101@gmail.com - contributed PyGTK+ and PyQt
+    examples. 
+
+  * Dhilip, dhilip.jec@gmail.com - wrote the initial Packages and
+    Perl lab sections.
+
+  * Mohan, mohan43u@gmail.com - wrote the initial Compiling From
+    Source section.
+
+  * Satyaakam Goswami, satyaakam@gmail.com - wrote the initial
+    Packages section.
+
+  * Shrinivasan T., tshrinivasan@gmail.com - wrote the initial
+    Getting Started section.
+
+  * Vignesh Kumar B., vignesh@bravetux.com - wrote the initial Kernel
+    session.
+
+  * Vignesh Nanda Kumar, viky.nandha@gmail.com - wrote the initial
+    PHP section.
+
+  * Vijay Kumar B., vijaykumar@bravegnu.org - wrote the Python,
+    Virtualization, and GUI Programming sections.
+
+  * Zilogic Systems, code@zilogic.com - contributed the examples from
+    the Using GNU/Linux training programme.
