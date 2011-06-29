@@ -1,0 +1,20 @@
+=== GUI Programming Lab III & IV
+
+==== Objective
+
+Learn to write simple applicatons using the GTK+ toolkit.
+
+==== Required Reading
+
+'Images' section in the
+http://www.pygtk.org/pygtk2tutorial/index.html[PyGTK 2.0 Tutorial]
+
+==== Image Viewer
+
+Write a simple image viewer application. The application should have
+three widgets:
+
+   1. An `Image` widget to display the image.
+   2. An `Entry` widget to enter the filename.
+   3. A `Button` widget when clicked will set the image file on the
+     `Image` widget.

@@ -1,0 +1,48 @@
+=== GUI Programming Lab II
+
+==== Objective
+
+  1. Learn about packing using boxes.
+  2. Learn about packing using tables.
+
+==== Required Reading
+
+  * 'Packing Widgets' section in the
+    http://www.pygtk.org/pygtk2tutorial/index.html[PyGTK 2.0 Tutorial]
+
+  * 'Text Entries' section in the
+    http://www.pygtk.org/pygtk2tutorial/index.html[PyGTK 2.0 Tutorial]
+
+  * 'TextView Overview' and 'TextViews' section in the
+    http://www.pygtk.org/pygtk2tutorial/index.html[PyGTK 2.0 Tutorial]
+
+  * 'pango.FontDescription' section in the 
+    http://developer.gnome.org/pygtk/stable/[PyGTK 2.0 Reference Manual]
+
+==== Packing Using Boxes
+
+Write a program that displays the following system information from
+`/proc` files.
+
+  1. CPU Information `/proc/cpuinfo`
+  2. Memory Usage Information `/proc/meminfo`
+  3. Interrupt Information `/proc/interrupts`
+
+The program window should have two panels. The panel on the left
+should have buttons to select one of the above specified
+information. The panel on the right should have `TextView` that
+displays the selected information. When window is scaled only the
+`TextView` should expand and fill to occupy the available space.
+
+------
+include::gui-programming/sysinfo.py[]
+------
+
+==== Packing Using Tables
+
+Write a program that converts from currency from USD to INR. Use
+tables to pack the label and entry widgets.
+
+------
+include::gui-programming/currency-conversion-py-gtk.py[]
+------
