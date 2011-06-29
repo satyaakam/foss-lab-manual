@@ -1,0 +1,35 @@
+# -*-makefile-*-
+
+define do_subdirs
+  for dir in $(SUBDIRS); do \
+    make -C $$dir $@; \
+  done
+endef
+
+%.png: %.dia
+	dia --filter=png-libart $(and $(EXPORT_WIDTH),--size=$(EXPORT_WIDTH)) --export=$@ $^ 
+
+%.eps: %.svg
+	inkscape --without-gui --export-text-to-path --export-bbox-page --export-eps=$@ $<
+
+%.png: %.svg
+	inkscape --without-gui --export-background=white $(and $(EXPORT_WIDTH),--export-width=$(EXPORT_WIDTH)) --export-area-drawing --export-png=$@ $<
+
+%.pdf: %.svg
+	inkscape --without-gui --export-pdf=$@ $<
+
+%.pdf: %.fo
+	fop -pdf $@ -fo $< > .fo.log
+
+%.fo: %.xml
+	xsltproc --stringparam style.class $(STYLE_CLASS) --stringparam style.dir $(STYLE_DIR) -o $@ $(STYLE_DIR)/$(STYLE_CLASS).xsl $<
+
+document = book
+handout = article
+
+%.xml: %.txt
+	asciidoc -d $($(STYLE_CLASS)) $(ADFLAGS) -f $(STYLE_DIR)/asciidoc-docbook.conf -b docbook $< 
+
+style-clean:
+	rm -f *.pdf *.fo *.xml
+	rm -f .fo.log
