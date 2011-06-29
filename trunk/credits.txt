@@ -31,4 +31,5 @@ to the FOSS Lab Manual project.
     Virtualization, and GUI Programming sections.
 
   * Zilogic Systems, code@zilogic.com - contributed the examples from
-    the Using GNU/Linux training programme.
+    the Using GNU/Linux training programme. Contributed the
+    stylesheets for generating the PDF.
