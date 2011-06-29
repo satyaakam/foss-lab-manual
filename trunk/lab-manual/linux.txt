@@ -5,12 +5,6 @@
 Getting started with Linux, learn basic commands and directory
 structure, execute file and directory operations
 
-==== Required Reading
-
-  * Introduction
-  * Getting Started
-  * Work Effectively on the Unix Command Line
-
 ==== Starting Terminal
 
 Select Application -> Accesories -> Terminal

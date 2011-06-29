@@ -1,12 +1,8 @@
 === Getting Started Lab II
 
-==== Required Reading
+==== Objective
 
-  * Process Text Streams Using Text Processing Filters, filters `wc`,
-    `sort`, `uniq`, `cut`, `head`, `tail`.
-  * Use Unix Streams, Pipes and Redirects
-  * Job Control
-  * Create, Monitor and Kill Processes
+Review redirection, pipes, filters and job control.
 
 ==== Redirection
 
