@@ -1,12 +1,8 @@
 === Getting Started Lab III
 
-==== Required Reading
+==== Objective
 
-  * Filesystem Concepts
-  * Create and Change Hard and Symbolic Links
-  * Manage File Ownership
-  * Use File Permissions to Control Access to Files
-  * Find System Files and Place Files in the Correct Location
+Review file ownership, file permissions, links and file system hierarchy.
 
 ==== Links
 

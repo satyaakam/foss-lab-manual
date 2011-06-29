@@ -1,5 +1,7 @@
-Open Source Lab 
-===============
+FOSS Lab Manual - Part 1
+========================
+:Date:     Jun 2011
+:Revision: 1.0
 
 == Getting Started
 
@@ -18,47 +20,15 @@ include::python-6.txt[]
 
 == GUI Programming
 
-FIXME
+include::gui-programming-1.txt[]
+include::gui-programming-2.txt[]
+include::gui-programming-3.txt[]
 
 == Virtualization
 
 include::virt-1.txt[]
 include::virt-2.txt[]
 
-== Packages
+== Credits
 
-FIXME
-
-== Compiling from source
-
-include::compiling-sources.txt[]
-
-== Package Management System
-
-include::package-installation/package-installation.txt[]
-
-== Version Control Systems
-
-FIXME
-
-== PHP
-
-FIXME
-
-== Perl
-
-include::perl-lab.txt[]
-
-== Networking
-
-include::network.txt[]
-
-== Writing Userspace Drivers
-
-FIXME
-
-== Kernel
-
-include::kernel-1.txt[]
-include::kernel-2.txt[]
-include::kernel-3.txt[]
+include::../credits.txt[]
