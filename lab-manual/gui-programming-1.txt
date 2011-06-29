@@ -1,0 +1,44 @@
+=== GUI Programming Lab I
+
+==== Objective
+
+  1. Get started with GTK+.
+  2. Learn to create widgets and associate callbacks.
+
+==== Required Reading
+
+  * 'Getting Started' and 'Movin On' sections of the
+    http://www.pygtk.org/pygtk2tutorial/index.html[PyGTK 2.0 Tutorial]
+
+  * 'ComboBox Widget' section of the
+    http://www.pygtk.org/pygtk2tutorial/index.html[PyGTK 2.0 Tutorial]
+
+==== Hello World
+
+Write a Python script that creates a button with the text "Hello
+World".
+
+------
+include::gui-programming/hello-world-py-gtk.py[]
+------
+
+==== Callbacks
+
+Extend the previous script, such that "Hello World" is printed when
+the user click on the button.
+
+------
+include::gui-programming/button-py-gtk.py[]
+------
+
+==== More Signals
+
+Write a Python script that creates a combo-box with three
+elements. When the selection is changed the selected item is to be
+printed.
+
+Tip: The `gtk.combo_box_new_text()` helper function creates a
+combo-box. The `append_text()` method can be used to add entries to
+the combo-box. The combo-box emits the `changed` signal when the
+combo-box selection changes.
+
