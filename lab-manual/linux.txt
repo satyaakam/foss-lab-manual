@@ -7,7 +7,20 @@ structure, execute file and directory operations
 
 ==== Starting Terminal
 
-Select Application -> Accesories -> Terminal
+Select Application -> Accessories -> Terminal
+
+==== Download and Extract Resource Files
+
+The `linux-resources` package contains files that are required while
+trying out examples and exercises in this chapter. Download the
+`linux-resources` package and extract it on to your home folder. The
+commands to achieve this are given below.
+
+------
+$ cd
+$ wget http://foss-lab-manual.googlecode.com/files/linux-resources.tar.gz
+$ tar --gunzip -x -f linux-resources.tar.gz
+------
 
 ==== File Commands
 
