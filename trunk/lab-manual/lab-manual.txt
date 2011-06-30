@@ -1,7 +1,7 @@
 FOSS Lab Manual - Part 1
 ========================
 :Date:     Jun 2011
-:Revision: 1.0-rc1
+:Revision: 1.0
 
 == Getting Started
 
