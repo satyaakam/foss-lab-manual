@@ -21,17 +21,10 @@ version="1.0">
         <fo:table-row >
           <fo:table-cell>
             <fo:block text-align="left" font-weight="bold" font-size="26pt" 
-		      font-family="Helvetica" padding-top="1in" padding-bottom="0.05in">
-                  <xsl:apply-templates mode="custom" select="bookinfo/title"/>
-            </fo:block>
-          </fo:table-cell>
-        </fo:table-row>
-        <fo:table-row >
-          <fo:table-cell>
-            <fo:block text-align="left" font-weight="bold" font-size="20pt" font-style="italic"
-		      font-family="Helvetica" padding-top="0.05in" padding-bottom="0.2in" border-bottom-width="0.5pt" 
+		      font-family="Helvetica" padding-top="1in"
+		      padding-bottom="0.05in" border-bottom-width="0.5pt"
 		      border-bottom-color="red" border-bottom-style="solid">
-                  <xsl:apply-templates mode="custom" select="bookinfo/subtitle"/>
+                  <xsl:apply-templates mode="custom" select="bookinfo/title"/>
             </fo:block>
           </fo:table-cell>
         </fo:table-row>
