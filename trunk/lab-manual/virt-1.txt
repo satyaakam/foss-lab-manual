@@ -19,10 +19,11 @@ Learn how to install and run a guest OS within Qemu.
 The contents of the emulated hard disk is stored in a file. When the
 guest system accesses the hard disk, the data is stored and retrieved
 from the file. Download the disk image containing a FreeDOS
-installation from http://fosslab/freedos.qcow2
+installation from
+http://foss-lab-manual.googlecode.com/files/freedos.qcow2
 
 ------
-[host]$ wget http://fosslab/freedos.qcow2
+[host]$ wget http://foss-lab-manual.googlecode.com/files/freedos.qcow2
 ------
 
 .Step 2: Booting the disk image
@@ -73,10 +74,10 @@ as the second argument.
 .Step 2: Get the FreeDOS installation CD
 
 Download the FreeDOS installation CD available from
-http://fosslab/freedos.iso
+http://foss-lab-manual.googlecode.com/files/fdbasecd.iso
 
 ------
-[host]$ wget http://fosslab/freedos.iso
+[host]$ wget http://foss-lab-manual.googlecode.com/files/fdbasecd.iso
 ------
 
 .Step 3: Boot the FreeDOS installation CD 
@@ -91,7 +92,7 @@ drive letter `c` and the CD-ROM is represented using the drive letter
 `d`.
 
 ------
-[host]$ qemu -hda hd.qcow2 -cdrom freedos.iso -boot d
+[host]$ qemu -hda hd.qcow2 -cdrom fdbasecd.iso -boot d
 ------
 
 image::images/freedos-1.png[]

@@ -13,7 +13,8 @@ Learn how to share and transfer files between the host and the guest.
 
 .Step 1: Boot the Linux guest system.
 
-Boot the Linux guest with disk image from http://fosslab/linux.qcow2.
+Boot the Linux guest with disk image from
+http://foss-lab-manual.googlecode.com/files/linux.qcow2
 
 .Step 2: Transfer files using `scp`.
 
@@ -49,9 +50,10 @@ guest are immediately reflected in the host.
 
 .Step 1: Ensure guest is not booted.
 
-Get the disk image from http://fosslab/freedos.img. Disk images should
-not be modified when they are in use by a guest system. Make sure
-there are no guest systems using the disk image.
+Get the disk image from
+http://foss-lab-manual.googlecode.com/files/freedos.img. Disk images
+should not be modified when they are in use by a guest system. Make
+sure there are no guest systems using the disk image.
 
 .Step 2: Determine the partition offset.
 
@@ -102,7 +104,8 @@ command.
 
 .Step 1: Ensure guest is not booted.
 
-Get the disk image from http://fosslab/freedos.qcow2. Disk images
+Get the disk image from
+http://foss-lab-manual.googlecode.com/files/freedos.qcow2. Disk images
 should not be modified when they are in use by a guest system. Make
 sure there are no guest systems using the disk image.
 
