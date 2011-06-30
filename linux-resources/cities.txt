@@ -1,0 +1,10 @@
+Mumbai		13,662,885
+Karachi		12,130,000
+Istanbul	11,372,613
+Delhi		11,325,124
+So Paulo	10,886,518
+Moscow		10,452,000
+Seoul		10,356,202
+Shanghai	10,231,000
+Mexico City	8,609,347
+Jakarta		8,576,788

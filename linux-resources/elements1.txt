@@ -1,0 +1,34 @@
+Aluminium (Aluminum)		Al	
+Americium			Am	
+Antimony (Stibium)		Sb	
+Argon				Ar	
+Arsenic				As	
+Astatine			At	
+Barium				Ba	
+Berkelium			Bk	
+Beryllium			Be	
+Bismuth				Bi	
+Bohrium				Bh	
+Boron				B	
+Bromine				Br	
+Cadmium				Cd	
+Caesium (Cesium)		Cs	
+Calcium				Ca	
+Californium			Cf	
+Carbon				C	
+Cerium				Ce	
+Chlorine			Cl	
+Chromium			Cr	
+Cobalt				Co	
+Copper (Cuprum)			Cu	
+Curium				Cm	
+Darmstadtium			Ds	
+Dubnium				Db	
+Dysprosium			Dy	
+Einsteinium			Es	
+Erbium				Er	
+Europium			Eu	
+Fermium				Fm	
+Fluorine			F	
+Francium			Fr	
+Gadolinium			Gd	

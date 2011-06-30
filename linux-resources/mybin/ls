@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "Dummy ls. The original ls has been masked!"

@@ -1,0 +1,39 @@
+Oxygen				O	
+Palladium			Pd	
+Phosphorus			P	
+Platinum			Pt	
+Plutonium			Pu	
+Polonium			Po	
+Potassium (Kalium)		K	
+Praseodymium			Pr	
+Promethium			Pm	
+Protactinium			Pa	
+Radium				Ra	
+Radon				Rn	
+Rhenium				Re	
+Rhodium				Rh	
+Roentgenium			Rg	
+Rubidium			Rb	
+Ruthenium			Ru	
+Rutherfordium			Rf	
+Samarium			Sm	
+Scandium			Sc	
+Seaborgium			Sg	
+Selenium			Se	
+Silicon				Si	
+Silver (Argentum)		Ag	
+Sodium (Natrium)		Na	
+Strontium			Sr	
+Sulfur (Sulphur)		S	
+Tantalum			Ta	
+Technetium			Tc	
+Tellurium			Te	
+Terbium				Tb	
+Thallium			Tl	
+Thorium				Th	
+Thulium				Tm	
+Tin (Stannum)			Sn	
+Titanium			Ti	
+Tungsten (Wolfram)		W	
+Ununbium			Uub	
+Ununhexium			Uuh                    

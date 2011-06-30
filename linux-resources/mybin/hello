@@ -1,0 +1,4 @@
+#!/bin/sh
+
+name=$(finger $USER | head -n 1 | cut -f 3 -d ":")
+echo "Hello$name!"

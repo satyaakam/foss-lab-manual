@@ -1,0 +1,32 @@
+Gallium				Ga	
+Germanium			Ge	
+Gold (Aurum)			Au	
+Hafnium				Hf	
+Hassium				Hs	
+Helium				He	
+Holmium				Ho	
+Hydrogen			H	
+Indium				In	
+Iodine				I	
+Iridium				Ir	
+Iron (Ferrum)			Fe	
+Krypton				Kr	
+Lanthanum			La	
+Lawrencium			Lr	
+Lead (Plumbum)			Pb	
+Lithium				Li	
+Lutetium			Lu	
+Magnesium			Mg	
+Manganese			Mn	
+Meitnerium			Mt	
+Mendelevium			Md	
+Mercury (Hydrargyrum)		Hg	
+Molybdenum			Mo	
+Neodymium			Nd	
+Neon				Ne	
+Neptunium			Np	
+Nickel				Ni	
+Niobium				Nb	
+Nitrogen			N	
+Nobelium			No	
+Osmium				Os	
