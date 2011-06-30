@@ -1,3 +1,16 @@
+=== Background
+
+The FOSS Lab was introduced as part of the Anna University syllabus,
+in 2010. Though it was a great attempt at introducing Free and Open
+Source software to engineering students, it had its own
+shortcomings. One of the problems was the lack of a lab manual, for
+the syllabus. The Chennai Linux User Group (ILUGC), a not-for-profit
+organization, decided to fill in the gap. A team of volunteers from
+ILUGC stepped up to create the lab manual, and the FOSS Lab Manual
+project was born.
+
+=== People
+
 The following is a not so complete list of people who have contributed
 to the FOSS Lab Manual project.
 
@@ -34,3 +47,11 @@ to the FOSS Lab Manual project.
   * Zilogic Systems, `code@zilogic.com` - contributed the examples
     from the Using GNU/Linux training programme. Contributed the
     stylesheets for generating the PDF.
+
+=== Contributing
+
+The FOSS Lab Manual is a work in progress. Contributions in any form -
+reviews, feedbacks and bug fixes are welcome. The project is hosted at
+http://code.google.com/p/foss-lab-manual The project mailing list is
+at http://groups.google.com/group/foss-lab-manual-dev
+
