@@ -82,10 +82,6 @@ version="1.0">
         <!-- nop; no footer on title pages -->
       </xsl:when>
 
-      <xsl:when test="$position='center'">
-        <xsl:text>Zilogic Systems</xsl:text>
-      </xsl:when>
-
       <xsl:when test="$double.sided != 0 and $sequence = 'even'
                       and $position='left'">
         <xsl:text>Page </xsl:text><fo:page-number/>
