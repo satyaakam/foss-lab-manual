@@ -1,0 +1,25 @@
+FOSS Lab Manual - Part 2
+========================
+:Date:     Jul 2011
+:Revision: 1.0
+
+== Installing Software Packages
+
+FIXME
+
+== Compiling from source
+
+FIXME
+
+== Introduction to Package Management System
+
+FIXME
+
+== Version Control System
+
+include::svn-1.txt[]
+include::svn-2.txt[]
+
+== PHP
+
+FIXME
