@@ -1,0 +1,247 @@
+=== Subversion Lab II
+
+==== Objective
+
+  * Learn to resolve conflicts.
+  * Learn to view history.
+  * Learn to add and remove files.
+  * Learn to checkout previous versions from the repo.
+
+==== Required Reading
+
+  * Section 'Basic Usage' of the book
+    http://svnbook.red-bean.com[Version Control with Subversion]
+
+==== Conflicts
+
+Perform the following steps to create a conflict and resolve the
+conflict.
+
+ 1. There word "neighbour" is missing in chapter 1, line 24. Goto
+    checkout B, in chapter 1, line 24, replace ??? with
+    "neighbour". Commit your change
+
+ 2. Goto checkout A, and replace ??? with "neighbor", the American
+    spelling. The change cannot be committed, since it is not the
+    latest revision of the file.
+
+ 3. Do an update, it will result in a conflict.
+
+ 4. Resolve the conflict and commit.
+
+.Step 1: Make a change in checkout B
+
+Ensure you are in checkout B. Edit `chapter-1.txt`, replace ??? in
+line 24 with `neighbour`. Commit your change.
+
+-------
+$ cd ~/book-b
+$ svn diff
+Index: chapter-1.txt
+===================================================================
+--- chapter-1.txt	(revision 3)
++++ chapter-1.txt	(working copy)
+@@ -21,7 +21,7 @@
+       needs (freedom 1). Access to the source code is a precondition
+       for this.
+ 
+-    * The freedom to redistribute copies so you can help your ???
++    * The freedom to redistribute copies so you can help your neighbour
+       (freedom 2).
+ 
+     * The freedom to improve the program, and release your
+$ svn commit -m "Fixed missing word neighbour."
+Sending        chapter-1.txt
+Transmitting file data .
+Committed revision 5.
+-------
+
+.Step 2: Make similar modification in checkout A
+
+Ensure you are in check A. Edit `chapter-1.txt`, replace ??? in line
+24 with the `neighbor`, the American spelling. Committing the change
+should fail.
+
+------
+$ cd ~/book
+$ svn diff
+Index: chapter-1.txt
+===================================================================
+--- chapter-1.txt	(revision 4)
++++ chapter-1.txt	(working copy)
+@@ -21,7 +21,7 @@
+       needs (freedom 1). Access to the source code is a precondition
+       for this.
+ 
+-    * The freedom to redistribute copies so you can help your ???
++    * The freedom to redistribute copies so you can help your neighbor
+       (freedom 2).
+ 
+     * The freedom to improve the program, and release your
+$ svn commit -m "Fixed missing word neighbor."
+Sending        chapter-1.txt
+svn: Commit failed (details follow):
+svn: Out of date: '/book/chapter-1.txt' in transaction '5-1'
+------
+
+.Step 3: Retrieve updates from the repo
+
+Perform an update, to retrieve the latest version of the
+`chapter-1.txt` from the repo. Since the local file and the remote
+file have been modified in the same line, this will result in a
+conflict.
+
+------
+$ svn update
+C    chapter-1.txt
+Updated to revision 5.
+------
+
+.Step 4: Resolve the conflict
+
+Edit `chapter-1.txt` and look for the following conflict marker. 
+
+------
+<<<<<<< .mine
+    * The freedom to redistribute copies so you can help your neighbor
+=======
+    * The freedom to redistribute copies so you can help your neighbour
+>>>>>>> .r5
+------
+
+Keep one of the lines. Remove the conflict markers. Use the `resolved`
+sub-command to clear the conflict state. And commit the changes.
+
+------
+$ svn resolved chapter-1.txt
+Resolved conflicted state of 'chapter-1.txt'
+$ svn commit -m "Use the american spelling of neighbor."
+Sending        chapter-1.txt
+Transmitting file data .
+Committed revision 6.
+------
+
+==== Viewing History
+
+Perform the following steps to view the history.
+
+ 1. Find out the history of changes made in chapter 1.
+ 2. Find out the differences from revision 1 to current revision of
+    chapter 3.
+
+------
+$ svn log chapter-1.txt 
+ ------------------------------------------------------------------------
+r6 | vijay | 2011-07-23 20:52:45 +0530 (Sat, 23 Jul 2011) | 1 line
+
+Use the american spelling of neighbor.
+ ------------------------------------------------------------------------
+r5 | vijay | 2011-07-23 20:51:45 +0530 (Sat, 23 Jul 2011) | 1 line
+
+Fixed missing word neighbor.
+ ------------------------------------------------------------------------
+r3 | vijay | 2011-07-23 20:50:08 +0530 (Sat, 23 Jul 2011) | 1 line
+
+Fixed the spelling of freedom.
+ ------------------------------------------------------------------------
+r2 | vijay | 2011-07-23 20:49:27 +0530 (Sat, 23 Jul 2011) | 1 line
+
+Added author line to chapter 1 and 2.
+ ------------------------------------------------------------------------
+r1 | vijaykumar | 2008-12-18 17:11:55 +0530 (Thu, 18 Dec 2008) | 1 line
+
+Initial version.
+ ------------------------------------------------------------------------
+
+$ svn diff -r 1 chapter-3.txt 
+Index: chapter-3.txt
+===================================================================
+--- chapter-3.txt	(revision 1)
++++ chapter-3.txt	(working copy)
+@@ -5,7 +5,7 @@
+ It is now just over 15 years since the beginning of the Free Software
+ Movement and the GNU Project. We have come a long way.
+ 
+-In ????, it was impossible to use a modern computer without installing
++In 1984, it was impossible to use a modern computer without installing
+ a proprietary operating system, which you would have to obtain under a
+ restrictive license. No one was allowed to share software freely with
+ fellow computer users, and hardly anyone could change software to fit
+------
+
+==== Tree Modifications
+
+Perform the following steps to add and rename files.
+
+ 1. Create a new file called `chapter-4.txt`. Add the file to the
+    repo.
+ 2. Chapter 3 should really have been chapter 5. Rename
+    `chapter-3.txt` to `chapter-5.txt`.
+
+.Step 1: Add a new file
+
+Create file called `chapter-4.txt`, in checkout A. Put the file under
+version control using `add` sub-command. Commit the changes.
+
+------
+$ svn add chapter-4.txt 
+A         chapter-4.txt
+$ svn commit -m "Added chapter 4."
+Adding         chapter-4.txt
+Transmitting file data .
+Committed revision 7.
+------
+
+.Step 2: Rename a file
+
+Rename the file `chapter-3.txt` to `chapter-5.txt` using the `rename`
+sub-command.
+
+------
+$ svn rename chapter-3.txt chapter-5.txt
+A         chapter-5.txt
+D         chapter-3.txt
+$ svn commit -m "Renamed chapter 3 to 5."
+Deleting       chapter-3.txt
+Adding         chapter-5.txt
+
+Committed revision 8.
+------
+
+==== Going Back in Time
+
+Perform the following steps to switch between previous versions.
+
+ 1. Go back to revision 1 of the repository. Verify it, by checking
+    the author name in `chapter-1.txt` and `chapter-2.txt`.
+
+ 2. Return back to the latest revision of the repository.
+
+.Step 1: Go back to previous revision
+
+Go back to the previous revision of the repository using the `update`
+sub-command. Specify thre revision using the option `-r`.
+
+------
+$ svn update -r 1
+U    chapter-1.txt
+D    chapter-4.txt
+D    chapter-5.txt
+U    chapter-2.txt
+A    chapter-3.txt
+Updated to revision 1.
+------
+
+.Step 2: Update to the latest revision
+
+Return back to the latest version using the `update` sub-command.
+
+------
+$ svn update
+D    chapter-3.txt
+U    chapter-1.txt
+U    chapter-2.txt
+A    chapter-4.txt
+A    chapter-5.txt
+Updated to revision 8.
+------

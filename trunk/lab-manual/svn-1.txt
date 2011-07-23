@@ -1,0 +1,242 @@
+=== Version Control System Lab I
+
+==== Objective
+
+  * Learn to checkout and commit changes to Subversion repository.
+  * Learn to display local modifications.
+  * Learn to check for remote modifications and merge.
+
+==== Required Reading
+
+  * Section 'Fundamental Concepts' of the book
+    http://svnbook.red-bean.com[Version Control with Subversion]
+
+  * Section 'Basic Usage' of the book
+    http://svnbook.red-bean.com[Version Control with Subversion]
+
+==== Get the Local Repo
+
+Get the repo from
+http://foss-lab-manual.googlecode.com/files/svn.tar.gz and extract it
+to your home folder.
+
+------
+$ cd
+$ wget http://foss-lab-manual.googlecode.com/files/svn.tar.gz
+$ tar --gunzip -x -f svn.tar.gz
+------
+
+==== Checking out and Committing 
+
+Perform the following basic Subversion operations.
+
+  1. Check out book project from your repo
+  2. Add the author in chapter-1.txt and chapter-2.txt
+  3. Commit the changes made, with a meaningful log message
+
+.Step 1: Check out the book project
+
+Goto your home directory. Checkout the `book` project from the repo,
+using the `co` sub-command. The project URL should be pasesd as
+argument. The `book` project in the local repo is identified by the
+URL `file:///home/user/svn/book`. Replace `user` with your own
+username.
+
+------
+$ cd
+$ svn co file:///home/vijay/svn/book
+A    book/chapter-1.txt
+A    book/chapter-2.txt
+A    book/chapter-3.txt
+Checked out revision 1.
+------
+
+.Step 2: Edit the files
+
+Open `chapter-1.txt` and `chapter-2.txt` in your favourite editor, and
+add the author name `Richard Stallman` in the second line of the
+files.
+
+.Step 3: Commit the changes
+
+Ensure you are in the SVN working directory. Commit the changes to the
+files using the `commit` sub-command. The log message should be passed
+to the command using the `-m` option.
+
+------
+$ cd ~/book
+$ svn commit -m "Added author line to chapter 1 and 2."
+Sending        chapter-1.txt
+Sending        chapter-2.txt
+Transmitting file data ..
+Committed revision 2.
+------
+
+==== Diffs and Local Modification Status
+
+Perform the following steps to view local modications in the working
+directory.
+
+  1. The chapters 1 and 2 have "freedom" spelled incorrectly as
+     "fredom". Fix these spelling errors.
+  2. Check the status of the files.
+  3. Do a diff to verify the changes.
+  4. Commit the changes.
+
+.Step 1: Make local modifications
+
+Edit `chapter-1.txt` and `chapter-2.txt`. Fix the spelling errors.
+
+.Step 2: Check the status
+
+Ensure you are in the SVN working directory. Check the status of the
+working directory files, using the `status` sub-command.
+
+------
+$ cd ~/book
+$ svn status
+M      chapter-1.txt
+M      chapter-2.txt
+------
+
+.Step 3: 
+
+Display and review the changes made to the working directory files,
+using the `diff` sub-command.
+
+------
+svn diff
+Index: chapter-1.txt
+===================================================================
+--- chapter-1.txt	(revision 2)
++++ chapter-1.txt	(working copy)
+@@ -11,25 +11,25 @@
+ concept, you should think of free as in free speech, not as in free
+ beer.
+ 
+-Free software is a matter of the users' fredom to run, copy,
++Free software is a matter of the users' freedom to run, copy,
+ distribute, study, change and improve the software. More precisely, it
+-refers to four kinds of fredom, for the users of the software:
++refers to four kinds of freedom, for the users of the software:
+ 
+-    * The fredom to run the program, for any purpose (fredom 0).
++    * The freedom to run the program, for any purpose (freedom 0).
+ 
+-    * The fredom to study how the program works, and adapt it to your
+-      needs (fredom 1). Access to the source code is a precondition
++    * The freedom to study how the program works, and adapt it to your
++      needs (freedom 1). Access to the source code is a precondition
+       for this.
+ 
+-    * The fredom to redistribute copies so you can help your ???
+-      (fredom 2).
++    * The freedom to redistribute copies so you can help your ???
++      (freedom 2).
+ 
+-    * The fredom to improve the program, and release your
++    * The freedom to improve the program, and release your
+       improvements (and modified versions in general) to the public,
+-      so that the whole community benefits (fredom 3). Access to the
++      so that the whole community benefits (freedom 3). Access to the
+       source code is a precondition for this.
+ 
+-A program is free software if users have all of these fredoms. Thus,
++A program is free software if users have all of these freedoms. Thus,
+ you should be free to redistribute copies, either with or without
+ modifications, either gratis or charging a fee for distribution, to
+ anyone anywhere. Being free to do these things means (among other
+Index: chapter-2.txt
+===================================================================
+--- chapter-2.txt	(revision 2)
++++ chapter-2.txt	(working copy)
+@@ -45,7 +45,7 @@
+ insist on Free/Libre software. This means users get the source code,
+ are free to study and change it, and are free to redistribute it with
+ or without changes. The GNU/Linux system, developed specifically for
+-users' fredom, includes office applications, multimedia, games, and
++users' freedom, includes office applications, multimedia, games, and
+ everything you really need to run a computer. See gNewSense.org for a
+ totally Free/Libre version of GNU/Linux.
+ 
+@@ -55,7 +55,7 @@
+ states whose policies they oppose. Control of our software by a
+ proprietary software company, whether it be Microsoft, Apple, Adobe or
+ Skype, means control of what we can say, and to whom. This threatens
+-our fredom in all areas of life.
++our freedom in all areas of life.
+ 
+ There is also danger in using a company's server to do your word
+ processing or email—and not just if you are in China, as US lawyer
+------
+
+.Step 4: Commit the changes
+
+Commit the changes using the `commit` sub-command, and make sure you
+provide a meaningful log message.
+
+==== Remote Modifications and Merging
+
+Perform the following steps to view and retreive modifications made by
+other users.
+
+  1. Make yet another checkout B of the book.
+  2. Goto checkout B, in chapter 3, line 8, replace ??? with 1984 and
+     commit the change.
+  3. Go back to checkout A of the book. Check to see if there are
+     updates in repo.
+  4. Do an update and get the changes.
+
+.Step 1: Emulate another user
+
+The current checkout is assumed to be performed by user A. Perform a
+second checkout to emulate another user B.
+
+Goto your home directory. Checkout the `book` project into another
+working directory `book-b`. Pass the working directory name as the
+second argument.
+
+------
+$ cd
+$ svn co file:///home/vijay/svn/book book-b
+A    book-b/chapter-1.txt
+A    book-b/chapter-2.txt
+A    book-b/chapter-3.txt
+Checked out revision 2.
+------
+
+.Step 2: Make changes to checkout B
+
+Ensure you are in checkout B. Edit the chapter 3. On line 8, replace
+??? with 1984. Commit the changes using the `commit` sub-command.
+
+------
+$ cd ~/book-b
+$ svn commit -m "Fixed missing year in chapter 3."
+Sending        chapter-3.txt
+Transmitting file data .
+Committed revision 4.
+------
+
+.Step 3: Check for updates in repo
+
+Ensure you are in checkout A. Check for updates in the repo using the
+`status` sub-command. Pass the `-u` option to view files requiring
+update.
+
+------
+$ cd ~/book
+$ svn status -u
+       *        1   chapter-3.txt
+Status against revision:      4
+------
+
+.Step 4: Retrieve updates from repo
+
+Get updates from the repo, using the `update` sub-command.
+
+------
+$ svn update
+U    chapter-3.txt
+Updated to revision 4.
+------
