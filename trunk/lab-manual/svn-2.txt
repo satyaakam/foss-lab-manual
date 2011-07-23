@@ -1,4 +1,4 @@
-=== Subversion Lab II
+=== Version Control System Lab II
 
 ==== Objective
 
