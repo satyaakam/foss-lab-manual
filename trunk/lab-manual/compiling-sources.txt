@@ -265,7 +265,7 @@ to install openAL corresponding packages ('openal-soft-devel' in Redhat or 'libo
 ---------------------------------------------------------------------------
     * Example for checkout and compile
 --------------------------------------------------------
-        $ svn git clone git://repo.or.cz/alure.git alure
+        $ git clone git://repo.or.cz/alure.git alure
 	$ cd alure
 	$ cmake .
 	$ make all
