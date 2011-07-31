@@ -34,7 +34,7 @@ GNU automake ('aclocal', 'automake')::
     * 'automake' is a tool to generate 'Makefile.in' by processing instructions from 'Makefile.am'.
     * 'configure' script will generate 'Makefile' by replacing dynamic variables in 'Makefile.in'
     * The final 'Makefile' contains well organized Rules for 'make' command to compile source codes.
-    * 'aclocal' is a tool to copy 'm4' macros from systemwide directory to project directory.
+    * 'aclocal' is a tool to copy 'm4' macros from system wide directory to project directory.
     * 'automake' uses these 'm4' macros to process instructions from 'Makefile.am'
     * more info: http://www.gnu.org/software/automake/manual/html_node/index.html
 
@@ -60,7 +60,7 @@ GNU gettext (gettextize)::
 
 Installing GNU Build system::
 --
-    * Installing in RedHat (may work in Fedora, CenOS, SuSE etc.,)
+    * Installing in Redhat (may work in Fedora, CenOS, SuSE etc.,)
 ----------------------------------------------
         # yum groupinstall 'Development Tools'
 ----------------------------------------------
@@ -148,7 +148,7 @@ Steps to create autotools compatible C Project::
         AC_PROG_CC
         
         # Checks for libraries.
-        n
+
         # Checks for header files.
         AC_CHECK_HEADERS([stdlib.h])
         
@@ -238,7 +238,7 @@ Python programs to build, test and package source files.
 
 Installing CMake::
 --
-    * Installing in RedHat (may work in Fedora, CenOS, SuSE etc.,)
+    * Installing in Redhat (may work in Fedora, CenOS, SuSE etc.,)
 ---------------------------
         # yum install cmake
 ---------------------------
@@ -250,23 +250,27 @@ Installing CMake::
 
 Steps to compile CMake compatible Project::
 --
+NOTE: We should install openAL library and its headers
+before proceeding with following steps. Use 'yum' or 'apt-get'
+to install openAL corresponding packages ('openal-soft-devel' in Redhat or 'libopenal-dev' in Debian).
+
     * Example for download, untar and compile
--------------------------
-        $ wget FIXME
-	$ tar -xvzf FIXME
-	$ cd FIXME
+---------------------------------------------------------------------------
+        $ wget http://kcat.strangesoft.net/alure-releases/alure-1.2.tar.bz2
+	$ tar -xvjf alure-1.2.tar.bz2
+	$ cd alure-1.2
 	$ cmake .
 	$ make all
 	# make install
--------------------------
+---------------------------------------------------------------------------
     * Example for checkout and compile
--------------------------
-        $ git clone FIXME
-	$ cd FIXME
+--------------------------------------------------------
+        $ svn git clone git://repo.or.cz/alure.git alure
+	$ cd alure
 	$ cmake .
 	$ make all
 	# make install
--------------------------
+--------------------------------------------------------
 --
 
 Steps to create CMake compatible C++ Project::
