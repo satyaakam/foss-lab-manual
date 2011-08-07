@@ -4,8 +4,10 @@ PHP (PHP: Hypertext Preprocessor)
 author viky.nandha@gmail.com
 
 == Prerequisites
-. Apache server
-. PHP engine
+Make sure that following packages are installed in your system
+
+. Apache webserver (`apache2` or `httpd`)
+. PHP engine (`php5`, `php5-cgi`)
 
 == Assumptions
 . It is assumed that above prerequisites are already installed in your system
@@ -15,13 +17,21 @@ author viky.nandha@gmail.com
 . It is assumed that C is already known.
 
 === How to start the Apache server?
-In Debian based systems (Debian, Ubuntu, etc)
+In *RedHat based systems* (RedHat, CentOS Fedora, etc)
 -----
-# /etc/init.d/apache2 start
+$ sudo service httpd start
 -----
-In RedHat based systems (RedHat, CentOS Fedora, etc)
+or
 -----
-# /etc/init.d/httpd start
+$ sudo /etc/init.d/httpd start
+-----
+In *Debian based systems* (Debian, Ubuntu, etc)
+-----
+$ sudo service apache2 start
+-----
+or
+-----
+$ sudo /etc/init.d/apache2 start
 -----
 To ensure that the server is running fine,
 

@@ -1,0 +1,15 @@
+=== PHP Lab V
+
+==== Objective
+To apply the PHP skills acquired in previous sessions for a simple assignment.
+
+==== Building a user portal
+User portal - the module that manages user details, registration, login, profile updating, etc., is a basic requirement of almost any web application. The previous sessions were based on this part. Now it's time to apply these snippets to build a complete user portal.
+
+A typical user portal is supposed to have following functionalities at the minimum:
+
+* Registration form
+* Login form
+* Profile edit form
+* Password reset feature (Forgot password)
+
