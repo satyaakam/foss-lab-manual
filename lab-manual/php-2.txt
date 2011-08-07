@@ -1,39 +1,66 @@
 === PHP Lab II
 
 ==== Objective
-Learn how to validate form data using PHP.
+Learn how to generate forms and manipulate form data using PHP.
 
+==== Generating a registration form with HTML and PHP
+Though the contents of a form are static, PHP can be used to make the task easier, as shown below.
 
-==== Validating the form data
-The input data should always be validated on the server side before entering them into the database. This can be done using regular expressions as shown below:
+-----
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Login form with PHP</title>
+    </head>
+    <body>
+        <form action="submit.php" method="POST">
+            <label>Username:<input type="text" name="username"></label><br>
+			<label>Password:<input type="password" name="password"></label><br>
+			<label>Date of Birth:
+				<select name="dob_day">
+					<option value="0"> --Day-- </option></br>
+					<? for ($i=1; $i<=31; $i++) { ?>
+						<option value="<? echo $i; ?>"> <? echo $i; ?> </option>
+					<? } ?>
+				</select>
+				<select name="dob_month">
+					<option value="0"> --Month-- </option></br>
+					<?
+					$months = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+					for ($i=0; $i<12; $i++) { ?>
+						<option value="<? echo $i+1; ?>"> <? echo $months[$i]; ?> </option>
+					<? } ?>
+				</select>
+				<select name="dob_year">
+					<option value="0"> --Year-- </option></br>
+					<? for ($i=date('Y'); $i>=1900; $i--) { ?>
+						<option value="<? echo $i; ?>"> <? echo $i; ?> </option>
+					<? } ?>
+				</select>
+			</label><br>
+			<input type="submit" value="Register">
+        </form>
+    </body>
+</html>
+-----
+
+===== Output
+The output of the above code looks something like this in your browser:
+
+image::images/php-1.png[]
+
+==== Storing form data in MySQL
+The file `submit.php` goes like this (For the sake of simplicity, the following code does not include validation of the input; validation is included in the next exercise):
 
 -----
 <?php
     
-    // Getting the form data
+    // Get the form data
     
     $username = $_POST['username'];
-    $salt = "somesalt";
-    $password = md5($salt.$_POST['password'].$salt);
-     
-    // Validation
-
-    if (preg_match('/^[0-9]$/',$_POST['dob_day']))
-        $_POST['dob_day'] = '0'.$_POST['dob_day'];
-    if (preg_match('/^[0-9]$/',$_POST['dob_month']))
-        $_POST['dob_month'] = '0'.$_POST['dob_month'];
-        
+    $password = $_POST['password'];
     $dob = $_POST['dob_year'].'-'.$_POST['dob_month'].'-'.$_POST['dob_day'];
-    
-    $flag = array('username' => 0, 'dob' => 0);
-    
-    if (preg_match('/^[a-zA-Z][a-zA-Z0-9.]*$/',$username))
-        $flag['username'] = 1;
-    if (preg_match('/^(19|20)\d\d[- \/.](0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])$/',$dob))
-            $flag['dob'] = 1;
-            
-    if (($flag['username'] == 0) || ($flag['dob'] == 0))
-        header("Location:ex1.php?m=iv");
     
     // Insert into database
     
@@ -49,29 +76,4 @@ The input data should always be validated on the server side before entering the
     }
 ?>
 -----
-==== Reporting the errors
 
-After validation the errors are reported to the user so that he/she can correct them and resubmit.
-
------
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Login form with PHP</title>
-    </head>
-    <body>
-        <span style="color:red">
-        <?
-            $msg = $_GET['m'];
-            $message = array('iv'=>'Form data invalid!', 'db'=>'Database error! Please try again.');
-            
-            echo $message[$msg];
-        ?>
-        </span>
-        <form action="submit.php" method="POST">
-             ...
-        </form>
-    </body>
-</html>
------

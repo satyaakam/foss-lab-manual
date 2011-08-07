@@ -1,79 +1,61 @@
 === PHP Lab I
 
 ==== Objective
-Learn how to generate forms and manipulate form data using PHP.
+To learn and get familiar with basics of PHP programming.
 
-==== Generating a registration form with HTML and PHP
-Though the contents of a form are static, PHP can be used to make the task easier, as shown below.
-
+==== Hello world!
 -----
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="utf-8">
-        <title>Login form with PHP</title>
+        <title>PHP Test</title>
     </head>
     <body>
-        <form action="submit.php" method="POST">
-            <label>Username:<input type="text" name="username"></label><br>
-			<label>Password:<input type="password" name="password"></label><br>
-			<label>Date of Birth:
-				<select name="dob_day">
-					<option value="0"> --Day-- </option></br>
-					<? for ($i=1; $i<=31; $i++) { ?>
-						<option value="<? echo $i; ?>"> <? echo $i; ?> </option>
-					<? } ?>
-				</select>
-				<select name="dob_month">
-					<option value="0"> --Month-- </option></br>
-					<?
-					$months = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
-					for ($i=0; $i<12; $i++) { ?>
-						<option value="<? echo $i+1; ?>"> <? echo $months[$i]; ?> </option>
-					<? } ?>
-				</select>
-				<select name="dob_year">
-					<option value="0"> --Year-- </option></br>
-					<? for ($i=date('Y'); $i>=1900; $i--) { ?>
-						<option value="<? echo $i; ?>"> <? echo $i; ?> </option>
-					<? } ?>
-				</select>
-			</label><br>
-			<input type="submit" value="Register">
-        </form>
+        <?php echo '<p>Hello World</p>'; ?> 
     </body>
 </html>
 -----
 
-===== Output
-The output of the above code looks something like this in your browser:
+==== Getting the System information and PHP configuration
+-----
+ <?php phpinfo(); ?>
+-----
 
-image::images/php-1.png[]
-
-==== Getting the form data
-The file `submit.php` goes like this (For the sake of simplicity, the following code does not include validation of the input; validation is included in the next exercise):
-
+==== Getting the browser info
 -----
 <?php
-    
-    // Get the form data
-    
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $dob = $_POST['dob_year'].'-'.$_POST['dob_month'].'-'.$_POST['dob_day'];
-    
-    // Insert into database
-    
-    $conn = mysql_connect("localhost", "root", "mypassword") or die("Could not connect to database!");
-    $db = mysql_select_db("mydatabase");
-    $sql = "INSERT INTO `users`(`user`,`passwd`,`dob`) VALUES('$username','$password','$dob');";
-    $q = mysql_query($sql);
-    if (!$q) {
-        header("Location:ex1.php?m=db");
-    }
-    else{
-        echo "<b>User registration successful!</b>";
-    }
+    echo $_SERVER['HTTP_USER_AGENT'];
+?>
+----
+
+==== String manipulation: Number of words in the input
+-----
+<?php
+    $input = "This is a sample string containing multiple words";
+    echo "<em>$input</em> has <strong>".str_word_count($input)."</strong> words";
 ?>
 -----
 
+==== Handling forms: String concatenation
+-----
+<html>
+    <head>
+        <title>Handling forms</title>
+    </head>
+    <body>
+    <?php
+    if (isset($_GET['fname']) && isset($_GET['lname']) ) {
+        $fname = $_GET['fname'];
+        $lname = $_GET['lname'];
+        echo "First name: $fname <br/>";
+        echo "Last name:  $lname <br/>";
+        echo "Concatenated string is ".$fname.$lname;
+    }
+    ?>
+        <form action="">
+            First name: <input type="text" name="fname">
+            Last name: <input type="text" name="lname">
+            <input type="submit" value="Concatenate">
+        </form>
+    </body>
+</html>
+-----
